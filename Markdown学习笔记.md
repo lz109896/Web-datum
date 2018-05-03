@@ -12,16 +12,19 @@
     d、长的代码块，你可以缩进四个空格
     e、GitHub还支持所谓的代码屏蔽，它允许多行不缩进：
 ```
+```java
 if (isAwesome){
   return true
 }
 ```
+```java
    f、使用语法高亮显示，请使用以下语言：
 ```javascript
 if (isAwesome){
   return true
 }
 ```
+```java
    g、引用并链接到别人。如果想对某人发表评论，可以用@符号给他们的名字加上前缀：嘿@kneath  - 爱你的毛衣！
    h、可以使用表情符号！
    i、可以嵌入照片，首先要有图片链接，如：（https://octodex.github.com/images/yaktocat.png）
@@ -81,6 +84,7 @@ function fancyAlert(arg) {
   }
 }
 ```
+```java
    以下是没有语法高亮显示的Python代码示例：
 def foo():
     if not bar:
