@@ -104,6 +104,6 @@ mojombo#1
 mojombo/github-flavored-markdown#1
 
     删除线
-任何包含两个撇号（如~~this~~）的单词都会被划掉。
+任何包含两个撇号“~”（如~~this~~）的单词都会被划掉。
 
    
