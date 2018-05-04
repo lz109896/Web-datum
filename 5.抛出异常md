@@ -41,8 +41,13 @@ public class Arraylndex {
 void f() throws TooBing, TooSmall, DivZero { //...
 void f() {....
 
-#你可以声明并不会真的抛出异常
+##你可以声明并不会真的抛出异常
 
+#什么你能扔？
+##任何继承了 Throwabie 类的对象
+## Exception 类继承了 Throwable
+###throw new Exception();
+###throw new Exception("HELP");
 
 ```
 
