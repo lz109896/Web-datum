@@ -1,0 +1,38 @@
+```java
+package exception;
+class OpenException extends Throwable {
+}
+
+public class Arraylndex {
+    public static int open() {
+        return -1
+    }
+    public static void readfile() throws OpenException {
+        if ( open() == -1 ) {
+            throw new OpenException();
+        }
+    }
+    public static void main(String[] args) {
+        try {
+            readFile();
+        } catch (NullpointerException e) {
+            //T0D0 Auto- generated catch block
+            e.printStackTrace();
+        } catch (OpenException e) {
+        
+        }
+    }
+    
+    
+    
+    
+#异常声明
+##如果你的函数可能抛出异常，就必须在函数头部加以声明
+void f() throws TooBing, TooSmall, DivZero { //...
+void f() {....
+
+#你可以声明并不会真的抛出异常
+
+
+```
+
