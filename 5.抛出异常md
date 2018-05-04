@@ -4,6 +4,7 @@ class OpenException extends Throwable {
 }
 
 class CloseException extends Throwable {
+
 }
 
 public class Arraylndex {
