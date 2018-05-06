@@ -1,4 +1,4 @@
 - 输入输出
 - 异常处理
-  - http://github.com - automatic! [GitHub](http://github.com)
+  - [GitHub](http://github.com)
   - And this
