@@ -2,7 +2,7 @@
 
 ##### 如何学习Gitbeijing?
 ###### 大系统、细节多，不需面面俱到学习
-###### 官方文档：Documentation ，有点深，初学者不推荐学习
+###### 官方文档：Documentation (https://git-scm.com/doc) ，有点深，初学者不推荐学习
 ###### 推荐配合  GitHub网站去学习；职业开发者使用的网站，或英文不好请参考：CODING中文网站
 
 #### 第二章：搬进Github
