@@ -10,6 +10,8 @@
 ###### 建议选择ubuntu来学习及工作；（有阿里云、DigitalOcean、linode、amazon的支持）
 ###### ubuntu不仅是流行的服务器平台，也是优秀个人开发平台
 ###### ubuntu系统是免费的，推荐2012.04月的版本
+官网下载网址：https://www.ubuntu.com/download/desktop/thank-you?country=CN&version=18.04&architecture=amd64
+
 ###### 安装视频参考google
 ###### 不错的linux文档:ttp://billie66.github.io/TLCL/book/chap03.html
 ###### linux有许多的版本，我们这里选择ubuntu来学习下载地址是releases.ubuntu.com；百度一下也一样
