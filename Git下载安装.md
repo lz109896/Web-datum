@@ -25,9 +25,9 @@ $ mkdir learngit
 $ cd learngit
 $ pwd
 /Users/michael/learngit
-pwd命令用于显示当前目录。在我的Mac上，这个仓库位于/Users/michael/learngit。
+pwd命令用于显示当前目录。在Mac上，这个仓库位于/Users/michael/learngit。
 
-如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
+如果使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
 
 第二步，通过git init命令把这个目录变成Git可以管理的仓库：
 
