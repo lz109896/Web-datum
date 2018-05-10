@@ -35,7 +35,7 @@ rm :命令本身
 -r：参数（有时候需要加）
 ttt/：操作对象
 ##### 建议通过教程学习linux，开发人员水平看他使用googlede 水平
-参考：http://billie66.github.io/TLCL/book/index.html
+参考：http://billie66.github.io/TLCL/book/index.html；推荐查看第二、第六章
 ##### 终端也可以敲：man 看到使用手册
 ##### 
 ##### 
