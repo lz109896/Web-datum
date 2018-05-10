@@ -4,28 +4,39 @@
 ###### 2.搜索  进程 网络操作
 ###### 3.脚本编程
 
-#### 第二章：
-##### 如何配置命令行终端软件，什么是 Linux 系统的命令，以及应该如何学习各种各样命令
-###### 1：linux有许多的版本，我们这里选择ubuntu来学习下载地址是releases.ubuntu.com<br><br>
-百度一下也一样<br><br>
-<br>
-###### 2：ctrl+alt+t打开终端<br>
-<br>
-###### 3：python能够进入python语言的编程环境中 <br>
-ctrl+d退出<br>
-<br>
-###### 4：clear或者 ctrl+l清屏
+#### 第二章：命令行
+##### 第一节：选择操作系统
+###### redhat(红帽)大企业服务，策略保守、fedora()、centOS（）
+###### 建议选择ubuntu来学习及工作；（有阿里云、DigitalOcean、linode、amazon的支持）
+###### ubuntu不仅是流行的服务器平台，也是优秀个人开发平台
+###### ubuntu系统是免费的，推荐2012.04月的版本
+###### 安装视频参考google
+###### 不错的linux文档:ttp://billie66.github.io/TLCL/book/chap03.html
+###### linux有许多的版本，我们这里选择ubuntu来学习下载地址是releases.ubuntu.com；百度一下也一样
 
+##### 第二节：设置终端软件
+###### 敲terminal查找终端软件
+###### 点击Edit，点击profiles,进行设置；NEW,可以改字体，改颜色，选中imooc,每次都可以快速启动进入，设置后要关掉重启。
+###### 敲ctrl+alt+t打开终端
+###### 敲python能够进入python语言的编程环境中；ctrl+d退出；
+###### 敲clear或者 ctrl+l清屏
 
+##### 第三节：如何学习命令
+###### 命令提示符解剖：liaozhou@dog:~s
+liaozhou:是用户名username
+dog:机器名machinename
+~:当前工作目录（用户主目录）
+$：$符号后面输入命令
+###### madir 新建
+###### rm -r 删除
 
-
-##### 
-##### 
-##### 
-##### 
-##### 
-##### 
-##### 
+##### $ rm -r ttt/  解剖
+rm :命令本身
+-r：参数（有时候需要加）
+ttt/：操作对象
+##### 建议通过教程学习linux，开发人员水平看他使用googlede 水平
+参考：http://billie66.github.io/TLCL/book/index.html
+##### 终端也可以敲：man 看到使用手册
 ##### 
 ##### 
 ##### 
