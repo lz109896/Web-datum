@@ -245,4 +245,9 @@ ssh-keygen
   throwh = reset --hard HEAD~
 [push]
   default = simple
-  
+  粘贴有自动缩进，敲：set paete
+  敲i，插入模式
+  然后
+  ctrl+v 粘贴
+  就不会有自动缩进了
+  ：wq  保存退出
