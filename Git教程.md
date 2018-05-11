@@ -1,4 +1,6 @@
-#### 在Windows上安装Git
+#### Git教程
+##### 第一章.Git简介
+##### 第一节.在Windows上安装Git
 1、官网下载网址：https://git-scm.com/downloads
 
 2、打开网页后选择选择Windows下载
@@ -16,10 +18,11 @@ $ git config --global user.email "email@example.com"
 
 7、注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
 
-#### 创建版本库
+##### 第二节.创建版本库
 版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。
 
-所以，创建一个版本库非常简单，首先，选择一个合适的地方，创建一个空目录：
+所以，创建一个版本库非常简单，首先，选择一个合适的地方，
+###### 第一步，创建一个空目录：
 
 $ mkdir learngit
 $ cd learngit
@@ -29,7 +32,7 @@ pwd命令用于显示当前目录。在Mac上，这个仓库位于/Users/michael
 
 如果使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
 
-第二步，通过git init命令把这个目录变成Git可以管理的仓库：
+###### 第二步，通过git init命令把这个目录变成Git可以管理的仓库：
 
 $ git init
 Initialized empty Git repository in /Users/michael/learngit/.git/
@@ -52,20 +55,21 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 
 set-utf8-notepad++
 
-言归正传，现在我们编写一个readme.txt文件，内容如下：
+###### 第三步，我们编写一个readme.txt文件
+内容如下：
 
 Git is a version control system.
 Git is free software.
 一定要放到learngit目录下（子目录也行），因为这是一个Git仓库，放到其他地方Git再厉害也找不到这个文件。
 
-和把大象放到冰箱需要3步相比，把一个文件放到Git仓库只需要两步。
+###### 和把大象放到冰箱需要3步相比，把一个文件放到Git仓库只需要两步。
 
-第一步，用命令git add告诉Git，把文件添加到仓库：
+###### 第一步，用命令git add告诉Git，把文件添加到仓库：
 
 $ git add readme.txt
 执行上面的命令，没有任何显示，这就对了，Unix的哲学是“没有消息就是好消息”，说明添加成功。
 
-第二步，用命令git commit告诉Git，把文件提交到仓库：
+###### 第二步，用命令git commit告诉Git，把文件提交到仓库：
 
 $ git commit -m "wrote a readme file"
 [master (root-commit) cb926e7] wrote a readme file
@@ -83,7 +87,7 @@ $ git add file1.txt
 $ git add file2.txt file3.txt
 $ git commit -m "add 3 files."
 小结
-现在总结一下今天学的两点内容：
+###### 现在总结一下今天学的两点内容：
 
 初始化一个Git仓库，使用git init命令。
 
@@ -92,3 +96,120 @@ $ git commit -m "add 3 files."
 第一步，使用命令git add <file>，注意，可反复多次使用，添加多个文件；
 
 第二步，使用命令git commit，完成。
+
+##### 第二章.时光机穿梭
+###### 第一节 版本回退
+###### 修改文件
+成功地添加并提交了一个readme.txt文件，我们继续修改readme.txt文件，改成如下内容：
+
+Git is a distributed version control system.
+Git is free software.
+###### git status命令查看状态
+现在，运行git status命令看看结果：
+
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#    modified:   readme.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+git status命令可以让我们时刻掌握仓库当前的状态，上面的命令告诉我们，readme.txt被修改过了，但还没有准备提交的修改。
+
+###### git diff命令查看修改差异
+虽然Git告诉我们readme.txt被修改了，但如果能看看具体修改了什么内容，自然是很好的。比如你休假两周从国外回来，第一天上班时，已经记不清上次怎么修改的readme.txt，所以，需要用git diff这个命令看看：
+
+$ git diff readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 46d49bf..9247db6 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。
+
+###### git add 命令提交修改
+知道了对readme.txt作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是git add：
+
+$ git add readme.txt
+同样没有任何输出。在执行第二步git commit之前，我们再运行git status看看当前仓库的状态：
+
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   readme.txt
+#
+git status告诉我们，将要被提交的修改包括readme.txt，下一步，就可以放心地提交了：
+
+$ git commit -m "add distributed"
+[master ea34578] add distributed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ ###### git status命令再次查看提交的状态
+提交后，我们再用git status命令看看仓库的当前状态：
+
+$ git status
+# On branch master
+nothing to commit (working directory clean)
+Git告诉我们当前没有需要提交的修改，而且，工作目录是干净（working directory clean）的。
+
+小结
+要随时掌握工作区的状态，使用git status命令。
+
+如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
