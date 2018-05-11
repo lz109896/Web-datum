@@ -132,7 +132,7 @@ index 46d49bf..9247db6 100644
  Git is free software.
 git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。
 
-###### git add 命令提交修改
+###### git add 命令添加
 知道了对readme.txt作了什么修改后，再把它提交到仓库就放心多了，提交修改和提交新文件是一样的两步，第一步是git add：
 
 $ git add readme.txt
@@ -145,6 +145,8 @@ $ git status
 #
 #       modified:   readme.txt
 #
+ 
+###### git commit 命令提交
 git status告诉我们，将要被提交的修改包括readme.txt，下一步，就可以放心地提交了：
 
 $ git commit -m "add distributed"
