@@ -134,7 +134,8 @@ git status命令可以让我们时刻掌握仓库当前的状态，上面的命�
 ```
 ###### git diff命令查看修改差异
 ```
-虽然Git告诉我们readme.txt被修改了，但如果能看看具体修改了什么内容，自然是很好的。比如你休假两周从国外回来，第一天上班时，已经记不清上次怎么修改的readme.txt，所以，需要用git diff这个命令看看：
+虽然Git告诉我们readme.txt被修改了，但如果能看看具体修改了什么内容，自然是很好的。比如你休假两周从国外回来，第一天上班时，
+已经记不清上次怎么修改的readme.txt，所以，需要用git diff这个命令看看：
 
 $ git diff readme.txt 
 diff --git a/readme.txt b/readme.txt
@@ -145,7 +146,8 @@ index 46d49bf..9247db6 100644
 -Git is a version control system.
 +Git is a distributed version control system.
  Git is free software.
-git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，我们在第一行添加了一个“distributed”单词。
+git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式，可以从上面的命令输出看到，
+我们在第一行添加了一个“distributed”单词。
 ```
 ###### git add 命令添加
 ```
@@ -414,8 +416,8 @@ $ git status
 
 git-stage
 
-所以，
-##### git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。
+所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，
+执行git commit就可以一次性把暂存区的所有修改提交到分支。
 
 $ git commit -m "understand how stage works"
 [master 27c9860] understand how stage works
@@ -666,12 +668,12 @@ $ git commit -m "remove test.txt"
 $ git checkout -- test.txt
 ```
 ###### git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
-``
+```
 小结
 命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，
 你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
-``
+```
 #### 第二章：搬进Github
 
 ##### 第1节：本章介绍
