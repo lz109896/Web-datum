@@ -1,4 +1,4 @@
-```java
+```
 package exception;
 class OpenException extends Throwable {
 }
@@ -34,20 +34,22 @@ public class Arraylndex {
     }
     
     
+```    
     
-    
-#异常声明
-##如果你的函数可能抛出异常，就必须在函数头部加以声明
+#### 异常声明
+```
+如果你的函数可能抛出异常，就必须在函数头部加以声明
 void f() throws TooBing, TooSmall, DivZero { //...
 void f() {....
 
-##你可以声明并不会真的抛出异常
-
-#什么你能扔？
-##任何继承了 Throwabie 类的对象
-## Exception 类继承了 Throwable
-###throw new Exception();
-###throw new Exception("HELP");
+你可以声明并不会真的抛出异常
+```
+#### 什么你能扔？
+```
+任何继承了 Throwabie 类的对象
+Exception 类继承了 Throwable
+throw new Exception();
+throw new Exception("HELP");
 
 ```
 
