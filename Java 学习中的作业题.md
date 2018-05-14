@@ -4,7 +4,7 @@
 1.发明 Java 语言的原因是什么?发明Java语言的主要贡献者是谁?
 答：  因为语言无法满足人们的需求，因为C语言是针对特定的芯片将源码程序编译为机器码，不同的芯片不一定能运行成功，很麻烦
 也就是说不能跨平台，能运行在A平台未必能在B平台使用，不能运行于各种操作系统。
-     主要贡献者是james Gosling
+     主要贡献者是 James Gosling
 
 
 2.“Java 编译器将源文件编译生成的字节码是机器码”,这句话正确吗?
@@ -25,7 +25,7 @@ public static void main(String args[]){
 答：错误，Java 源文件必须有一个类是 public类
 
 
-5.请叙述Java源文件的命名规则。
+5.请叙述 Java 源文件的命名规则。
 答：1.若源文件中有多个类，那么只能有一个类是 public 类。
 2.若有一个类是 public 类，那么源文件的名字必须与这个类的名字完全相同，扩展名是 .java 。
 3.若源文件没有 public 类，那么源文件的名字只要与某个类的名字相同，扩展名是 .java 就可以了。
@@ -35,7 +35,7 @@ public static void main(String args[]){
 答：不一定，动态随需要运行才加载
 
 ```
-#### 7.怎样编写加载运行 Java Applet的简单网页。
+##### 7.怎样编写加载运行 Java Applet的简单网页。
 ```
 答：？？？
 C:\Documents and Settings\Administrator>appletviewer
@@ -85,8 +85,8 @@ class、public、static、void、extends、double
  布尔(逻辑)类型：boolean
 ```
 
-#### 4.下列哪些语句是错误的?
-````
+##### 4.下列哪些语句是错误的?
+```
 int x=120；
 byte b=120；
 b=x；
@@ -94,7 +94,8 @@ b=x；
 答：b=x，错；应修改为：b(byte)=x；
 
 ```
-#### 5.下列哪些语句是错误的?
+
+##### 5.下列哪些语句是错误的?
 ```
 float x=12.0；
 float y=12;
@@ -102,16 +103,48 @@ double d=12；
 y=d;
 
 答：y=d，错；应修改为：y(float)=d
-```
+
 
 6.下列两个语句的作用是等价的吗?
 char x=97；
 char x='a'；
 
+答：是等价的；对于 char x='a'，因为内存中存储的是97，97是字符 'a' 在 Unicode 表中的排序位置。
+    因此，允许将上面的语句写成char x=97；
+
 
 7.下列 System. out. printf语句输出的结果是什么?
-int a=97:
-byte bl=(byte)128
+int a=97;
+byte bl=(byte)128;
+byte b2(byte)(-129);
+System.out.printf("%oc, %od, %d", a, b1, b2);
+
+da
+
+
+8.数组是基本类型吗?怎样获取一维数组的长度?
+
+
+
+9.假设有两个int类型数组:
+int[ ]a-new int [10]:int[ b- new int [81:
+a[O}=100
+bO]的值一定是100吗?
+
+
+
+10.下列两个语句的作用等价吗?
+int [a={1,2,34,5,6,7,8}int [ a-new int[ 8]:
+
+
+
+
+1.参照例2-1编写一个Java应用程序,输出俄文字母表。
+
+
+
+2.参照例2-4编写一个Java应用程序,用户从键盘只能输入整数,程序输出这些整数的乘积
+
 
 
 
