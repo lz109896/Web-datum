@@ -401,7 +401,7 @@ Hue 是色盘上的度数（从 0 到 360） - 0 (或 360) 是红色，120 是�
 下面通过图来帮助理解下：
 
 
-
+http://coding.imweb.io/demo/p2/color.html
 
 
 同样对于 hsl 也可以加入透明度来表示半透明色，这就是 hsla，语法为hsla(hue, saturation, lightness, alpha)，
@@ -411,40 +411,4 @@ alpha 取值同样为介于0.0到1.0的数字，如hsla(0, 100%, 50%, 0.7) 。
 - CSS | MDN
 CSS 合法颜色值
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
