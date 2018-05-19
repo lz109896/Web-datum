@@ -85,7 +85,8 @@ HTML5是 HTML 最新的修订版本，于2014年10月由万维网联盟（W3C）
 （如 header、nav、menu、section、article 等）也是很正常的。
 
 默认情况下 IE8 对 HTML5 标签的处理
-在 IE8 里面，未定义的标签——IE8 不认识所有新引入的 HTML5 标签，所以定义样式是不会生效。比如下面这段代码（抽取主要代码）：
+在 IE8 里面，未定义的标签——IE8 不认识所有新引入的 HTML5 标签，所以定义样式是不会生效。
+比如下面这段代码（抽取主要代码）：
 
 <style>
   section { color: red; }
@@ -260,7 +261,8 @@ inline-table, inline-flex, inline-grid 的元素生成。
 当块容器盒（block container box）不包括任何块级盒（block-level boxes）时，就会创建一个行内格式化上下文（IFC）。
 （一般来说一个块级盒也是一个块容器盒，具体可参看： Block-level elements and block boxes）
 
-IFC 中的行内级盒将会按照如下规则进行渲染（规则有点多，大概主要点就是行盒，折行机制，水平对齐方式，垂直高度及垂直对齐方式）：
+IFC 中的行内级盒将会按照如下规则进行渲染
+（规则有点多，大概主要点就是行盒，折行机制，水平对齐方式，垂直高度及垂直对齐方式）：
 
 1.盒子一个接一个地水平摆放，当容器宽度不够时就会换行
 2.在水平方向上，这些盒的外边距、边框、内边距所占用的空间都会被计算，
@@ -344,8 +346,8 @@ Layout mode | MDN
 
 #### 第六节：深入了解 inline-block
 ```
-在之前的课程中，我们学习到了 inline-block 的基础知识，接下来我将介绍一些使用 inline-block 产生的问题和解决方法
-以及其常见的应用场景，来进一步加深了大家对 inline-block 的理解。
+在之前的课程中，我们学习到了 inline-block 的基础知识，接下来我将介绍一些使用 inline-block 
+产生的问题和解决方法以及其常见的应用场景，来进一步加深了大家对 inline-block 的理解。
 
 水平间隙问题
 我们创建一个导航列表，并将其列表 item 设置为 inline-block，主要代码如下：
@@ -367,7 +369,8 @@ Layout mode | MDN
 
 
 
-我们从效果图中可以看到列表 item 之间有一点小空隙，但是我们在代码中并没有设置 margin 水平间距。那么这个空隙是如何产生的呢？
+我们从效果图中可以看到列表 item 之间有一点小空隙，但是我们在代码中并没有设置 margin 水平间距。
+那么这个空隙是如何产生的呢？
 
 这是因为我们编写代码时输入空格、换行都会产生空白符。而浏览器是不会忽略空白符的，
 且对于多个连续的空白符浏览器会自动将其合并成一个，故产生了所谓的间隙。
@@ -550,7 +553,7 @@ clear:both
 大家在实际操作的时候可以针对不同的情况参考上面的方法。
 
 ```
-#### float 布局
+#### 第九节：float 布局
 ```
 左中右三栏布局
 
@@ -582,28 +585,187 @@ width: 1200px;现在比较主流的宽度，适合PC
 当不勾选  margin-left: -100%；和 margin-left: -200%； 时，都被内容区域挤到换行。
 当都勾选时，都被拽回去对应左边栏和右边栏
 
+```
+#### 第十节：网格布局系统
+```
+视频中涉及到的网址如下：
 
+960s 栅格布局
+960 grid system（官网）
+注：960s 是网格布局系统的鼻祖，当然随着技术的发展，基于它又发展了很多其他的网格布局系统，但是思想是想通的，
+无非是整体多少宽度分成几分，间距是多少，如何组合等。
+为什么是12列呢？因为12可以被2，3，4，6整除，这样做等分的时候是非常方便的。
 
+注：以前设置浮动的时候，一般还需要设置display: inline来兼容 IE6、7，以避免出现双倍 margin 的间距。
 
+```
+#### 第十一节：元素位置
+```
+注：position 还有一个 sticky 取值，不过兼容有点问题，具体可参考：sticky（具体使用可参考下面的 Resources 部分链接）
 
+position :设置元素的定位方式
 
+static :静态
+relative ：相对
+absolute :绝对
+fixed ：固定
 
+ 
+坐标点：  x  ：left（左）/right（右）
+         y   : top（上）/bottom（下）
+         
+参考点
+relative ：相对于自己的位置偏移
+absolute :相对于非 static 最近的父级元素（relative ，absolute，fixed）
+fixed ：一般来说相对于视窗（相对于浏览器的整个界面）
 
+```
+#### 第十二节：元素层级——z-index
+```
+1.默认HTML结构顺序，谁最后出现谁最高级
+2.position(非static值)元素高于其他元素
+3.position(非static值)元素之间先通过z-index 值判断
+4.如果z-index 相同则按照HTML结构顺序
+```
+#### 第十三节：深入了解 z-index
+```
+网页正常文档流排版可以理解为在一个平面立面里面，元素占据空间，依次排列，互不覆盖。但是当页面中元素设置了定位属性的时候，
+难免会出现元素之间相互重叠的情况，比如下图小猫和小狗的图片都设置了绝对定位，2张图片的位置重叠了，小猫图显示在小狗图上面。
+现在如果我们想要小狗图显示在上面，就需要涉及到 CSS 中的 z-index 属性了。
 
+z-index
 
+z-index
+z-index 属性用于指定已定位元素在垂直于页面方向的排列顺序，其属性值有2种：auto（默认值）和整数。这里有2个需要注意的点：
 
+z-index 属性只对定位元素元素生效，也就是 position 属性不为 static 的元素。
+除了默认值 auto， z-index 可以设置为任意整数，正数，0，负数都可以。
+一般情况下，z-index 值进行比较有下面2条规则：
 
+数值大的在上面(auto 数值上相当于0)。
+数值相同的，在 HTML 结构中排后面的在上面。
+所以上面例子，2张图都没设置 z-index 的值，在 dom 结构上排后面的小猫图展示在上面。
+如果想小狗图展示在小猫图上面，只需要设置小狗图的 z-index 属性值大于0就可以了。
 
+<img class="dog" src="http://coding.imweb.io/img/p3/z-index/dog.png" alt="dog">
+<img class="cat" src="http://coding.imweb.io/img/p3/z-index/cat.png" alt="cat">
+.dog {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  z-index: 1; /* 设置小狗图的 z-index 值大于0 */
+}
+.cat {
+  position: absolute;
+  top: 80px;
+  left: 70px;
+}
+给 .dog 元素增加了 z-index: 1 属性就可以让小狗图相比于小猫图在垂直于页面的方向上离我们更近，
+这样效果就是小狗图显示在上面了。
 
+z-index
 
+层叠上下文
+上面说到，z-index 默认值 auto 数值上等于0，那设置了 z-index:0 和 默认的 z-index:auto; 有没有区别呢？
+答案是有区别的。区别在于设置了 z-index 属性为整数值(包括0)的元素，自身会创建一个层叠上下文。
+而创建一个层叠上下文之后，其子元素的层叠顺序就相对于父元素计算，不会与外部元素比较。这样说比较抽象，我们来看个例子。
 
+<div class="dog-container">
+  <img class="dog" src="http://coding.imweb.io/img/p3/z-index/dog.png" alt="dog">
+</div>
+<div class="cat-container">
+  <img class="cat" src="http://coding.imweb.io/img/p3/z-index/cat.png" alt="cat">
+</div>
+img {
+  width: 200px;
+}
+.dog-container {
+  width: 200px;
+  height: 100px;
+  background: red;
+  position: relative;
+  z-index: auto; /* 默认值auto */
+}
+.dog {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  z-index: 2;
+}
+.cat {
+  position: absolute;
+  top: 80px;
+  left: 70px;
+  z-index: 1;
+}
+上面例子中，我们给 .dog 和 .cat 增加了容器 .dog-container 和 .cat-container,并且 .dog 和 .cat 都
+设置了 z-index 值，所以都显示在红色背景的 .container 之上，而且 .dog z-index 数值比较大，所以显示在上面。
 
+z-index
 
+但是当我们设置了 .dog-container 的 z-index 属性值为0之后，
+我们发现，z-index 值比较大的 .dog 元素反而到 z-index值比较小的 .cat 下面了
 
+.dog-container {
+  width: 200px;
+  height: 100px;
+  background: red;
+  position: relative;
+  z-index: 0; /* 将 z-index 值改成0 */
+}
+效果：
 
+z-index
 
+其原因就在于我们给 .dog-container 设置了 z-index:0 之后，.dog-container 就创建了自己的层叠上下文，
+其子元素 .dog 在比较层叠顺序的时候只会在 .dog-container 内比较，而不会与外面的 .cat 比较。如下图所示:
 
+z-index
 
+上面例子告诉我们，并不是所有情况 z-index 值大的元素都会在上面，我们在进行 z-index 比较的时候要留意其
+祖先元素有没有建立独立的层叠上下文，z-index 只有在同一个层叠上下文中比较才有意义。另外，对定位元素设置
+z-index 属性不是唯一创建层叠上下文的方法，具有下面属性的元素都会创建层叠上下文（具体可参看：层叠上下文 | MDN）：
+
+根元素 (HTML)
+z-index 值不为 "auto"的 绝对/相对定位
+一个 z-index 值不为 "auto"的 flex 项目 (flex item)，即：父元素 display: flex|inline-flex
+opacity 属性值小于 1 的元素
+transform 属性值不为 "none"的元素，
+mix-blend-mode 属性值不为 "normal"的元素，
+filter值不为“none”的元素，
+perspective值不为“none”的元素，
+isolation 属性被设置为 "isolate"的元素，
+position: fixed
+在 will-change 中指定了任意 CSS 属性，即便你没有直接指定这些属性的值（参考这篇文章）
+-webkit-overflow-scrolling 属性被设置 "touch"的元素
+也就是说，上面例子中， .dog-container 满足上面任意一条属性，也会一样出现上面的情况。比如设置 opacity 属性：
+
+.dog-container {
+  width: 200px;
+  height: 100px;
+  background: red;
+  position: relative;
+  opacity: 0.6; /* 设置 opacity 属性小于1也会创建层叠上下文 */
+}
+效果如下：
+
+z-index
+
+总结
+z-index 属性用于描述定位元素在垂直于页面方向上的排列顺序。
+z-index 一般比较规则是值大在上，值相同则排后面的在上。
+元素在设置了某些属性的时候会创建层叠上下文，z-index 值比较大小只有在同一个层叠上下文才有效。
+参考文档
+深入理解CSS中的层叠上下文和层叠顺序
+理解CSS的 z-index属性
+层叠上下文-MDN
+```
+#### 第十四节：flexbox 基本概念
+
+![flexbox](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox.png)
+![flexbox1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox1.png)
+![flexbox2](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox2.png)
+![flexbox3](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/f60032fac90de6d83da41db3e63ed0c2b3aa36ae/flexbox3.png)
 
 
 
