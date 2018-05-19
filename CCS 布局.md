@@ -766,6 +766,7 @@ z-index 一般比较规则是值大在上，值相同则排后面的在上。
     display: fiex
 }
 
+
 父元素 ( display: fiex)的直接子元素形成布局模型，可以很容易对齐及分布
 如果子元素里面含有子元素是不受影响的
 
@@ -837,12 +838,9 @@ flex-shrink    当宽度超过最大时，都不会换行，选择 flex-wrap: 
     设置 flex-shrink 值为：2，1,1时，第一个 item 再次压缩一份
     
     
-    
-    
-
-flex-bassie：可以理解为像素
-flex-bassie：设置值为：300时（也可以设置为%比），第一个 item 再次压缩一份
-当既有flex-bassie，也有width 宽度时，flex-bassie 权重比较高，会覆盖width 宽度值
+flex-basis：可以理解为像素
+flex-basis：设置值为：300时（也可以设置为%比），第一个 item 再次压缩一份
+当既有flex-basis，也有width 宽度时，flex-bassie 权重比较高，会覆盖width 宽度值
 
 
 
@@ -862,12 +860,564 @@ baseline
 
 
 
+#### 第十五节：flexbox 剩余空间分配规则
+```
+前面我们学习到了 flexbox 布局。通过使用 flexbox 布局，我们可以更轻松实现以往很难实现的页面布局。
+本文主要讲解 flexbox 布局是如何去分配和计算布局剩余空间的。（本文阅读前要求你对 flexbox 已经有了初步的认知，
+如果不是很了解，建议先学习前面视频内容。）
+
+基础概念
+为了更好地理解本文内容，我们需要先了解下面一些基础概念。
+
+flexbox 容器 (flexbox container)
+flexbox 容器又称弹性容器，通过设置 display: flex 而产生，简单示例如下：
+
+.container {
+  display: flex; /* 或者 inline-flex */
+}
+
+flexbox 项目 (flexbox item）
+当设置一个元素为 flexbox 容器时，其直接子元素将自动成为容器成员，也可以称之为：flexbox 项目。
+
+注：因为 flexbox 布局是发生在父元素和子元素之间的，所以下面为了行文方便，统一将 flexbox 容器称为“父容器”，
+而 flexbox 项目统一称为“子元素”
+
+剩余空间
+剩余空间就是指父容器在主轴方向上剩余未分配的空间，它是 flexbox 布局中一个很重要的词。我们可以借助下面的例子来更好地理解：
+
+<div class="container" width="600px" style="display:flex;">
+  <span class="item1" width="200px">item1</span>
+  <span class="item2" width="200px">item2</span>
+</div>
+上面代码，我们定义了一个宽度为600px的父容器 container，以及宽度为200px的子元素 item1 和 item2 ，
+那么我们得出其剩余空间为200px，计算公式为：
+
+剩余空间 = 父容器的宽度 - item1的宽度 - item2的宽度
+
+剩余空间分配相关属性
+flexbox 布局中的子元素可以通过设置 flex 属性来改变其所分配到的空间大小。
+flex 属性包括了 flex-basis、 flex-grow、flex-shrink
+
+flex-basis
+flex-basis 用来定义子元素的默认宽或高。如果父容器 flex-direction 属性的方向为水平方向则为宽度，
+如为垂直方向则为高度。相当于给子元素设置宽或高。如果同时设置了该属性与宽或高，则该属性权重大于宽或高的值。
+
+flex-grow
+flex-grow 用来指定父容器多余空间的分配比率，默认值为0。看到这里，大家可能还是没有概念。
+为了更形象地理解，我们一起看下下面的例子。
+
+例子： 只设置 item1 的 flex-grow 为1
+
+其 HTML 代码如下：
+
+<div class="container">
+  <span class="item item-flex-grow">item1</span>
+  <span class="item item2">item2</span>
+</div>
+
+其 CSS 代码如下：
+
+/* css 部分 */
+.container {
+  display: flex;
+  width: 600px;
+  height: 140px;
+  align-items: center;
+  background-color: #ddd;
+}
+.item {
+  width: 200px;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  background-color: orange;
+}
+.item2 {
+  background-color: green;
+}
+.item-flex-grow{
+  flex-grow:1;
+  background-color: 
+}
+
+这里我们对 item1 设置flex-grow:1 后，我们可以看到 item1 的所占空间宽度变成400px，
+也就是说 item1 把之前我们所说的父容器剩余的200px空间都占用了。
+
+在这里我们可以得出：其实 flex-grow 即定义如何去分配父容器的剩余空间 ，当值为0时，则子元素都不会索取父容器的剩余空间。
+当 item1 设置 flex-grow: 1 的时候，由于 item2 没有设置 flex-grow 的值，则剩余空间将会被分成一份，并且分别分给了 item1。
+
+例子： 设置 item1 的 flex-grow 为1，且 item2 的 flex-grow 为3
+如果此时我们设置 item2 的flex-grow:3 ，item2 也将会参与索取父容器的剩余空间，此时父容器的剩余空间将分为4份，
+然后1份分配到 item1，而分配3份到 item2.
+
+如果子元素的宽度的总和超过父容器，flex-grow 将不生效。
+上面的例子，我们只考虑了子元素的宽度总和都是没有超过父容器的宽度的情况，则其可以使用 flex-grow 来分配父容器的剩余空间。
+那么当子元素的宽度总和超过父容器的宽度时，这时剩余空间还可以分配吗？此时 flex-grow 是否还有效呢？让我们先看看下面的例子：
+
+这里我们设置上面例子的 item1 和 item2 的宽度为350px，则子元素的宽度总和为700px且超过父容器container的600px宽度。
+
+
+我们可以看到 flex-grow 并没有起到作用，且两个 item 的宽度还被压缩到只有300px。
+
+通过之前学到的如何计算剩余空间的方法，我们可以算出本例子的剩余空间为600px - 700px即 -100px,这里可以得出由于没有剩余空间，
+则定义了 flex-grow 的子元素能分配到的空间为0，故不生效。另外我们需要知道的是 flexbox 环境的父容器的宽度600px并不会因为
+子元素的总宽而改变，即子元素的宽度总和最多等于父容器的宽度，所以为了让子元素完整显示在父容器内，只有两个办法：
+
+通过设置 flex-wrap 来使子元素换行
+通过压缩子元素来使其能容纳在父容器内
+
+flex-shrink
+flex-shrink 用来指定父容器空间不够时子元素的缩小比例，默认为1。
+如果一个 flexbox 项目的 flex-shrink 属性为0，则该元素不会被压缩。
+
+为什么需要 flex-shrink 来定义缩小比例呢？
+上面我们可以知道，当子元素的宽度总和大于 flexbox 父容器的宽度时，其剩余空间将为负数，如果没有设置换行的情况下，其将会通
+过压缩子元素来使其能够容纳在父容器内。那么我们如何控制子元素的压缩比例呢？答案就是通过将通过设置 flex-shrink 这个属性。
+
+例子：设置项目的flex-shrink
+下面例子，我们设置两个 item 的宽度为350px，而容器 container 的宽度仍为600px。
+同时定义了 item1 和 item2 的 flex-shrink 的属性分别为1和4。如下所示：
+
+
+代码如下：
+
+/* 这里只展示关键css */
+.container {
+  display: flex;
+  width: 600px;
+  height: 140px;
+}
+.item {
+  width: 350px;
+  height: 120px;
+}
+.item1 {
+  flex-shrink: 1;
+}
+.item2{
+  flex-shrink: 4;
+}
+我们看到由于缺少100px的空间，按照 item1 和 item2 定义的 flex-shrink 的值，缺少的100px将分成5份。item1
+将压缩其中的 1/5 即20px，item2 的将压缩其中的 4/5 即80px。
+
+例子：设置项目的 flex-shrink 为0
+在上面的知识中，我们了解到 flex-shrink 默认值为1，即默认子元素在父容器空间不足时会被压缩。
+现在我们把项目的 flex-shrink 设为0来看下不压缩的情况。如下所示：
+
+代码如下：
+
+/* 这里只展示关键css */
+.container {
+  display: flex;
+  width: 600px;
+  height: 140px;
+}
+.item {
+  width: 350px;
+  height: 120px;
+  flex-shrink: 0;
+}
+```
+#### 第十六节：grids 布局系统
+```
+我们之前有提到过网格系统，比如960s，bootstrap 的网格系统，但是这些网格系统都是模拟出来的（使用 float 或 flexbox），
+而并非天生的，虽然可以解决一些常见布局问题，但面临 Win10 UI 还是有点力所不及.
+
+
+但是随着 CSS 的不断发展及完善，一种新的网格布局方式被纳入规范，它将会解决所有的网格问题，
+这就是我们要说的 CSS Grid Layout。
+
+网格系统基础概念
+在说 CSS Grid Layout 之前，我们先来看看 excel 的表格。
+
+excel css gri layout
+
+以我们的 Sheet1 的 A1 单元格为例，先是有上下左右四条线围着，然后定位是由竖直的 A 栏与横向的1行二维坐标表示 A1。
+如果有需要甚至还还可以和邻近的单元格合并。
+
+现在我们提炼下上面的几个概念：线条，栏(竖直)，行(横向)，单元格，合并。接下来我们把这些概念对应到我们的网格系统：
+
+CSS Grid Layout
+
+Grid Container：首先我们要设置父元素的布局为 grid，通过使用 display 属性给元素显式设置属性值grid或inline-grid，
+此时这个元素将自动变成网格容器，对应上图的Sheet1
+
+Grid Item：Item 是 container 的直接子元素，如果不考虑单元格的合并跟下面的 cell 是一样的，
+如果有单元格合并，在该 item 可能包括几个cell，对应上图的一个个格子，如蓝色的 A1
+
+Grid Lines：网格线分为水平线和垂直线，对应上图的橙色线条
+Grid Track：就是由lines构成的水平和垂直空间，对应到上图的水平和垂直灰色区域，而对于table来说就是row和column
+Grid Cell：简单来说就是单元格了，对应到上图就是蓝色的A1，而对于table来说就是单元格
+Grid Area：网格区域是由任意四条网格线组成的空间，可能由一个或多个单元格组成。
+对应到上图就是红色区域，相当于表格中的合并单元格之后的区域
+
+网格系统基本属性
+网格系统布局其实跟 flexbox 布局差不多，都是由父子元素构成的布局。所以属性分为父元素属性和子元素属性。
+
+因篇幅有限，这里只简单介绍每个属性的用途，具体的属性取值请参考：
+
+A Complete Guide to Grid:   https://css-tricks.com/snippets/css/complete-guide-grid/#prop-align-items
+grid | MDN:   https://developer.mozilla.org/en-US/docs/Web/CSS/grid
+
+
+父元素（Grid Container）属性
+这里我们将父元素属性大概分为三大类，其中第一类与第二类属性可以简写为 grid 属性（不包括 display 属性）：
+
+第一类：如何去定义一个网格系统，行列及间距等。
+
+display：grid/inline-grid，定义使用网格系统
+grid-template-columns：定义垂直栏
+grid-template-rows：定义水平行
+grid-template-areas：定义区域
+grid-column-gap：定义垂直栏与垂直栏之间的间距，如上图的A与B之间的间距
+grid-row-gap：定义水平行与水平行之间的间距，如上图的1与2之间的间距
+grid-gap：上面两个栏与行间距的缩写
+
+第二类：自动分配形式，当定义的行或列数量不够时，多出 item 的自动排列方式：
+
+grid-auto-columns：定义多出的 item 的自动column的宽度大小
+grid-auto-rows：定义多出的 item 自动 row 的高度大小
+grid-auto-flow：定义自动 item 是按照先水平方向排列还是垂直方向排列
+
+第三类：分布对齐的方式（属性跟 flexbox 的有点像）。
+
+justify-items：item 在水平行中的对齐方式
+align-items：item 在垂直栏中的对齐方式
+justify-content：整个水平行在 grid 范围的对齐方式，这里有个好用的 space-evenly 值，
+补足了以前flex的 space-around 和 space-between 的不足
+
+align-content：整个垂直栏在 grid 范围的对齐方式
+子元素（Grid Item）属性
+
+接下来是我们的 item 属性，同样这里我也将它分为两类：
+
+第一类：单元格所占格子多少
+
+grid-column-start：item 的起始栏
+grid-column-end：item 的结束栏
+grid-column：起始栏和结束栏的简写
+grid-row-start：item 的起始行
+grid-row-end：item 的结束行
+grid-row：起始行与结束行的简写
+grid-area：item所在区域
+
+第二类：单元格的自定义对齐方式，这个跟 flexbox 的 item 有点相似。
+
+justify-self：自定义 item 的水平方向对齐方式
+align-self：自定义 item 的垂直方向对齐方式
+
+实例演示
+百说不如一练，我们接下来使用网格系统来实战下我们的 Win10 UI，如下图：
+
+grids demo)
+
+html结构为：
+
+<div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+</div
+写好结构后，我们就开始使用刚才说得 grid 来实现我们的效果了。先拆分成最小的单元格为 6栏 * 3行，
+最小单元格的大小为140px，整体内容一屏水平垂直居中。
+
+html,body {
+ height: 100%;
+}
+.grid {
+  height: 100%;
+  display: grid; /* 网格布局 */
+
+  /* 整体水平垂直居中 */
+  justify-content: center;
+  align-content: center;
+
+  /* 定义6栏3行 */
+  grid-template-columns: 140px 140px 140px 140px 140px 140px;
+  grid-template-rows: 140px 140px 140px;
+
+  /* 定义item之间的间距为20px */
+  grid-gap: 20px;
+
+  background: #efefef;
+}
+.item{
+  background: #ccc;
+}
+现在我们可以看到效果如下：
 
 
 
+接下来要合并单元格实现我们的最终效果。合并单元格有两种实现方式一种是 line 的开始与结束（包括 colunm 与 row），
+另一种就是在 grid 上面定义的 area，这里我们使用第一种方法。
+
+这里重提下上面的 Grid Lines 概念，如要实现 n栏 * m行的网格，则需要n+1条垂直line，m+1条水平线。
+
+第一个 item 元素单元格占了两列，第一列和第二列，那么就垂直栏开始于第一条 line，
+结束于第三条 line，同样第5个 item 元素也是如此
+
+.item:nth-child(1),
+.item:nth-child(5) {
+  grid-column: 1 / 3; /* 起始于1，结束于3 */
+}
+
+而第二个 item 元素栏和行都跨了两个，CSS 代码如下：
+
+.item:nth-child(2) {
+  grid-column: 3 / 5; /* column起始于3，结束于5 */
+  grid-row: 1 / 3;  /* row起始于1，结束于3 */
+}
+同样第七个 item 元素行跨了两个，第9个 item 元素栏跨了两个，CSS 代码如下：
+
+.item:nth-child(7) {
+  grid-column: 6;
+  grid-row: 2 / 4; /* row起始于2，结束于4 */
+}
+.item:nth-child(9) {
+  grid-column: 2 / 4; /* column起始于2，结束于4 */
+}
+这个布局就这么简单的完成了，效果可见 demo
+
+浏览器支持
+现代浏览器最新版本基本上都支持了 CSS Grid Layout，下图是 caniuse 上的支持情况：
+
+caniuse
+
+有些浏览器旧版本的已经实现但是没有默认开启（chrome < 57，firefox < 52）则需要通过下面的方式手动设置开启：
+
+chrome 在地址栏输入“chrome://flags”，找到"experimental web platform features"开启
+firefox在地址栏输入"about:config"，找到"layout.css.grid.enabled"开启
+总结
+上面只是 grid 布局的简单使用，实际上 grid 布局十分强大，使用起来也十分方便，未来将会是布局的主力军，
+但是目前由于兼容问题暂时不建议在生产环境中使用，不过我们相信很快就可以见识到 grid 布局的强大威力了。
+
+参考资料
+A Complete Guide to Grid:   https://css-tricks.com/snippets/css/complete-guide-grid/#prop-align-items
+CSS Grid Layout:    https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout
+```
+#### 第十七节：浏览器如何渲染 HTML & CSS
+```
+我们现在已经知道，使用 HTML & CSS 可以搭建出一个漂亮的 Web 页面。
+
+那么浏览器到底是如何使用我们的 HTML & CSS 渲染成我们在屏幕上所看到的页面呢？
+
+虽然具体渲染过程很复杂，但是还是可以将其分为几个关键路径，如下：
+
+处理 HTML 标记并构建 DOM 树
+处理 CSS 标记并构建 CSSOM 树
+将 DOM 与 CSSOM 合并成一个渲染树
+根据渲染树来布局，以计算每个节点的几何信息，再将各个节点绘制到屏幕上
+构建 DOM 树
+首先浏览器渲染页面前会根据 HTML 结构构建成对应的 DOM 树。
+
+以下面的 HTML 代码为例：
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <title>Critical Path</title>
+  </head>
+  <body>
+    <p>Hello <span>web performance</span> students!</p>
+    <div><img src="awesome-photo.jpg"></div>
+  </body>
+</html>
+其 DOM 树生成的流程如下图：
 
 
 
+转换： 浏览器从磁盘或网络读取 HTML 的原始字节，并根据文件的指定编码（例如 UTF-8）将它们转换成各个字符。
+令牌化： 浏览器将字符串转换成 W3C HTML5 标准规定的各种令牌，例如，“”、“”，以及其他尖括号内的字符串。
+每个令牌都具有特殊含义和一组规则。
+
+词法分析： 发出的令牌转换成定义其属性和规则的“对象”。
+DOM 构建： 最后，由于 HTML 标记定义不同标记之间的关系（一些标记包含在其他标记内），创建的对象链接在一个树数据结构内，
+此结构也会捕获原始标记中定义的父项-子项关系：HTML 对象是 body 对象的父项，body 是 paragraph 对象的父项，依此类推。
+整个流程的最终输出就是我们这个简单页面的文档对象模型 (DOM)，如下图：
+
+
+
+CSSOM
+在浏览器构建上面的 DOM 时，在文档的 head 部分遇到了一个 link 标记，该标记引用一个外部 CSS 样式表：style.css。
+由于预见到需要利用该资源来渲染页面，它会立即发出对该资源的请求，并返回以下内容：
+
+/* style.css */
+
+body { font-size: 16px }
+p { font-weight: bold }
+span { color: red }
+p span { display: none }
+img { float: right }
+与处理 HTML 时一样，我们需要将收到的 CSS 规则转换成某种浏览器能够理解和处理的东西。
+因此，我们会重复 HTML 过程，不过是为 CSS 而不是 HTML：
+
+CSS 字节转换成字符，接着转换成令牌和节点，最后挂靠到一个称为“CSS 对象模型”(CSSOM) 的树结构内：
+
+CSSOM 为何具有树结构？这是因为浏览器为页面上的任何对象计算最后一组样式时，都会先从适用于该节点的最通用规则开始
+（例如，如果该节点是 body 元素的子项，则应用所有 body 样式），然后通过应用更具体的规则
+（即规则“向下级联”）以递归方式优化计算的样式。
+
+以上面的 CSSOM 树为例进行更具体的阐述。span 标记内包含的任何置于 body 元素内的文本都将具有 16 像素字号，并且颜色为
+红色— font-size 指令从 body 向下级联至 span。不过，如果某个 span 标记是某个段落 (p) 标记的子项，则其内容将不会显示。
+
+合并渲染树
+接下来就是将 DOM 树与 CSSOM 树合并形成渲染树。
+
+渲染树会网罗网页上所有可见的 DOM 内容，以及每个节点的所有 CSSOM 样式信息。
+
+
+
+注：渲染树只包含渲染网页所需的节点，如display: none;的元素是不会出现在渲染树种的。
+
+布局及绘制
+有了渲染树，我们就可以进入“布局”阶段。
+
+到目前为止，我们计算了哪些节点应该是可见的以及它们的计算样式，但我们尚未计算它们在设备视口内
+的确切位置和大小---这就是“布局”阶段，也称为“自动重排”。
+
+为弄清每个对象在网页上的确切大小和位置，浏览器从渲染树的根节点开始进行遍历。让我们考虑下面这样一个简单的实例：
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Critial Path: Hello world!</title>
+  </head>
+  <body>
+    <div style="width: 50%">
+      <div style="width: 50%">Hello world!</div>
+    </div>
+  </body>
+</html>
+
+以上网页的正文包含两个嵌套 div：第一个（父）div 将节点的显示尺寸设置为视口宽度的 50%；而里面内嵌的
+第二个 div 将其宽度设置为其父项的 50%，即视口宽度的 25%。如下图：
+
+
+
+布局流程的输出是一个“盒模型”，它会精确地捕获每个元素在视口内的确切位置和尺寸：所有相对测量值都转换为屏幕上的绝对像素。
+
+最后，既然我们知道了哪些节点可见、它们的计算样式以及几何信息，我们终于可以将这些信息传递给最后一个
+阶段：将渲染树中的每个节点转换成屏幕上的实际像素形成我们可见的页面。这一步通常称为“绘制”或“栅格化”。
+
+注：执行渲染树构建、布局和绘制所需的时间将取决于文档大小、应用的样式，以及运行文档的设备：文档越大，浏览器需要
+完成的工作就越多；样式越复杂，绘制需要的时间就越长（例如，单色的绘制开销“较小”，而阴影的计算和渲染开销则要“大得多”）。
+
+参考资料
+关键渲染路径:   https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
+
+```
+
+#### 第十八节：重排与重绘
+```
+一个页面渲染完毕后，随着用户的操作，或者数据变化，网页还会进行重新渲染。
+根据不同的触发条件，重新渲染分为两种情况：重排（reflow）和重绘（repaint）。
+
+所有对元素视觉表现属性的修改，都会导致重绘（repaint）。比如修改了背景颜色、文字颜色等。
+
+所有会触发元素布局发生变化的修改，都会导致重排（reflow）。比如窗口尺寸发生变化，删除、添加 DOM 元素，
+修改了影响元素盒子大小的 CSS 属性如 width、 height、 padding 等。
+
+通常情况下，重排的影响更大，重排会导致文档局部或全部的重新运算：重新计算元素位置，大小。
+（改变一个元素的布局，可能会影响很多个元素的布局）
+
+不管是重绘还是重排导致的重新渲染，都会阻塞浏览器。重新渲染的的过程中，JavaScript 会被阻塞，
+用户的交互行为也会被卡住。复杂的 CSS 动画甚至会拖慢 JavaScript 的运行速度。
+
+注：本文涉及到的 JavaScript 部分，可以先忽略，等以后学习了 JavaScript 再来查看。
+
+导致重排和重绘的场景
+
+CSS 属性改变
+网站 CSS trigglers 列出了所有 CSS 属性对 layout （布局）、paint （绘制）的影响。
+通过这个表，可以查到不同内核下，对 CSS 属性的修改会导致重绘、重排还是两者都会发生。
+
+re-render
+
+注：Composite （渲染层合并） 是 chrome 引入 GPU 加速带来的新概念。（相关信息可参看下面的参看资料）
+
+对 CSS 属性进行修改，包括但不限于以下场景：
+
+通过 display: none 隐藏 DOM 节点（导致重绘和重排）
+通过 visibility: hidden 隐藏 DOM 节点 （导致重绘，因为它没有影响其它元素位置布局）
+CSS 动画
+通过 JavaScript 添加样式，修改样式
+用户交互
+对浏览器窗口进行缩放操作会导致重排
+对 DOM 节点进行操作，添加、删除、更新 DOM 节点都会导致重排
+光标 :hover 、进入文本输入框、修改浏览器的字体都会导致重排
+最佳实践
+所有的最佳实践都是围绕尽最大可能的降低重绘和重排的频率，来达到减少重新渲染的目的。
+
+CSS 属性的读、写操作分开
+浏览对 CSS 属性的连续修改做了优化，比如下面的连续修改两次 style，不会导致两次重新渲染：
+
+div.style.color = 'blue';
+div.style.marginTop = '30px';
+上面代码只会进行一次重新渲染。但是如果写的不好，则会触发两次重新渲染，如下：
+
+div.style.color = 'blue';
+var margin = parseInt(div.style.marginTop);
+div.style.marginTop = (margin + 10) + 'px';
+上面代码对 div 元素设置背景色以后，第二行要求浏览器给出该元素的位置，所以浏览器不得不重新渲染然后得到该元素的位置。
+
+除此之外，样式的写操作之后，如果有下面这些属性的读操作，都会引发浏览器立即重新渲染：
+
+offsetTop/offsetLeft/offsetWidth/offsetHeight
+scrollTop/scrollLeft/scrollWidth/scrollHeight
+clientTop/clientLeft/clientWidth/clientHeight
+getComputedStyle()
+通过 class 或者 csstext 来批量更新样式
+上面对通过对 style 对 CSS 属性一个一个修改，其实更好的方式应该是通过 class 来批量化。
+
+// bad
+var left = 10;
+var top = 10;
+el.style.left = left + "px";
+el.style.top  = top  + "px";
+
+// good 
+el.className += " theclassname";
+
+// good
+el.style.cssText += "; left: " + left + "px; top: " + top + "px;";
+其他方法
+DOM 样式离线更新：尽量使用离线 DOM，而不是真实的网页 DOM 来改变元素样式。比如，操作 Document Fragment对象，
+完成后再把这个对象加入 DOM。再比如，使用 cloneNode() 方法，在克隆的节点上进行操作，然后再用克隆的节点替换原始节点。
+
+使用 display: none 进行样式批量更新：先将元素设为 display: none（需要1次重排和重绘），然后对这个节点进行100次操作，
+最后再恢复显示（需要1次重排和重绘）。这样一来，你就用两次重新渲染，取代了可能高达100次的重新渲染。
+
+善用 position：position 属性为 absolute 或 fixed 的元素，重排的开销会比较小，因为不用考虑它对其他元素的影响。
+将元素设置为不可见：只在必要的时候，才将元素的 display 属性为可见，因为不可见的元素不影响重排和重绘。
+另外，visibility : hidden 的元素只对重绘有影响，不影响重排。
+
+减少样式的更新频率：使用虚拟 DOM 脚本库，比如 React 等。
+调节 js 运行帧率：使用 window.requestAnimationFrame()、window.requestIdleCallback() 这两个方法调节重新渲染的频率。
+慎用 table 布局：table 的单元格具有非常好的自适应特性，但是同时代价也很高，能不用就不用。如果非要使用 table ，
+给 table 添加 table-layout: fixed 属性，这个属性的目的是让后面单元格的宽度由表头的宽度来决定——减少布局的计算量。
+
+参看资料
+网页性能管理详解:  http://taobaofed.org/blog/2016/04/25/performance-composite/
+
+10 Ways to Minimize Reflows and Improve Performance
+https://www.sitepoint.com/10-ways-minimize-reflows-improve-performance/
+
+无线性能优化：Composite: http://taobaofed.org/blog/2016/04/25/performance-composite/
+
+gpu-accelerated-compositing-in-chrome
+http://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome
+
+
+```
 
 
 
