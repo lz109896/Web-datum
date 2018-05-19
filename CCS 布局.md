@@ -854,7 +854,7 @@ center         单个页面 item 中间对齐
 baseline
 
 
-
+```
 ![flexbox](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox.png)
 ![flexbox1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox1.png)
 ![flexbox2](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox2.png)
