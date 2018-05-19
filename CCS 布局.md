@@ -761,6 +761,99 @@ z-index 一般比较规则是值大在上，值相同则排后面的在上。
 层叠上下文-MDN
 ```
 #### 第十四节：flexbox 基本概念
+```
+.box {
+    display: fiex
+}
+
+父元素 ( display: fiex)的直接子元素形成布局模型，可以很容易对齐及分布
+如果子元素里面含有子元素是不受影响的
+
+fiex container ：容器
+main axis：  主轴
+main start： 主轴开始的地方
+main end：   主轴结束的地方
+main size：  是指item在主轴main axis 上所占的尺寸大小
+
+
+cross axis： 交叉轴
+cross end：  交叉轴开始的地方
+cross start  交叉轴结束的地方
+cross size： 是指item在交叉轴cross axis 上所占的尺寸大小
+
+
+
+* 为默认值
+flex-direction：设置主轴的
+*flex-direction: row;                三页界面1.2.3一行向左对齐
+flex-direction: row-reverse;         三页界面3.2.1一行向右对齐
+flex-direction: column;              三页界面从上到下1.2.3变一竖
+flex-direction: column-reverse;      三页界面从上到下3.2.1变一竖
+
+lex-wrap: 换行
+*flex-wrap: nowrap         显示一行，不换行（禁止文字换行）
+flex-wrap: wrap            三页界面当宽度达到换行条件时，变成两行（第一行第1.2页面，第二行第3页面），变成两条轴线
+flex-wrap: wrap-reverse    三页界面当宽度达到换行条件时，变成两行（第一行第3页面，第二行第1.2页面），变成两条轴线
+
+justify-content： item 在主轴（main axis）上的对齐方式。主轴是可以设置的
+*justify-content: flex-start        三页界面1.2.3一行向左对齐
+justify-content: flex-end           三页界面1.2.3一行向右对齐
+justify-content: center             三页界面1.2.3一行中间对齐
+justify-content: space-between      三页界面1.2.3一行分部对齐，每个页面中间有相同间距
+justify-content: space-around       三页界面1.2.3一行分部对齐，
+                                    每个页面 item 左右两边都有相等的距离=两个页面左右之间 item 的距离
+
+align-item：item 在 cross轴上的对齐方式
+*align-item: stretch            
+align-item: flex-start     三页界面向左边一行，拉伸展开全部的界面
+align-item: flex-end       三页界面在左边一行，收起界面末尾向下对齐
+align-item: center         三页界面在左边一行，收起界面末尾中间对齐
+align-item: baseline       三页界面在左边一行，收起界面末尾向上对齐
+
+align-content：只有一行（或只有一条轴）是不会有变化的，需要宽度达到最大值，flex-wrap: wrap 可换行条件
+*align-content: stretch        
+align-content: flex-start      两条轴线向上对齐，第一行是第1.2页面，第二行是第三3页面
+align-content: flex-end        两条轴线向下对齐，第一行是第1.2页面，第二行是第三3页面
+align-content: center          两条轴线中间对齐，第一行是第1.2页面，第二行是第三3页面，最上面和最下面还留有距离
+align-content: space-between   两条轴线分别最上和最下对齐，最上是第1.2页面，最下是第3页面，中间留有最大的空隙
+align-content: space-around    两条轴线分布中间对齐，第一行是第1.2页面，第二行是第三3页面，
+                               每个页面 item 上下两边都有相等的距离=两个页面上下之间 item 的距离
+
+
+
+
+fiex-item
+fiex-item：arder     数值越大 item 排序越后
+
+flex-grow             充分利用fiex container 的空间，剩余空间怎么分配
+如：设置 item 值分别为1、 0、 0时，fiex container为4等份，第一个 item 占比两等份
+    设置 item 值分别为1、 1、 0时，fiex container为4等份，第一个和第二个 item 占比三等份
+    设置 item 值分别为1、 1、 1时，fiex container为3等份，第一个和第二个和第三个 item 占比三等份，都一样
+
+shrink：缩小(压缩)的意思，剩余空间怎么压缩
+flex-shrink    当宽度超过最大时，都不会换行，选择 flex-wrap: wrap 时，将会换行看到真实的 item 宽度
+如：设置 flex-shrink 值为：0时，item 不（不允许）压缩
+    设置 flex-shrink 值为：1，1,1时，三个 item 等比例压缩
+    设置 flex-shrink 值为：2，1,1时，第一个 item 再次压缩一份
+    
+    
+    
+    
+
+flex-bassie：可以理解为像素
+flex-bassie：设置值为：300时（也可以设置为%比），第一个 item 再次压缩一份
+当既有flex-bassie，也有width 宽度时，flex-bassie 权重比较高，会覆盖width 宽度值
+
+
+
+align-self：item 在cross axis交叉轴的对齐方式
+align-self 和 align-item 都有相同的属性；align-self 里面的属性会覆盖 align-item 的属性
+flex-start     单个页面 item 向上对齐
+flex-end       单个页面 item 向下对齐
+center         单个页面 item 中间对齐
+baseline
+
+
 
 ![flexbox](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox.png)
 ![flexbox1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox1.png)
