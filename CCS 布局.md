@@ -30,9 +30,9 @@ tab 布局过时了
 更加简介明了，头部尾部一目了然
 ```
 
-
+##### 深入理解 HTML 语义
 ```
-深入理解 HTML 语义
+
 HTML 语义当然不仅仅只是几个 HTML 语义标签。
 
 从“文档”说起
@@ -75,10 +75,7 @@ https://segmentfault.com/a/1190000002695791    (很齐全)
 HTML 语义
 http://justineo.github.io/slideshows/semantic-html/#/2
 ```
-
-
-
-让 IE8 支持 HTML5 语义化标签
+##### 让IE8 支持 HTML5 语义化标签
 ```
 HTML5是 HTML 最新的修订版本，于2014年10月由万维网联盟（W3C）完成标准制定。而 IE8 面世时间为2009年3月19日，
 时间相差如此之大，所以 IE8 作为比较古老的浏览器，不支持 HTML 5 引入的语义化标签
