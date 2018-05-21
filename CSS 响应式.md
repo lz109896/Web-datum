@@ -1,0 +1,432 @@
+
+#### 第一节：响应式简介
+```
+同一套代码要在不同的设备上使用
+在开始代码编写之前就应该要思考一下系统响应式问题，我们自己的用户可能需要用到那些设备
+
+包括以下四点：
+1.viewport：视窗，视口
+2.media queries：媒体查询
+3.内容布局
+4.图片大小
+```
+#### 第二节：viewport
+```
+mete :元数据
+<meta charset="UFT-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+```
+#### 第三节：[资料] retina 显示屏
+
+retina 显示屏
+```
+关键词
+如果我们去苹果的官网查看 iPhone 7的介绍，可以看到其显示屏介绍如下：
+
+我们以 7 plus 为例抽取如下几个关键词（这些关键词跟我们今天要说的内容都息息相关）：
+
+Retina HD 显示屏
+5.5 英寸
+1920 x 1080 像素分辨率
+401 ppi
+下面我们再来一一详细谈论这些关键词。我们先从第二个说起，因为第一个的解释需要用到下面的一些关键词。
+
+5.5 英寸
+这个比较简单，就是显示屏对角线的长度（我们可以通过勾股定理计算得到，甚至可以自己用尺子去量）。
+如下几种不同的 iPhone 的几种尺寸规格：
+
+注：1英寸（inch）=2.54厘米（cm）
+
+1920 x 1080 像素分辨率
+1920 x 1080 像素分辨率表示该显示屏的分辨率为：1920px x 1080px。
+
+前面我们已经说过，显示屏上的每个图形都是由一个一个像素点构成的，下面的图形可以很形象的帮助你明白：
+
+既然明白了像素点，现在我们就可以解释分辨率1920px x 1080px的意思了。它表示在这个iPhone 7 plus 5.5 英寸英寸屏幕上，
+在竖向的高度上有1920个像素点，在横向的宽度上有1080个像素点。
+
+注：一般来说电脑可以直接右键查看屏幕分辨率（windows操作系统），而手机可以在“设置>关于本机”中找到分辨率，
+如果你不知道也可以参考下面两个链接：
+
+怎么查看手机分辨率 : 设置里面找
+怎么查看电脑屏幕的分辨率是多少
+1、在电脑桌面上右键点击分辨率选项。
+2、弹出框会显示电脑分辨率。
+```
+
+##### 像素密度——PPI
+```
+Pixels Per Inch（PPI）也叫像素密度，所表示的是每英寸所拥有的像素数量，PPI值越高，画面的细节就会越丰富。
+
+其计算公式如下图：
+
+
+简单来说就是利用我们上面所说的分辨率运用勾股定理求出对角线上的像素点，然后再把该像素点除以对角线的长度。
+也就得到了每英寸所拥有的像素数量。
+
+更多关于 PPI 的资料可参看：
+
+PPI（手机屏幕的PPI 和计算方法） :file:///C:/Users/Administrator/Downloads/9910558.htm
+每英寸像素: https://zh.wikipedia.org/wiki/%E6%AF%8F%E8%8B%B1%E5%AF%B8%E5%83%8F%E7%B4%A0
+```
+##### Retina HD 显示屏
+```
+所谓“Retina”是一种显示技术，可以将更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。
+这种分辨率在正常观看距离下足以使人肉眼无法分辨其中的单独像素，也被称为视网膜显示屏。
+
+Retina 既不是指分辨率，也不是单独指PPI，而是指视觉效果。其计算公式为（可以不用了解）：
+
+
+a 代表人眼视角，h 代表像素间距，d 代表肉眼与屏幕的距离。符合以上条件的屏幕可以使肉眼看不见单个物理像素点。
+这样的显示屏就可被苹果称作“Retina显示屏”。
+
+将通常使用距离代入上公式可知：
+
+手机显示器的像素密度达到或高于 300ppi 就不会再出现颗粒感（视线距离在35CM左右）
+而苹果电脑的 Retina 显示器像素密度只要超过 200ppi 就无法区分出单独的像素（视线距离在60CM左右）
+我们已经知道了 Retina 显示屏，那么 Retina HD 显示屏又是什么呢？
+
+然而苹果官方对它自己发明的这个词也没有一个具体的概念，我们可以简单的理解为一个升级版，有着更好的显示效果就可以了。
+具体可参看：来探讨一下Retina和Retina HD显示屏
+
+更多关于 Retina 的资料可参看：
+
+Retina（一种新型高分辨率的显示技术）
+4K 和 Retina 显示屏哪个分辨率更高？
+```
+##### devicePixelRatio（设备像素比）
+
+```
+上面四个概念我们已经明白了，但是离我们的最终问题还差一点，我们接着引入第五个概念：devicePixelRatio。
+
+在解释这个概念之前，我们先来看个 demo（CSS 尺寸大小）。
+
+通过 chrome 调试工具我们模拟iPhone 7（因为 iPhone 6、7的大小一样，所以实际使用iPhone 6 模拟即可），
+并且查看对应的 demo 元素的 CSS 宽高，会发现其宽高分别为： 375px * 667px。
+（该 demo 已经设置了 viewport 的宽度为 device-width，不然的话得到的宽度就是 980px 了。）。
+
+这个宽高正好是我们前面所说 iPhone 7 分辨率（750px * 1334px） 的一半大小，这说明两者之间是存在一定关系的。
+而 devicePixelRatio 正好是用来描述这两者的比例关系的，下面我们将进行详细介绍。
+
+物理像素：我们把分辨率的像素称之为物理像素或设备像素（如 iPhone 7 的物理像素为 750px * 1334px），
+它是显示设备中一个最微小的物理部件。
+
+设备独立像素：CSS 的尺寸像素称之为设备独立像素（device-independent pixels 简称为“DIPs”）或CSS 像素
+（如 iPhone 7 的设备独立像素为 375px * 667px），它是一个抽象的单位，主要使用在浏览器上，
+用来精确的度量（确定）Web页面上的内容。
+
+devicePixelRatio（简写 DPR）： 用来描述物理像素与设备独立像素的比例，其值等于 “物理像素 / 设备独立像素”。
+devicePixelRatio 值为 1 时就是我们的标准屏，值为 2 时则是我们俗称的 2 倍屏（2x），同样 3 就是 3 倍屏（3x）。
+
+注：其实在打开 chrome 开启移动端调试的时候，我们就可以看到设备独立像素和 DPR
+（如果看不到 DPR，则打开右边设置，找到 device pixel ratio 即可） ，如下图：
+
+通过上面的说明，我们可以得到 iPhone 7 的 devicePixelRatio 为 2 （750px / 375px = 2），就是 2 倍屏。
+那么这个 2 倍屏跟我们普通的标准屏有什么区别呢？
+
+对一个标准屏来说，渲染一个 2px 2px 的盒子将会使用 2px 2px 物理像素，如我们的普通电脑屏；但是对于一个 2 倍屏来说，
+渲染一个 2px 2px 的盒子将会使用 （2px 2） （2px 2） 物理像素，如我们的 iPhone 4、5、6、7，如下图：
+
+注：在 3 倍屏出现以前，retina 显示屏一般就指代了 2 倍屏，所以如果是查看以往的资料，会有很多这种情况。
+
+更多关于 devicePixelRatio 的资料可参看：
+
+Window.devicePixelRatio
+devicePixelRatio property.aspx)
+```
+##### 面临问题
+```
+熟悉了这些概念之后，我们就要开始解决需要面临的问题了。由于 devicePixelRatio 不再是1，我们的物理像素与
+设备独立像素不再对等，所以在实际网页开发时面临了2个问题：图片虚化、1px边框变粗
+```
+##### 图片虚化
+```
+我们知道，位图（png, jpg, gif等）是由一个个像素点构成的，每个像素都具有特定的位置和颜色值，
+我们称之为位图像素，如下图：
+
+
+当一个位图在标准屏显示时，一位图像素对应的就是一物理像素，这样就保证了一个完全保真的显示。但是当在 2 倍屏下时，
+它需要要放大四倍（宽高各两倍）来保持相同的物理像素的大小，这样就会丢失很多细节，造成失真的情形，
+也就是我们常说的图片虚化问题。如下图：
+
+那么怎么解决该问题呢？说到底就是为了让一位图像素对应一物理像素，既然物理像素已经定了不能变，
+那么我们是否可以改变位图像素呢？答案是肯定的。
+
+我们可以把要使用的图片扩大一倍，如要用的图片大小为 2px 2px，我们可以使用 4px 4px 的图片然后设置图片大小为 2px * 2px，
+这样对于2倍屏则正好，而标准屏则减少像素取样（一定程度上的浪费），如下图：
+
+
+这样就解决了我们的图片在2倍屏的虚化问题，对于3倍屏也是一样的道理
+```
+##### 1px 边框变粗
+```
+为了说明这个问题，我们先看一个1px demo，截图如下（iPhone 6截图）：
+
+
+如果我们把上图与我们手机系统上的 1px 边框进行对比，如下图：
+
+
+我们会发现，上面两个上下线条，下线条的粗细才是正确的，上线条就显得有点粗了。但是上线条我们是用纯正的 1px border生成的，
+而下线条我们实际是采用transform压缩了1px高度的一半模拟实现的，也就相当于 0.5px 的高度了。为什么会这样呢？
+
+这是因为在2倍屏时1 CSS 像素实际对应2个物理像素, 所以为了实现真正的 1px 粗细，我们得使用 0.5px 来模拟。
+目前除 ios8+ 可以直接使用 0.5px 单位外，其余皆得通过模拟的办法搞定。具体实现办法有很多，
+大家可以参考：7种方法解决移动端Retina屏幕1px边框问题。
+
+注：我一般使用上面 1px demo 中的方法。
+```
+##### 附：iPhone 6/6s/7 plus 的 3 倍屏
+```
+我们知道 iPhone 6/6s/7 plus 的分辨率为1080px 1920px ，而其设备独立像素为 414px 736px，如果按照我们的
+计算其devicePixelRatio（1080 / 414） 并不等于 3，但是我们通过window.devicePixelRatio或在模拟的时候都是 3。
+
+这是因为它进行了缩放，如下图（具体可参看：iPhone 6 Screens Demystified 的图形说明）：
+
+
+
+参考资料
+viewport 深入理解: https://www.cnblogs.com/2050/p/3877280.html
+走向视网膜（Retina）的Web时代 : https://www.w3cplus.com/css/towards-retina-web.html
+The Ultimate Guide To iPhone Resolutions:
+https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions
+
+```
+#### 第四节：媒体查询（media queries）
+```
+360x640 是最多人使用的设备尺寸；其次是1920X1080 尺寸
+感知屏幕尺寸，就是媒体查询
+```
+```
+以下是平板，媒体查询的代码
+@media screen and (min-width:768px) and (max-width:1024px){
+    .DEMO{
+         color:red
+    }
+}
+
+
+释义：
+@media ：关键词，有了这个词才叫媒体查询。
+screen ：媒体类型（all、screen、print、TV.....没少去用这些，基本使用screen ），
+and  ： 逻辑操作符（在screen、min-widt、max-width，这三个条件同时成立的时候才用and操作符）
+        （在screen、min-widt、max-width，其中一个条件成立的时候才用or操作符,not就一次类推）
+(min-width:768px)：媒体条件，在宽度大于或等于768px 时生效，
+max-width ：媒体属性，
+例如：min/max-height、orientation(指的是横还是竖屏;landscape 表示横屏，portrait 表示竖屏)、
+     device-weidth/height、-webkit-device-pixel-ratio.....
+```
+另外一种媒体查询：示例
+```
+<link rel="stylesheet" href="style.css" media="(min-width:1024px)">
+
+加一个 media 属性。再写上查询条件(min-width:1024px)就可以了
+
+```
+默认颜色为黑色，视窗大小 >=480px为#999，>=768px为red，>=1024px为blue，>=1200px为green，>=1380px为orange
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应式断点设置</title>
+    <style type="text/css">
+        /* 手机竖屏 */
+        .demo{
+            color: #000;
+        }
+        
+        /* 手机横屏 */
+        @media screen and (min-width: 480px) { 
+            .demo{
+                color: #999;
+            }
+        } 
+
+        /* 平板竖屏 */
+        @media screen and (min-width: 768px) { 
+            .demo{
+                color: red;
+            }
+        }
+
+        /* 平板横屏及 PC 窄屏 */
+        @media screen and (min-width: 1024px) { 
+            .demo{
+                color: blue;
+            }
+        }
+
+        /* PC 宽屏 */
+        @media screen and (min-width: 1200px) { 
+            .demo{
+                color: green;
+            }
+        }
+
+        /* PC 超大屏 */
+        @media screen and (min-width: 1380px) { 
+            .demo{
+                color: orange;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">默认颜色为黑色，视窗大小 >=480px为#999，>=768px为red，>=1024px为blue，>=1200px为green，>=1380px为orange</div>
+</body>
+</html>
+
+```
+
+#### 第五节：响应式布局
+```
+视频中涉及到的网址如下：
+
+内容流式布局  :http://coding.imweb.io/demo/p3/responsive/fluid.html
+固体 + 流式  :http://coding.imweb.io/demo/p3/responsive/fixed.html
+切换显示形式  :http://coding.imweb.io/demo/p3/responsive/style.html# 
+关于内容布局补充说明：
+
+说到底，响应式就是对内容显示的控制，让它在不同设备上都能很好的呈现给用户，提升用户体验。
+
+一般内容较小的站点如小公司网站及个人博客会采用全平台响应，就是同一内容兼容所有平台，因为相对来说制作成本比较低，
+如W3cplus；而一些内容非常多，站点比较复杂的则可以采用 PC + 平板一套内容，手机单独一套内容，大公司的大站点都是这么做的。
+
+对于主体内容来说，有以文字为主的或图片视频为主的。对于以文字为主的，一般可以采用流式的响应，
+对应我们的视频中的内容流式布局部分；对于以图片为主的，一般针对 PC 平台就是固定几种宽度响应，
+而针对移动端可能是流式的，也可能是固定的，对应视频中的固体 + 流式布局。当然除了整体布局方面的考虑，
+还有内容不同形态的考虑，比喻有些内容可以考虑隐藏等，对应视频中的切换显示形式。
+
+
+```
+#### 第六节：响应式图片
+```
+
+< img
+     src="img/small.png"
+     srcset="img/Large.png 960w, img/medium.png 640w, img/small.png 320w 
+     sizes="( max-width:414px) 100vw, 640px" 
+     alt="响应式图片" />
+
+释义：
+sizes="( max-width:414px) 100vw, 640px"    需要的图片大小（相当于响应式查询）； 640px是属于默认值，
+当max-width 条件匹配不上的时候，就取默认值
+
+srcset="img/Large.png 960w,img/medium.png 640w ,img/small.png 320w    供选择的图片规格
+
+w    宽度描述符
+```
+< img src="img/small.png"
+     alt="x example" 
+     srcset="img/Large.png 2x">
+     
+当屏幕是2倍屏幕时，取srcset="img/Large.png 2x
+当是普通屏幕时，取src="img/small.png"。
+```
+
+
+图片大小:http://coding.imweb.io/demo/p3/responsive/img-media.html
+响应式图片:http://coding.imweb.io/demo/p3/responsive/img-max.html
+```
+#### 第七节：[资料] 响应式资源参考
+
+##### 响应式资源参考
+```
+响应式一听就是很高大上的感觉，没入门的时候可能感觉头很大根本无从下手。但是千万不要被其所唬住，根据我的学习经验，
+响应式其实是很简单的，只要处理好以下两点：
+
+断点设置：可以先综合判断要实现各个平台断点，然后再针对一些特殊局部进行单独的断点
+内容布局呈现：这个可能就比较繁琐，有些时候还得有一定的想象力。
+目前响应式社区很活跃，资源也非常多，下面给大家整理下响应式不同方面的相关文章，方便大家有针对性地学习和阅读。
+```
+##### 基本认识
+```
+什么是响应式布局设计？:https://www.zhihu.com/question/20976405
+viewport 深入理解 : https://www.cnblogs.com/2050/p/3877280.html
+CSS 媒体查询    :https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries
+下手响应式及断点设置分析  :http://imweb.io/topic/56dff5121a5f05dc506430da
+```
+##### 整体布局
+```
+浮动布局精华 Layout Gala（参考流体负 margin 布局部分）
+Flexbox Grid（使用 flexbox 的网格布局系统）
+How to build a responsive grid system
+内容处理相关
+响应式导航解析
+video 自适应问题
+响应式图片处理101系列(共10篇)
+table 处理
+图片滚动
+框架相关
+Bootstrap
+Foundation
+工具相关
+使用Chrome测试页面响应性
+测试响应和设备特定可视窗口
+Screensiz.es
+Respond.js
+其他
+响应式案例
+响应式资源汇总
+书籍：《响应式Web设计-HTML5和CSS3实践》（英文名为：Responsive Web Design width HTML5 and CSS3）作者：Ben Frain
+注：一般来说复杂的站点都会单独处理移动端，而不是全兼容从 PC 到 移动端的全兼容，毕竟移动端还是以轻快为主。
+
+```
+#### 第八节：[资料] 常见 CSS 框架
+##### 常见 CSS 框架
+```
+有时候为了提高开发效率，我们往往会使用一些前端的 CSS 框架。当框架的功能能够满足你的需求时，
+使用框架是一个不错的主意。下面我们将介绍几款常见的 CSS 框架，以供你学习或工作之选。
+```
+#### Bootstrap
+```
+Bootstrap 是世界上最流行的前端基础框架之一，可用于构建响应式或移动端项目以及帮助你快速开发web应用。
+其在推出之后就广受追捧，并掀起了 UI 框架热。在许多有名的网站都能看到使用 Bootstrap 的身影，
+而在管理后台方面更是一骑绝尘成为首先框架。
+```
+##### Pure CSS
+```
+Pure.css 是一套小型响应式 CS S模块，可用于所有 Web 项目，为原生 HTML 元素以及最常见的 UI 组件提供布局和样式。
+Pure.css 其代码十分精简，压缩后体积才3.8kb，十分适合移动端和响应式场景的开发。
+
+```
+
+##### WE UI
+```
+WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，
+令用户的使用感知更加统一。如果需要开发微信场景的 H5 页面，可以使用 WeUI 来使用微信风格的样式和提高样式开发效率。
+
+总结
+市面上还有许多优秀的 CSS 框架，在选择使用 CSS 框架前，我们需要先认真考虑自身使用场景和了解可选框架的提供的功能。
+只有选择适合的框架，我们才能事半功倍。当然即使你不直接使用框架，模仿学习框架设计架构思想对自己的学习成长也是非常有益的。
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
