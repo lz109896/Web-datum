@@ -1,5 +1,5 @@
 #### 第一节：JavaScript 引言
-HTML 和 CCS 都是不叫简单的，JavaScript 才是重点
+HTML 和 CCS 都是简单的，JavaScript 才是重点
 
 #### 第二节：认识 JavaScript
 ```
@@ -274,18 +274,18 @@ Number、String:属于基本数据类型
 Null、Undefined :为空的意思
 BOoolean :布尔类型（是或否的意思）
 Object:复杂数据类型，引用数据类型
-```
+
 typeof ：是操作符
 typeof !1, !是反义操作符， !1的结果是 false，为布尔类型， 因此结果是 boolean
 'true' 被引号括起来了，是一个字符串，所以结果是 string
 变量定义 var a; 相当于 var a = undefined;, 结果是 undefined
 
-
-#### 第一节：Number 数字类型
+```
+#### 第十节：Number 数字类型
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%203.png)
-#### 第十节：String 类型(字符串)
+#### 第十一节：String 类型(字符串)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%203.png)
@@ -297,7 +297,7 @@ typeof !1, !是反义操作符， !1的结果是 false，为布尔类型， 因�
 String ： 可以拼接
 空格、点号、只要出现的引号里面的都是长度
 ```
-#### 第十一节：[资料] Number 类型与 String 类型之间的转换
+#### 第十二节：[资料] Number 类型与 String 类型之间的转换
 
 深入了解 Number 类型
 ```
@@ -468,7 +468,7 @@ Math.sin(Math.PI / 2); // 1
 
 
 ```
-#### 第十一节：Boolean 类型
+#### 第十三节：Boolean 类型
 true
 
 false
@@ -490,29 +490,27 @@ false
 这里涉及到运算符的优先级，虽然还没介绍，但不妨碍我们做题，是吧？活用调试工具。
 
 ```
-#### 第一节：Null 和 Undefined 类型
+#### 第十四节：Null 和 Undefined 类型
 ```
 初始化变量是如果不赋值，变量的值是 undefined, 不是 null。
 typeof null 的值是 object。
 !!null 的值是 false。
 Null 类型只有一个值 null, Undefined 也只有一个值 undefined。
 ```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/Null%20%E5%92%8C%20Undefined%20%E7%B1%BB%E5%9E%8B%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/Null%20%E5%92%8C%20Undefined%20%E7%B1%BB%E5%9E%8B%202.png)
 
-
-
-
-
-#### 第一节：Object 类型
+#### 第十五节：Object 类型
 ```
 有{}的就是定义一个对象
 
-
-
-
-
-
 ```
-#### 第一节：数组简介
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/object%201.png)
+
+
+
+
+#### 第十六节：数组简介
 ```
 数组字面量描述方式例如：var bottles = ['绿','蓝','紫','红']   **推荐这种
 或者Array 构造函数：var bottles = name Array ['绿','蓝','紫','红']
@@ -543,7 +541,7 @@ bottles.length = 5
 console.log（bottles）; //['绿','黄','紫','红'undefined]
 
 ```
-#### 第一节：数组的简单方法
+#### 第十七节：数组的简单方法
 
 ##### push 方法，在数组末尾增加数据
 ```
@@ -577,7 +575,7 @@ console.log（bottles.length）; //4
 ```
 
 
-#### 第一节：[资料] 数组的常用方法
+#### 第十八节：[资料] 数组的常用方法
 ```
 数组作为一种重要的数据类型，除了我们前面已经说到的 pop、push、shift、unshift 几个方法外，还有很多实用的方法也是我们的必备技能。
 
@@ -781,14 +779,14 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects
 
 
 ```
-#### 第一节：函数
-```
+#### 第十九节：函数
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%203.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%204.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%205.png)
 
-
-
-
-```
-#### 第一节：[资料] 函数表达式和函数声明的区别
+#### 第二十节：[资料] 函数表达式和函数声明的区别
 ```
 函数声明与函数表达式的区别
 前面我们已经说了两种定义函数的方式：函数声明与函数表达式。那么这两种方式有区别吗，还是一样的呢？下面我们来进一步探讨探讨。
@@ -852,51 +850,41 @@ hi = function () {
 这样是不是一下就恍然大悟了。所以在实际开发的时候，一定要注意变量（函数）的声明会被提升到当前作用域的最前面
 
 ```
-#### 第一节：作用域
+#### 第二一节：作用域
 ```
 1.在函数内声明，前面有关键字 var， 都属于函数作用域下的
 2.在函数外声明，属于全局作用域
 3.在函数内声明，但是前面没有 var 关键字，也属于全局作用域
 
-
-
-
-
 ```
-#### 第一节：算术运算符
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E4%BD%9C%E7%94%A8%E5%9F%9F%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E4%BD%9C%E7%94%A8%E5%9F%9F%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E4%BD%9C%E7%94%A8%E5%9F%9F%203.png)
+
+#### 第二二节：算术运算符
 ```
 1.使用了赋值运算符=
 2.使用的为比较运算符==，并不是赋值运算符
 3.使用了复合赋值运算符+=，这里result += 6; 相等于 result = result + 6;
-
-
-
 ```
-#### 第一节：赋值运算符
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%203.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%204.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%205.png)
+
+#### 第二三节：赋值运算符
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
 
 
-
-
-
-
-
-```
-#### 第一节：比较运算符
-[练习] 使用比较运算法
-#### 第一节：逻辑运算符
-[练习] 使用逻辑运算符
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### 第二四节：比较运算符
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%203.png)
+#### 第二五节：逻辑运算符
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%203.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%204.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%205.png)
