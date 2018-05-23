@@ -508,21 +508,380 @@ Null 类型只有一个值 null, Undefined 也只有一个值 undefined。
 
 
 
+
+
+
 ```
 #### 第一节：数组简介
-[练习] 创建一个书单
+```
+数组字面量描述方式例如：var bottles = ['绿','蓝','紫','红']   **推荐这种
+或者Array 构造函数：var bottles = name Array ['绿','蓝','紫','红']
+```
+
+##### 数组的读：
+```
+数组字面量 ： var bottles = ['绿','蓝','紫','红'] 
+数组索引：                    0    1    2    3
+console.log（bottles[0]）//'绿'
+console.log（bottles[3]）//'红'
+console.log（bottles[4]）//'undefined'    ** 当长度没有那么多，读取不到时，返回值是'undefined'
+```
+##### 数组的写：
+```
+数组字面量 ： var bottles = ['绿','蓝','紫','红']
+bottles[1] = '黄'
+console.log（bottles）; //['绿','黄','紫','红']
+长度为1的数据变成了'黄'
+```
+##### 数组的长度：
+```
+数组字面量 ： var bottles = ['绿','蓝','紫','红']
+console.log（bottles.length）; //4
+
+改变数组的长度，给长度赋值，** 不建议这种方式改变数组的长度，其他语言没有这种写法
+bottles.length = 5
+console.log（bottles）; //['绿','黄','紫','红'undefined]
+
+```
 #### 第一节：数组的简单方法
-[练习] 对书单进行操作
+
+##### push 方法，在数组末尾增加数据
+```
+数组字面量 ： var bottles = ['绿','蓝','紫']
+bottles.push('红');
+console.log（bottles）; //['绿','蓝','紫','红']
+console.log（bottles.length）; //4
+```
+##### pop 方法，在数组末尾去掉数据
+```
+数组字面量 ： var bottles = ['绿','蓝','紫','红']
+bottles.push();
+console.log（bottles）; //['绿','蓝','紫']
+console.log（bottles.length）; //3
+```
+##### shift 方法，在数组中，去掉前面的数据
+```
+数组字面量 ： var bottles = ['绿','蓝','紫','红']
+bottles.shift();
+console.log（bottles）; //['蓝','紫','红']
+console.log（bottles.length）; //3
+数组序号改变，索引也会改变
+```
+##### unshift 方法，在数组中，在前面增加数据
+```
+数组字面量 ： var bottles = ['绿','蓝','紫',]
+bottles.unshift('红');
+console.log（bottles）; //['红','蓝','紫','红']
+console.log（bottles.length）; //4
+数组序号改变，索引也会改变
+```
+
+
 #### 第一节：[资料] 数组的常用方法
+```
+数组作为一种重要的数据类型，除了我们前面已经说到的 pop、push、shift、unshift 几个方法外，还有很多实用的方法也是我们的必备技能。
+
+假设我们有一队人，我们要对其进行一些排序或筛选的操作（比喻按高矮排序，筛选女性等），我们都可以通过数组来进行操作。
+
+注：这里更侧重讲解如何使用，至于详细方法请参考：数组 | MDN:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+抽出一些人,首先我们用数组定义该数据（为了简单起见，我们数据就不搞那么多）：
+
+var aPerson = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
+```
+##### slice
+```
+现在假设我们要抽取三个人，我们可以使用slice()方法来选取三个人，如下：
+
+var aP3 = aPerson.slice(1, 4);
+console.log(aPerson); // ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
+console.log(aP3); // ["person2", "person3", "person4"]
+该方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。原数组不会改变。
+
+详细语法请参考：slice :https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+```
+##### splice
+```
+同样我们还可以使用splice()方法来选取，如下：
+
+var aPerson = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
+var aP3 = aPerson.splice(1, 3);
+console.log(aPerson); // ["person1", "person5", "person6"]
+console.log(aP3); // ["person2", "person3", "person4"]
+该方法通过删除现有元素或添加新元素来更改数组的内容。原数组会改变。
+
+对于 slice 来说，splice 的功能会更强大点，其区别主要在于：
+
+slice 不改变原数组，而 splice 则会改变
+slice 的第二个参数为截至的索引值，而 splice 则表示要截取的个数
+splice 还能用于增加元素，slice 则不可以
+详细语法请参考：splice:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+```
+##### concat
+```
+除了从队伍里抽出一些人出来，我们还可以把另外一个队伍和这个队伍合并成一个新队伍，如下：
+
+var aPerson1 = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
+var aPerson2 = ['person7', 'person8', 'person9'];
+
+var aPerson3 = aPerson1.concat(aPerson2);
+console.log(aPerson3); // ["person1", "person2", "person3", "person4", "person5", "person6", "person7", "person8", "person9"]
+concat() 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+
+详细语法请参考：concat
+```
+##### 高矮排序
+```
+现在我们以高矮的形式定义一组数据，如下：
+var aHeight = ['170', '165', '178', '183', '168', '175', '173'];
+```
+##### reverse
+```
+我们可以直接使用reverse()方法来实现倒序，如下：
+aHeight.reverse();
+console.log(aHeight); // ["173", "175", "168", "183", "178", "165", "170"]
+该方法非常简单，没有任何参数，就是把数组的出现顺序调换下，第一个元素会成为最后一个，最后一个会成为第一个。一般也很少用到。
+```
+##### sort
+```
+比起 reverse() 来说，sort() 方法使用的地方就多了。我们先来个从矮到高的排序，如下：
+
+aHeight.sort();
+console.log(aHeight); // ["165", "168", "170", "173", "175", "178", "183"]
+sort() 方法默认的排序是升序，如上代码可见。但是我们也可以传入一个函数，指定其排序方式，如现在让其以降序方式排列：
+
+aHeight.sort(function(a, b){
+    return b - a;
+});
+console.log(aHeight); // ["183", "178", "175", "173", "170", "168", "165"]
+详细语法请参考：sort :https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+```
+##### 随机排序
+```
+除了正常的升序降序之外，其实我们还经常使用到随机排序，如我们的抢红包，棋牌游戏中的洗牌都是随机排序的应用。
+
+在使用随机排序的时候，我们得使用到一个随机函数 Math.random()。
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+该函数返回一个浮点数, 其数字在范围[0，1)。
+
+这样我们就可以使用该随机生成浮点数与0.5大小进行比较，那样结果可能大于或小于0，最后就得到了我们的随机排序。
+
+// 第一次运行
+aHeight.sort(function(){
+    return 0.5 - Math.random();
+});
+console.log(aHeight); // ["183", "168", "175", "173", "170", "165", "178"]
+
+// 第二次运行
+aHeight.sort(function(){
+    return 0.5 - Math.random();
+});
+console.log(aHeight); // ["170", "183", "175", "168", "173", "165", "178"]
+因为是随机的，所以每次运行都会不一样，我们可以多运行几次试试。
+```
+##### 条件筛选测试
+```
+现在我们以肤色和年龄的的形式定义两组数据，如下（yellow 表示黄种人，white 表示白人，black 表示黑人）：
+
+var aColor = ['yellow', 'black', 'white', 'white', 'yellow', 'yellow'];
+var aAge = [19, 30, 25, 37, 18, 35];
+```
+##### 测试是否符合条件
+```
+every
+every() 方法用于测试数组的所有数据是否都通过了指定函数的测试，如果通过返回 true，否则 false。
+
+比喻判断是否所有人的年龄都大于20岁，如下：
+
+var ageTest = aAge.every(function(item, index){
+    return item > 20;
+})
+
+console.log(ageTest); // false
+every 需要数组中的每个数据都满足该条件则返回 true，否则就是 false。
+
+详细语法请参考：every
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+```
+some
+```
+对应 every() 方法，还有一个 some() 方法，表示数组中只要有任何一个数据满足条件则返回 ture，如果一个数据都不满足则返回 false。
+
+比喻判断是否有人的年龄都大于32岁，如下：
+
+var ageTest2 = aAge.some(function(item, index){
+    return item > 32;
+})
+
+console.log(ageTest2); // true
+详细语法请参考：some
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+includes
+includes() 方法用来判断当前数组是否包含某指定的值，如果是，则返回 true，否则返回 false。
+
+比喻判断是否有35岁的人，如下：
+
+var ageTest3 = aAge.includes(35);
+var ageTest4 = aAge.includes(28);
+
+console.log(ageTest3); // true
+console.log(ageTest4); // false
+```
+##### 条件筛选
+```
+filter
+比喻我要选取所有黄皮肤的人，如下：
+
+var aYellow = aColor.filter(function(item, index) {
+    return item === 'yellow';
+})
+
+console.log(aYellow); // ["yellow", "yellow", "yellow"]
+该方法返回所有满足条件数据组成的数组。
+
+详细语法请参考：filter
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+让每个人都干点啥
+forEach
+forEach() 方法对数组的每个元素执行一次提供的函数，该方法没有返回值。
+
+比喻过节的时候给每个人去老板那边领个红包，如下：
+
+var aPerson = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
+
+aPerson.forEach(function(item, index) {
+    console.log(item + '领取了 200 元红包')
+})
+详细语法请参考：forEach
+```
+#####  map
+```
+map() 方法创建一个新数组，其结果是该数组中的每个元素调用一个提供的函数。
+
+比喻每个人的工资都增加 5000元，如下：
+
+// 先构造一份工资数据
+var aSalary = [8000, 7000, 1500, 9000, 22000];
+
+var aNewSalary = aSalary.map(function(item, index) {
+    return item + 5000;
+})
+
+console.log(aNewSalary); // [13000, 12000, 6500, 14000, 27000]
+
+详细语法请参考：map
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+其他
+除了上面说的那些方法之外，还有一些常用方法，如 indexOf、join 等等，这里就不再一一说明了，具体可参考：数组 | MDN
+
+总之，数组的方法一定要了如指掌，如果你实在记不住，那也必须知道有这么个东西，以后知道怎么查阅，因为平时做业务的时候处理数据就需要这些各种方法。
+
+
+```
 #### 第一节：函数
-[练习] 摄氏度华氏度转化
+```
+
+
+
+
+```
 #### 第一节：[资料] 函数表达式和函数声明的区别
+```
+函数声明与函数表达式的区别
+前面我们已经说了两种定义函数的方式：函数声明与函数表达式。那么这两种方式有区别吗，还是一样的呢？下面我们来进一步探讨探讨。
+
+下面我们定义了两个函数分别为 hello 和 hi，前者采用函数声明，后者采用函数表达式，然后再调用，如下：
+
+function hello () {
+    console.log('Hello the world');
+}
+
+var hi = function () {
+    console.log('Hi, IMWeb');
+}
+
+hello(); // 'Hello the world'
+hi(); // 'Hi, IMWeb'
+上面的调用，我们都能得到正确的运行，并没有什么区别。但是如果我们把顺序掉下，先调用函数后定义函数，那么情况就会有点不一样了。如下：
+
+hello(); // 'Hello the world'
+hi(); // Uncaught TypeError: hi is not a function
+
+function hello () {
+    console.log('Hello the world');
+}
+
+var hi = function () {
+    console.log('Hi, IMWeb');
+}
+从上我们可以看到，hello 函数可以照常运行，但是我们的 hi 函数就会报错了。
+根据报错“Uncaught TypeError: hi is not a function”，我们知道 hi 不是 function 了，
+那又是什么呢？我们继续使用 typeof 查看下：
+
+console.log(typeof hello); // function
+console.log(typeof hi); // undefined
+
+function hello () {
+    console.log('Hello the world');
+}
+
+var hi = function () {
+    console.log('Hi, IMWeb');
+}
+function hello () {
+    console.log('Hello the world');
+}
+var hi;
+
+console.log(typeof hello); // function
+console.log(typeof hi); // undefined
+
+hi = function () {
+    console.log('Hi, IMWeb');
+}
+通过 typeof 我们可以看到 hi 现在是个 undefined 了，这是为什么呢？
+
+这是因为 JavaScript 解释器中存在一种变量声明被提升（hoisting）的机制，
+也就是说变量（函数）的声明会被提升到当前作用域的最前面，即使写代码的时候是写在最后面，也还是会被提升至最前面。
+
+这样上面的例子在执行的时候就成了这样的：
+
+这样是不是一下就恍然大悟了。所以在实际开发的时候，一定要注意变量（函数）的声明会被提升到当前作用域的最前面
+
+```
 #### 第一节：作用域
-[练习] 判断是否全局作用域
+```
+1.在函数内声明，前面有关键字 var， 都属于函数作用域下的
+2.在函数外声明，属于全局作用域
+3.在函数内声明，但是前面没有 var 关键字，也属于全局作用域
+
+
+
+
+
+```
 #### 第一节：算术运算符
-[练习] 使用算术运算符
+```
+1.使用了赋值运算符=
+2.使用的为比较运算符==，并不是赋值运算符
+3.使用了复合赋值运算符+=，这里result += 6; 相等于 result = result + 6;
+
+
+
+```
 #### 第一节：赋值运算符
-[练习] 使用赋值运算法
+```
+
+
+
+
+
+
+
+```
 #### 第一节：比较运算符
 [练习] 使用比较运算法
 #### 第一节：逻辑运算符
