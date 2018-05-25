@@ -45,18 +45,53 @@ html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构
 ```
 #### 7.	常用节点类型 之 Text
 ```
+ Text 类型用调试工具其实很难选到的，只能选一个节点
 
 
+```
+```
+/**
+ * 创建一个 p 元素，要求如下：
+ *
+ * 将其 id 属性设置为 first-element
+ * 将其 title 属性设置为“我的第一个元素”
+ * 将其赋值给变量 `myFirstElement`
+ */
 
+var myFirstElement = document.createElement('p');
+
+myFirstElement.id = 'first-element';
+myFirstElement.title = '我的第一个元素';
 ```
 #### 8.	DOM 查找
+
 ```
-
-
-
+查找所有的 div 元素 ：document.getElementsByTagName('div')
+查找更具体的元素，比如腾讯课堂的logo 标签:document.querySelector('.header-index-logo')
+```
+```
+常用的查找 API：
+document.getElementByID（）
+[document | Element].getElementsByClassName()  不兼容老版浏览器，兼容i8以上
+[document | Element].getElementsByTagName()
+[document | Element].querySelector()
+[document | Element].querySelectorAll()  比较通用，强大
+```
+```
+getElementById(ID) 根据 id 属性的值来获取元素，获取一个元素
+getElementsByClassName(CLASS) 获取所有 class 属性的值为 CLASS 的元素
+getElementsByTagName 根据标签名来获取元素，会选中多个元素
+querySelector 和 querySelectorAll ，根据指定 CSS 选择器来获取元素，第一个获取一个，第二获取多个元素
 ```
 #### 9.	DOM 新增和删除
 ```
+createElement(tag) 创建元素
+createTextNode(content) 创建文本节点
+appendChild(element) 新增节点到父元素的末尾
+insertBefore(element, target) 新增节点到 target 元素的前面
+
+
+
 
 
 ```
@@ -82,6 +117,8 @@ html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构
 
 
 
+
+
 ```
 #### 14.	DOM 修改样式
 ```
@@ -90,6 +127,21 @@ html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构
 ```
 #### 15.	DOM 修改内容
 ```
+/**
+ * 将其 id 属性更新为 update
+ * 新增一个类名 new
+ * 将其内容更新为 “我第一次修改元素的内容”
+ */
+var dom = document.getElementById('waiting');
+var className = dom.className;
+
+dom.id = 'update';
+dom.className = className + ' new'; // 兼容所有浏览器，注意 'new' 前的空格
+dom.innerHTML = '我第一次修改元素的内容';
+
+
+
+
 
 
 ```
@@ -97,7 +149,11 @@ html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构
 ```
 
 
-``
+
+
+
+
+```
 #### 17.	DOM 遍历示例
 ```
 
