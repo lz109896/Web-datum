@@ -6,13 +6,11 @@
 ```
 #### 2.	引入 jQuery
 分为本地的 jQuery 文件和内容分布式网络 CDN 。
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%BC%95%E5%85%A5jQuery.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%BC%95%E5%85%A5jQuery%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%BC%95%E5%85%A5jQuery%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%BC%95%E5%85%A5jQuery%203.png)
 
-
-
-
-
-```
 #### 3.	jQuery 中的 $
 ```
 jQuery 下载地址：https://jquery.com/
@@ -23,14 +21,6 @@ $ === jQuery
 $()--->jQuery 对象   类数组带有额外方法
 
 $ : 包括方法 $.ajax、$.extend、$.each ......
-
-
-
-
-
-
-
-
 
 ```
 #### 4.	选择器
@@ -63,10 +53,8 @@ $(attribute=value)  :  选取属性值为 value 的元素     例如：$('[value
 #### 5.	遍历 DOM 元素
 主要是: .parent()、parents()、.eq（）、.eq()、.siblings()、.children()、.find、....
 
-
-
-
-
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E9%81%8D%E5%8E%86%20DOM%20%E5%85%83%E7%B4%A0.png)
+![](https://github.com/oqq5518/Liao-Zhou/blob/1bd58238864f3ab662dc129ac51dc82c436d3292/%E9%81%8D%E5%8E%86%20DOM%20%E5%85%83%E7%B4%A0%201.png)
 
 #### 6.	添加和移除 DOM 元素
 ```
@@ -82,7 +70,7 @@ $('#tree1').after('<div id="tree2"></div>');
 $('#tree2').append('<div class="item">tree2 子元素</div>');
 ```
 
-
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E6%B7%BB%E5%8A%A0%E5%92%8C%E7%A7%BB%E9%99%A4%20DOM%20%E5%85%83%E7%B4%A0%201.png)
 
 
 
@@ -99,13 +87,9 @@ jQuery 事件包括：
 $(触发事件目标元素).on(触发的事件名称, 事件触发时的回调) ;
 
 ```
-
-
-
-
-
-
-
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/jQuery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/jQuery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/jQuery%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%2033.png)
 
 
 #### 8.	 [资料] 事件代理
