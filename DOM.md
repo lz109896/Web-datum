@@ -23,32 +23,26 @@ html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构
 
 ```
 #### 3.	常用节点类型
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9.png)
 
-
-```
 #### 4.	常用节点类型之 Node 接口
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Node.png)
 
-
-```
 #### 5.	常用节点类型之 Document
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Document%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Document%202.png)
 
-
-```
 #### 6.	常用节点类型之 Element
-```
-
-
-
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Element%201.png)
 #### 7.	常用节点类型 之 Text
 ```
  Text 类型用调试工具其实很难选到的，只能选一个节点
 
 
 ```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20text%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20text%202.png)
+![]()
 ```
 /**
  * 创建一个 p 元素，要求如下：
@@ -83,48 +77,38 @@ getElementsByClassName(CLASS) 获取所有 class 属性的值为 CLASS 的元素
 getElementsByTagName 根据标签名来获取元素，会选中多个元素
 querySelector 和 querySelectorAll ，根据指定 CSS 选择器来获取元素，第一个获取一个，第二获取多个元素
 ```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%9F%A5%E6%89%BE.png)
+
+
 #### 9.	DOM 新增和删除
 ```
 createElement(tag) 创建元素
 createTextNode(content) 创建文本节点
 appendChild(element) 新增节点到父元素的末尾
 insertBefore(element, target) 新增节点到 target 元素的前面
-
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4.png)
+
 #### 10.	新增 DOM 示例
-```
-
-
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E6%96%B0%E5%A2%9EDOM%20%E7%A4%BA%E4%BE%8B.png)
 #### 11.	使用 fragment 新增 DOM
-```
 
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/fragment%20%E6%96%B0%E5%A2%9EDOM.png)
 
-
-```
 #### 12.	删除 DOM 示例
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E5%92%8C%E5%A4%9A%E4%B8%AADOM%20%E7%A4%BA%E4%BE%8B.png)
 
-
-
-```
 #### 13.	property 和 attribute
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%202.png)
 
-
-
-
-
-```
 #### 14.	DOM 修改样式
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%203.png)
 
-
-```
 #### 15.	DOM 修改内容
 ```
 /**
@@ -139,26 +123,15 @@ dom.id = 'update';
 dom.className = className + ' new'; // 兼容所有浏览器，注意 'new' 前的空格
 dom.innerHTML = '我第一次修改元素的内容';
 
-
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%202.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%203.png)
+
 #### 16.	DOM 遍历
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%201.png)
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%202.png)
 
 
-
-
-
-
-```
 #### 17.	DOM 遍历示例
-```
-
-
-
-
-
-```
+![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%E7%A4%BA%E4%BE%8B%201.png)
