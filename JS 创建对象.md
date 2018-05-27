@@ -16,27 +16,82 @@
 ```
 #### 3.	引言
 ```
+属性  名称   价钱   颜色  规格
 
+创建对象不是简单的声明就可以了
 
-
-
+创建很多同一类型的的杯子，需要怎么做？ 不是数组，不能复制粘贴重复冗余的代码
+有哪些方法呢？
 ```
 #### 4.	工厂模式
 ```
+目的：用简单的方式来快速创建一系列相似的对象
 
+以下是一个工厂内模式：
+function createBottle(name,price,isKeepWarm) {
+    return {
+      name: name,
+      price: price,
+      isKeepWarm: isKeepWarm    
+    };
+}
 
+var bottle = createBottle('太空杯', 49, false);
+var bottle2 = createBottle('bottle', 49, true);
+var bottle3 = createBottle('bottle', 59, true);
 
-
+bottle ?    怎么证明我是一个 bottle ？
 ```
+```
+function createPerson(name, age, sex) {
+  return {
+    name: name,
+    age: age,
+    sex: sex,
+    sayHello: function() {
+      console.log(this.name);
+    }
+  };
+}
+```
+
 #### 5.	再说说函数
 ```
 
+属性： name   length   prototype
 
+function createBottle() {
+  内部有 arguments  this
+} 
 
+方法： bind()  call()  apply()
 
 ```
 #### 6.	函数的 arguments
 ```
+function createBottle(name,price,isKeepWarm) {
+    return {
+      name: name,
+      price: price,
+      isKeepWarm: isKeepWarm    
+    };
+}
+
+简写为：
+function createBottle() {
+    return {
+      name: arguments[0],
+      price: arguments[1],
+      isKeepWarm: arguments[2]    
+    };
+}
+```
+```
+arguments 
+是一个对象，类数组（不是真的数组），有length 属性
+不要滥用，影响代码的可读性
+非常适合动态参数的场景
+
 
 
 
