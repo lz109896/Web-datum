@@ -329,12 +329,26 @@ function createPerson(name) {
 ```
 #### 12.	构造函数
 ```
-
-
-
-
+var bottle = createBottle('太空杯',49,falise);
+怎么证明我是一个 bottle ？
 ```
+
+构造函数：
+* instanceof
+* Bottle
+* new 操作符
+
+
+
+
+
 #### 13.	构造函数的不足之处
+* 实例与构造函数可以通过 instanceof 来判断他们之间的关系
+* 构造函数跟工厂模式一样，都做到了代码复用
+* 构造函数是通过将参数和方法都赋值给 this 的方式创建对象, 不是不足之处
+* 构造函数每次创建实例的时候都会创建相同逻辑的函数作为对象的方法，这是构造函数的不足之处
+
+
 ```
 
 
@@ -343,44 +357,184 @@ function createPerson(name) {
 ```
 #### 14.	原型 prototype
 ```
-
-
-
+原型是函数的一个属性，是一个对象
+非要在 JS 里面找一个特色，那就是原型
 
 ```
 #### 15.	原型详解
-```
+
+* constructor
+Object.prototype.constructor    的原型是Object
+
+
+* 读写
+
+__proto__: Object  :浏览器里面下划线的意思就是指向原型，代码里面一定不要这样指向原型，测试和演示调试的时候可以使用
+可以共享原型，利用读写解决浪费内存的原型
+
+
+
+* isPrototypeOf
 
 
 
 
-```
+
+
+
+
+
+
+
+
+
 #### 16.	原型、构造函数和实例
 ```
+原型是函数的一个属性，是一个对象
+如果函数作为构造函数使用，那么这个构造函数的所有实例，都共享这个原型对象
 
+通过 naw 操作符可以生成实例
+Bottle.prototype指向原型 prototype
+constructor 指向 Bottle
+实例化以后__proto__属性指向原型 prototype
+也可以通过 isPrototypeOf 关联到 prototype
 
+```
+```
+通过构造函数生成实例对象时，会自动为实例对象分配原型对象。每一个构造函数都有一个 prototype 属性，这个属性就是实例对象的原型对象。
 
+原型对象上的所有属性和方法，都能被派生对象共享。
 
+因此本道题目，考察如何使用 prototype 来设置共享的方法，避免所有实例对象都设置相同的属性和方法导致对系统资源的浪费。
+
+具体参考代码如下：
+
+/*
+* 题目:
+* 使用 Prototype 来创建一个 Person 类， 需要完成以下要求：
+* 1、在构造函数 Person 的 prototype(原型) 上增加下面的共享属性：
+*   1.1、在原型上增加属性 `name` 值为 'Jonny'
+*   1.2、在原型上增加属性 `friends` 值为 ['Cover', 'Kevin']
+* 2、在构造函数 Person 的原型上增加共享方法 sayHello
+*/
+function Person(name){
+}
+// 设置原型
+Person.prototype = {
+  constructor: Person,
+  name: 'Jonny',
+  friends: ['Cover', 'Kevin'],
+  sayHello: function() {
+    //...
+  }
+};
+需注意的是在上面的代码中，我们将 Person.prototype 设置为一个新创建的对象。会导致 Person.prototype 对象原来的 constructor 属性不再指向 Person, 这里可以像上面那样，特意的把 constructor 设置为 Person 。
 ```
 #### 17.	共享的缺陷
 ```
+数据的污染
+原型创建对象的时候就不能传参，主要缺陷是共享缺陷，
+对象的属性和方法都挂在构造函数的原型上，通过函数共享原型，这是原型的生成方式
+
+有共享问题通常情况是不同变量指向相同的引用类型的数据，一旦该数据的属性被修改了，则指向该数据的变量的值都会受到影响。
+
+
 
 
 
 
 ```
 #### 18.	构造函数结合原型
+
+实例上的属性覆盖原型上的属性，
 ```
+
+/*
+* 题目:
+* 使用构造函数结合原型创建一个 Person 类, 需要完成以下要求：
+* 1、使用构造函数创建一个 Person 类
+* 2、每个生成的实例都有独立的属性 name，且属性值通过传入的参数进行设置
+* 3、每个生成的实例都有独立的属性 friends，且属性值通过传入的参数进行设置
+* 4、在构造函数 Person 的 prototype 上增加共享方法 sayHello
+*/
+
+function Person(name, friends){
+  this.name = name;
+  this.friends = friends;
+}
+// 增加原型方法 sayHello
+Person.prototype.sayHello = function() {
+ 
 
 
 
 
 ```
 #### 19.	 [资料] 经典的面向对象
+
+##### 经典的面向对象
 ```
+这里所说的“经典的面向对象”，是有“类”这个概念的面向对象，比如 Java ，它就有“类”的概念。有接触过 Java 
+的同学很容易就能理解，没有接触过 Java 的同学也不要慌，我这就来说说。
 
+面向对象这个概念，实在是太像我们的世界。
 
+说道“人”，Person ，大家肯定是想到一个鼻子，两个眼睛，是一个宽泛的概念，可以让你想到任何人。
 
+所以“人”，是一个抽象，它描述一个特定类别的东西，一类动物。
+
+“动物”也是一类抽象，从字面意思理解，“动物”是能动的生物，和“植物”区分开来。
+
+人是动物，你我是人，也是动物。
+
+但是，“你我”又有区别，虽然都是人，但我叫 jero ，你叫刘德华，我很帅，你却更帅。在“人”这个大的类别下，
+你我是两个不同的实体，两个不同的对象，你我都是具象化的人，是一个具体的概念。
+
+看到了吗，类这个字眼都加粗了，因为这是面向对象的一个重要概念。
+
+class Animal {
+    constructor(legs) {
+        this.legs = 2;
+    }
+}
+
+console.log(new Animal(2)); // { legs: 2 }
+上面就是 Animal class 了，非常的简单，也很抽象，但是，我们 new 了一下之后，就具体化了，我们 new 了一个两条腿的动物。
+
+好吧，我想大家还是更容易接受人的例子。
+
+class Person {
+    constructor(name) {
+        this.legs = 2;
+       this.name = name;
+    }
+}
+
+console.log(new Person('刘德华')); // { legs: 2 }
+上面就是 Person class 咯，Person 只是抽象，对吧，但是我们给他一个名字“刘德华”，他就是活生生的人咯，这就是实例化。
+
+“类”是抽象，其实这个“类”就是分门别“类”里的“类”。“对象”和“实例”，现在如果你们区分不了，可以混用，就是“类”实例化的产物。
+
+好咯，再看代码：
+
+function Person(name) { // 这个 Person 就是类
+    this.name = name;
+    this.legs = 2;
+}
+
+console.log(new Person('刘德华')); // 活生生的人，就是实例
+虽然 JS 里面没有类的概念，但我们还是习惯叫“类”，而且不同的“类”有时候是有关系的，比如“人”是“动物”，这个时候，
+“人”就是子类，“动物”就是父类，也挺容易理解。
+
+好吧，就讲到这，不理解的同学，多想想就行。
+
+最后说一句，上面的 class Person 代码，也是 JS 代码，ES6 新增了类的语法，创建对象更容易了，大家可以看看。
+
+类
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes
+
+Class 的基本语法
+http://es6.ruanyifeng.com/#docs/class
 
 ```
 
