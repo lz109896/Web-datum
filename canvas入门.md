@@ -207,7 +207,7 @@ context.font = '60px 黑体';
 context.strokeText('strokeText2',20,150);
 
 ```
-#### 7.	给图形上色
+#### 7.	给图形上色：http://coding.imweb.io/demo/p5/canvas-style.html
 ```
 设置颜色：context.fillStyle = color;  /  context.strokeStyle = color; 
 
