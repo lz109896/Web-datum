@@ -34,6 +34,7 @@
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8D%E8%B6%B32.png)
 
 3.参数
+
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8D%E8%B6%B33.png)
 
 #### 5.	借用构造函数继承
