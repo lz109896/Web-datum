@@ -4,53 +4,44 @@
 面向对象中，对象就是毛坯，拿过来，在它的基础上，扩展出自己想要的，功能最为强大的瓷器，这个过程就是继承
 在已有的基础上扩展出自己的东西，就是继承
 ```
-```
+
 客运机和战斗机
-
-
-
-
-```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%BC%95%E8%A8%80.png)
 #### 2.	什么是继承
 ```
 继承可以使子类具有父类的属性和方法，而不需要重复编写相同的代码。
 
-
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E4%BB%80%E4%B9%88%E6%98%AF%E7%BB%A7%E6%89%BF.png)
+
 #### 3.	原型链
 ```
 目标：子类具有父类的方法和属性--》实例中找不到属性和方法--》去原型中去找--》父类的实例
 
 父类的方法和属性--》父类的实例--》指向原型
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE1.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE2.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE3.png)
+
 #### 4.	原型链继承的不足
-```
-1.constructor
 
+1.constructor
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8D%E8%B6%B31.png)
 
 
 2.属性共享问题
 
-
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8D%E8%B6%B32.png)
 
 
 3.参数
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E9%93%BE%E4%B8%8D%E8%B6%B33.png)
 
-```
 #### 5.	借用构造函数继承
-```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%80%9F%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B01.png)
+![](https://github.com/lz109896/Web-datum/blob/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%80%9F%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B02.png)
 
-
-
-```
 #### 6.	组合继承
 ```
 function Plane (color){                 -------------
@@ -80,30 +71,19 @@ Fghter.prototype.shoot = funceion() {
 
 
 
-
+![]()
 
 
 ```
 #### 7.	组合继承的不足
-```
 
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF%E7%9A%84%E4%B8%8D%E8%B6%B3%20.png)
 
-
-
-
-
-
-
-```
 #### 8.	最佳实践
-```
-
-
-
-```
+![]()
 #### 9.	 [资料] ES6 中的继承
 ```
-
+![]()
 
 
 ```
@@ -111,7 +91,7 @@ Fghter.prototype.shoot = funceion() {
 ```
 
 
-
+![]()
 ```
 #### 11.	面向对象
 ```
