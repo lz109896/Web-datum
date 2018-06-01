@@ -276,7 +276,8 @@ jQuery.byId('hahah');
 
 任何在函数中定义的变量，都可以认为是私有变量。因为不能在函数外部访问这些变量。
 私有变量包括函数参数，局部变量以及在函数内部定义的其他函数。
-如下面的代码,在这个函数内部，有三个私有变量 param、privateVariable、 privateFunction。在函数内部可以访问到这几个变量，但在函数外部则不能访问他们。
+如下面的代码,在这个函数内部，有三个私有变量 param、privateVariable、 privateFunction。在函数内部可以
+访问到这几个变量，但在函数外部则不能访问他们。
 
 function MyObject(param) {
   var privateVariable = 20;
@@ -290,11 +291,13 @@ function MyObject(param) {
 ```
 那么，我们如果需要访问私有变量时，可以怎么做呢？
 
-我们可以在函数的内部创建一个闭包，那么闭包通过自己的作用域链也可以访问这些变量。而利用这一点，我们就可以创建用于访问私有变量的公有方法。
+我们可以在函数的内部创建一个闭包，那么闭包通过自己的作用域链也可以访问这些变量。
+而利用这一点，我们就可以创建用于访问私有变量的公有方法。
 
 我们也把有权访问私有变量和私有函数的公有方法称为特权方法。
 
-如下面的代码，publicMethod 就是特权方法。在创建 MyObject 的实例后，除了使用特权方法 publicMethod 这一途径外，没有其他的办法可以直接访问来访问私有变量 privateVariable 以及私有函数 privateFunction。
+如下面的代码，publicMethod 就是特权方法。在创建 MyObject 的实例后，除了使用特权方法 publicMethod 这一途径外
+，没有其他的办法可以直接访问来访问私有变量 privateVariable 以及私有函数 privateFunction。
 
 function MyObject(param) {
   var privateVariable = 20;
@@ -337,24 +340,17 @@ var bottle = createBottle('太空杯',49,falise);
 * instanceof
 * Bottle
 * new 操作符
-
-
-
-
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%202.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%203.png)
 
 #### 13.	构造函数的不足之处
 * 实例与构造函数可以通过 instanceof 来判断他们之间的关系
 * 构造函数跟工厂模式一样，都做到了代码复用
 * 构造函数是通过将参数和方法都赋值给 this 的方式创建对象, 不是不足之处
 * 构造函数每次创建实例的时候都会创建相同逻辑的函数作为对象的方法，这是构造函数的不足之处
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8D%E8%B6%B3.png)
 
-
-```
-
-
-
-
-```
 #### 14.	原型 prototype
 ```
 原型是函数的一个属性，是一个对象
@@ -377,16 +373,9 @@ __proto__: Object  :浏览器里面下划线的意思就是指向原型，代码
 * isPrototypeOf
 
 
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E8%AE%B2%E8%A7%A3%201.png)
 
-
-
-
-
-
-
-
-
-
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8E%9F%E5%9E%8B%E8%AE%B2%E8%A7%A3%202.png)
 
 #### 16.	原型、构造函数和实例
 ```
@@ -400,8 +389,10 @@ constructor 指向 Bottle
 也可以通过 isPrototypeOf 关联到 prototype
 
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%AE%9E%E4%BE%8B%201.png)
 ```
-通过构造函数生成实例对象时，会自动为实例对象分配原型对象。每一个构造函数都有一个 prototype 属性，这个属性就是实例对象的原型对象。
+通过构造函数生成实例对象时，会自动为实例对象分配原型对象。每一个构造函数都有一个 prototype 属性，
+这个属性就是实例对象的原型对象。
 
 原型对象上的所有属性和方法，都能被派生对象共享。
 
@@ -428,7 +419,8 @@ Person.prototype = {
     //...
   }
 };
-需注意的是在上面的代码中，我们将 Person.prototype 设置为一个新创建的对象。会导致 Person.prototype 对象原来的 constructor 属性不再指向 Person, 这里可以像上面那样，特意的把 constructor 设置为 Person 。
+需注意的是在上面的代码中，我们将 Person.prototype 设置为一个新创建的对象。会导致 Person.prototype 对象
+原来的 constructor 属性不再指向 Person, 这里可以像上面那样，特意的把 constructor 设置为 Person 。
 ```
 #### 17.	共享的缺陷
 ```
@@ -437,13 +429,12 @@ Person.prototype = {
 对象的属性和方法都挂在构造函数的原型上，通过函数共享原型，这是原型的生成方式
 
 有共享问题通常情况是不同变量指向相同的引用类型的数据，一旦该数据的属性被修改了，则指向该数据的变量的值都会受到影响。
-
-
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%85%B1%E4%BA%AB%E7%BC%BA%E9%99%B7.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%85%B1%E4%BA%AB%E7%BC%BA%E9%99%B7%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%85%B1%E4%BA%AB%E7%BC%BA%E9%99%B7%202.png)
+
+
 #### 18.	构造函数结合原型
 
 实例上的属性覆盖原型上的属性，
@@ -464,12 +455,12 @@ function Person(name, friends){
 }
 // 增加原型方法 sayHello
 Person.prototype.sayHello = function() {
- 
-
-
-
-
 ```
+
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%BB%93%E5%90%88%E5%8E%9F%E5%9E%8B1.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%BB%93%E5%90%88%E5%8E%9F%E5%9E%8B2.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%BB%93%E5%90%88%E5%8E%9F%E5%9E%8B3.png)
+
 #### 19.	 [资料] 经典的面向对象
 
 ##### 经典的面向对象
