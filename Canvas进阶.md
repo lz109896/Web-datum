@@ -27,6 +27,7 @@ image.onload = function () {
 这个时候我们就需要使用图像裁剪。图像裁剪是图片 PS 中经常使用到的一种技术，目的是为了突出我们图片的某个特定的区域。
 接下来，让我们学习如何使用 Canvas 来裁剪我们的图像。
 ```
+
 ##### 还是 context.drawImage()
 ```
 没错，你没看错，我们还是使用 drawImage 的方法。裁剪是 drawImage 方法的最后一种用法。
@@ -44,14 +45,15 @@ y：在画布上绘制图像的原点纵坐标
 width：在画布上绘制图像的宽度
 heigh：在画布上绘制图像的高度
 上面所有参数的看起来可能比较抽象，可以通过结合下面说明图进行理解：
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%9B%BE%E5%83%8F%E8%A3%81%E5%89%AA.png)
 
-
-
-实例
+##### 实例
 接下来让我们尝试截取图片的中间部分，如下图：
 
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%9B%BE%E5%83%8F%E8%A3%81%E5%89%AA%201.png)
 
-
+```
 相关代码如下：
 
 <!DOCTYPE html>
@@ -75,9 +77,6 @@ heigh：在画布上绘制图像的高度
     </script>
 </body>
 </html>
-
-
-
 
 ```
 #### 3.	[资料] 认识 requestAnimationFrame
@@ -252,6 +251,8 @@ cs实现游戏， 游戏和动画是一家，子弹和敌人撞击的那一刻�
 * 初始化
 * 动画循环（更新、清除、绘制）
 * 结束动画循环
+
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E5%8A%A8%E7%94%BB%E5%BE%AA%E7%8E%AF.png)
 ```
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -484,9 +485,9 @@ if (distance < circle1.radius + circle2.radius) {
 
 下面是一些推荐的学习 Canvas 的教程文章
 
-Canvas 入门精通教程
-HTML5 Canvas 学习笔记
-Canvas API-阮一峰
+Canvas 入门精通教程: https://www.w3cplus.com/blog/tags/604.html
+HTML5 Canvas 学习笔记  :https://oxcow.gitbooks.io/h5-canvas-study-notes/content/chapter6_shadows.html
+Canvas API-阮一峰  :https://wohugb.gitbooks.io/javascript/content/htmlapi/canvas.html
 
 
 
