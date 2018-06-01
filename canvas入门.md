@@ -17,8 +17,8 @@ var myCanvas = document.getElementById('Canvas');
 var context = myCanvas.getContext('2d');
 
 xy轴坐标
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E8%AE%A4%E8%AF%86Canvas%20%E5%85%83%E7%B4%A0.png)
 #### 3.	矩形
 ```
 截图，简化怪兽跟飞机都是矩形
@@ -77,11 +77,9 @@ context.fill();
 context.arc(x, y, radius, startAngle, endAngle, anticlockwise);
 参数说明：
 
-
-
-
-
-
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7.png)
+```
 x: 圆的中心的 x 坐标
 y: 圆的中心的 y 坐标
 radius: 圆的半径
@@ -94,11 +92,11 @@ anticlockwise: 可选的参数，规定应该逆时针还是顺时针绘图，�
 这里需要注意的是，在 Canvas 中表示圆弧的开始角度和结束角度都是以弧度来表示的，而不是使用角度来表示。
 
 举个例子: 360度使用弧度来表示则是 2π (pi 的两倍)弧度。
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7%202.png)
 
 
-
-
-
+```
 我们可以通过下面的公式进行换算。
 
 var degree = 1; // 表示 1°
@@ -107,11 +105,9 @@ var radians = degree * (Math.PI / 180); // 0.0175弧度
 ##### 绘制圆弧路径
 ```
 接下来让我们尝试绘制一个圆弧，如下图：
-
-
-
-
-
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7%203.png)
+```
 具体代码如下：
 
 // 开始创建新路径
@@ -125,22 +121,20 @@ context.stroke();
 ```
 接下来让我们尝试绘制一个部分圆形填充图形，如下图：
 
-
-
 // 开始创建新路径
 context.beginPath();
 // 创建一个圆弧
 context.arc(250, 250, 200, 0, 0.75 * Math.PI, false);
-// 填充该圆弧
+// 填充该圆弧
 context.fill();
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7%204.png)
 ##### 绘制圆形
 ```
 圆形实际上是由圆弧组成（首尾相连的圆弧便是圆形）,如果我们需要绘制下面的圆形：
-
-
-
-
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7%205.png)
+```
 
 具体代码如下：
 
@@ -155,11 +149,10 @@ context.fill();
 ```
 我们不仅可以使用 context.arc() 来绘制圆弧和圆形，我们还可以来绘制圆角矩形上的圆角。如下图为我们需要绘制一个圆角矩形：
 
+```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7%206.png)
 
-
-
-
-
+```
 var x = 120; // 圆角矩形左上角横坐标
 var y = 120; // 圆角矩形左上角纵坐标
 var width = 250; // 圆角矩形的宽度
@@ -187,8 +180,6 @@ context.closePath();
 // 设置绘制的颜色
 context.strokeStyle = '#188eee';
 context.stroke();
-
-
 
 ```
 #### 6.	文本:http://coding.imweb.io/demo/p5/canvas-text.html
@@ -244,13 +235,8 @@ context.fill();
 #### 8.	修改线宽
 ```
 修改线宽：context.lineWindth = number;
-
-
-
-
-
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E4%BF%AE%E6%94%B9%E7%BA%BF%E5%AE%BD.png)
 ```
 /*
 * 题目:
@@ -280,6 +266,5 @@ context.clearRect(x,y,宽,高)；
 清除整个画布的描述是：
 context.clearRect(0,0,canvas.width,canvas.height)；
 
-
-
 ```
+![](https://raw.githubusercontent.com/lz109896/Web-datum/16058691bda3af220a3280d6758a2cf688fab0ed/%E6%93%A6%E9%99%A4canvas.png)
