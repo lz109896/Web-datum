@@ -41,15 +41,29 @@ NPM 类似淘宝网的管理平台
 比如在jquery 在包的根目录下添加一个package.json 的文件，通过 json 格式去描述包的信息：包的名字、包的版本号、关键字
 
 初学者一般关注下载，很少关注上传
+```
+```
+安装 jquery 的命令：npm install jquery
 
+使用包的命令：var $ = require('jquery');
 
 ```
 #### 4.	命令行工具
 ```
+uglify-js -g 压缩代码， 是安装在全局的，不是安装在某个项目下的，
+可通过命令行查看安装情况 ：npm i(install 的简写) uglify-js -g
+工具的用法命令： uglifyjs -h
+查看版本：uglifyjs -v
 
-
-
+https://www.npmjs.com/package/uglify-js
 ```
+安装好了，现在进行压缩
+![]()
+
+
+
+
+
 #### 5.	运行 Node.js 代码
 ```
 
