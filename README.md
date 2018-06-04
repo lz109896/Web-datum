@@ -116,7 +116,6 @@
     - [常用节点类型之元素](https://github.com/lz109896/Web-datum/blob/master/DOM.md#6%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B%E4%B9%8B-element)
     - [常用节点类型之文本](https://github.com/lz109896/Web-datum/blob/master/DOM.md#7%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B-%E4%B9%8B-text)
     - [DOM查找](https://github.com/lz109896/Web-datum/blob/master/DOM.md#8dom-%E6%9F%A5%E6%89%BE)
-    - [https://github.com/lz109896/Web-datum/blob/master/DOM.md#8dom-%E6%9F%A5%E6%89%BE]()
     - [DOM新增和删除](https://github.com/lz109896/Web-datum/blob/master/DOM.md#9dom-%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4)
     - [新增DOM示例](https://github.com/lz109896/Web-datum/blob/master/DOM.md#10%E6%96%B0%E5%A2%9E-dom-%E7%A4%BA%E4%BE%8B)
     - [使用片段新增DOM](https://github.com/lz109896/Web-datum/blob/master/DOM.md#11%E4%BD%BF%E7%94%A8-fragment-%E6%96%B0%E5%A2%9E-dom)
