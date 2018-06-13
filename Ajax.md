@@ -24,7 +24,7 @@ view-source:http://coding.imweb.io/demo/p7/ajax-xhr.html
 Asynchronous Javascript +XML JSON
 异步 :不等了，需要监听 readyState 这个属性
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/XHR%201.png)
 ```
 function getData(callback) {
             var xhr = new XMLHttpRequest();
@@ -43,7 +43,7 @@ function getData(callback) {
             xhr.send(null);
         } 
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/XHR%202.png)
 
 
 #### 5.	[资料] JSON
@@ -145,6 +145,10 @@ JavaScript Promise迷你书（中文版）：https://www.gitbook.com/book/wohugb
 http://api.jquery.com/jQuery.ajax/#jqXHR
 
 #### 7.	参数传递
+
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%201.png)
+
+
 http://git.imweb.io/imweb-teacher/p7-ajax
 ```
 1.git clone 这个项目到你本地
@@ -170,15 +174,14 @@ B. GET 参数更容易被查看、截断、替换等，相比 POST 来说不安�
 C. 构造 GET 参数的时候，总是会通过 encodeURIComponent 编码的，总是会，别忘了啊；POST 则不用。
 D. GET 参数只能加在 URL 的末尾，POST 编码只要和服务器约定好就行了，至少有四种常见的编码，可以参考这里。
 https://imququ.com/post/four-ways-to-post-data-in-http.html
-
-
 ```
+
 #### 8.	同源策略
 同源策略：same-origin policy
 不同域的客户端脚本在没有明确授权的情况下，不能读写对方的资源
 
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%202.png)
 ```
 A 同源策略的初衷就是安全，但是同源限制也意味着不能共享，这是有悖于互联网的初衷的，所以折中了一下，
   script image style等等资源都是可以跨域共享的。
@@ -195,7 +198,7 @@ C cookie 自然不能跨域读取。比如登录态的识别就是依靠 cookie 
 不同域的客户端脚本在没有明确授权的情况下，不能读写对方的资源
 授权==》Cross-Origin Resource Sharing :跨域资源共享：基于 HTTP 协议实现的
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/CORS%201.png)
 ```
 响应头没有 'Access-Control-Allow-Origin'  就不能跨域
 
