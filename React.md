@@ -4,6 +4,7 @@ jQuery 是非常经典的 JS 库，不流行了，React 的出现，延伸出很
 
 ```
 #### 2.	React 简介
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/React%20%E7%AE%80%E4%BB%8B%20.png)
 ```
 React 是 JS 的一哥，是一个基于 JS 库构建用户 UI 界面（组件库的库）
 
@@ -50,16 +51,18 @@ module: {
 JSX 语法就跟HTML语法一样，class 被className 替代
 JSX 文件都有 render ，是入口函数。，按照它的逻辑，可以看完这个代码
 ```
-![]()
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/JSX%20%E5%87%BD%E6%95%B0%E4%B8%8E%20render%20%E5%87%BD%E6%95%B0%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/JSX%20%E5%87%BD%E6%95%B0%E4%B8%8E%20render%20%E5%87%BD%E6%95%B0%202.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/JSX%20%E5%87%BD%E6%95%B0%E4%B8%8E%20render%20%E5%87%BD%E6%95%B0%203.png)
 
 #### 5.	组件化
 ```
 html 标签   <input />    小写
 自定义组件   <Input />    大写
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%BB%84%E4%BB%B6%E5%8C%96%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%BB%84%E4%BB%B6%E5%8C%96%202.png)
+
 #### 6.	事件绑定
 ```
 bind 的方法：改变作用域，并且将作用域指向传入对象
@@ -71,10 +74,11 @@ bind 的方法：改变作用域，并且将作用域指向传入对象
 
 ```
 #### 7.	列表渲染
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93%201.png)
 
 
 #### 8.	props
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/props%201.png)
 ```
 this.props ：相当于参数
 
@@ -92,25 +96,24 @@ state 是组件内部的数据，一些只需要组件内部控制的状态都�
 http://www.alloyteam.com/2015/10/react-virtual-analysis-of-the-dom/
 ```
 #### 10.	组件间通信
-![]()
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1%202.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1%203.png)
 http://cn.redux.js.org/
 #### 11.	refs 和 DOM
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/refs%20%E5%92%8C%20DOM%201.png)
 ```
 1.焦点处理，文本选择或媒体控制
 2.控制 js 动画
 3.使用依赖 DOM 第三方库
-
 
 ```
 #### 12.	生命周期
 ```
 render
 ```
-![]()
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%201.png)
+
 
 #### 13.	 [资料] React 体系
 ```
