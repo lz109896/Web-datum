@@ -64,7 +64,7 @@ A - 反射型 XSS。
 B - 存储型 XSS。
 C - DOM-Based 型 XSS。
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E7%AE%80%E4%BB%8B%20.png)
 
 #### 6.	反射型 XSS
 不存储在服务端的 XSS
@@ -92,8 +92,8 @@ C - DOM-Based 型 XSS。
 3.总结：持久型 XSS 其实就是由于不可信的用户(黑客)输入在没有任何验证的情况下保存在服务端的文件或者数据库中，
 并且取出不可信的数据时也没有做相关安全处理就返回响应，导致了存储的恶意脚本数据在浏览器中执行的一种 XSS 漏洞。
 ```
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/%E5%AD%98%E5%82%A8%E5%9E%8B%20XSS%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/%E5%AD%98%E5%82%A8%E5%9E%8B%20XSS%202.png)
 
 #### 8.	DOM Based 型 XSS
 ```
@@ -101,7 +101,7 @@ C - DOM-Based 型 XSS。
 DOM Based 型 XSS 不依赖于服务端参与解析，前端页面进行 DOM 操作时，带有恶意代码片段被 HTML 解析执行，
 从而导致 XSS 攻击，比如修改 DOM 时。基于浏览器（客户端） DOM 解析的攻击
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/DOM%20Based%20%E5%9E%8B%20XSS%2019.png)
 ```
 前面所说的反射型 XSS（服务端直接使用恶意脚本并返回结果页）和存储型 XSS （服务端存储恶意脚本并返回）都是需要服务端的
 直接参与的。然而对于 DOM-Based 型 XSS 来说，其并不依赖服务端，服务端的响应不会涉及到恶意脚本的内容。DOM-Based 型
@@ -128,11 +128,11 @@ A. 用户输入账号密码
 B. 账号密码发送到服务端
 ```
 #### 10.	XSS 防御 - httpOnly
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E9%98%B2%E5%BE%A1%20-%20httpOnly%201.png)
 ```
 给 cookie 设置 httpOnly，阻止客户端监本访问 Cookie
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E9%98%B2%E5%BE%A1%20-%20httpOnly%202.png)
 
 #### 11.	 [资料] Web 相关编码
 
@@ -270,20 +270,18 @@ https://github.com/FrankFang/githublog/blob/master/%E6%8A%80%E6%9C%AF/%E5%89%8D%
 从零开始学web安全（3）:
 http://imweb.io/topic/57024e4606f2400432c1396d
 
-```
+
 #### 12.	XSS 防御 - 输入检查
 永远不相信用户的输入
-```
 
-```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E9%98%B2%E5%BE%A1%20-%20%E8%BE%93%E5%85%A5%E6%A3%80%E6%9F%A5%201.png)
 
 #### 13.	XSS 防御 - 输出检查
 ```
 最后一道防线，根据不同场景对数据进行处理
 ```
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E9%98%B2%E5%BE%A1%20-%20%E8%BE%93%E5%87%BA%E6%A3%80%E6%9F%A5%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/cd7903962895dc22e75e9345d36628101b07d018/XSS%20%E9%98%B2%E5%BE%A1%20-%20%E8%BE%93%E5%87%BA%E6%A3%80%E6%9F%A5%202.png)
 
 之所以会发生 XSS 攻击，就是由于用户的输入被当做代码来执行，导致出现意料之外的运行结果。
 
