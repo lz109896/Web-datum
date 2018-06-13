@@ -11,7 +11,7 @@ Node.js 是 JavaScript 的运行环境，既不是 JavaScript 的库和框架，
 Node.js 可以调用很多本地或者服务器的接口，可以用来开发 Web 服务器或者本地应用，这是我们课程里面讲到了。
 Node.js 运行环境是服务器，而不是浏览器，不需要考虑浏览器兼容问题。
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/Node%E5%BC%95%E8%A8%80.png)
 
 #### 2.	Node 安装
 ```
@@ -30,13 +30,13 @@ Node.js 运行环境是服务器，而不是浏览器，不需要考虑浏览器
 
 安装 nodejs 时，也会安装另外一个软件
 ```
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/Node%20%E5%AE%89%E8%A3%85.png)
 
 #### 3.	NPM
 ```
 NPM 类似淘宝网的管理平台
-![]()
-![]()
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/NPM%201.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/NPM%202.png)
 为了更好的管理上传结合下载使用，NPM 就要制定一个规范
 比如在jquery 在包的根目录下添加一个package.json 的文件，通过 json 格式去描述包的信息：包的名字、包的版本号、关键字
 
@@ -58,10 +58,8 @@ uglify-js -g 压缩代码， 是安装在全局的，不是安装在某个项目
 https://www.npmjs.com/package/uglify-js
 ```
 安装好了，现在进行压缩
-![]()
-
-
-
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7.png)
+![](https://raw.githubusercontent.com/lz109896/Web-datum/26225a54652ca39c2ad27c426ebae233fba8c7d6/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B71.png)
 
 
 #### 5.	运行 Node.js 代码
