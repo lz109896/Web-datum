@@ -234,7 +234,8 @@ HTML 中的 <a>元素 (或HTML锚元素, Anchor Element) 用于定义一个超�
 
 ```html
 参考答案
-虽然现在表格的使用频率比较少，不过对于数据类型的内容，表格仍是不二之选。相对来说表格涉及到的标签比较多一点，但是多写写也就熟悉了。
+虽然现在表格的使用频率比较少，不过对于数据类型的内容，表格仍是不二之选。相对来说表格涉及到的标签比较多一点，
+但是多写写也就熟悉了。
 
 <table>
     <thead>
@@ -292,7 +293,9 @@ HTML 中的 <a>元素 (或HTML锚元素, Anchor Element) 用于定义一个超�
 更多可参考：
 
 form W3school:http://www.w3school.com.cn/tags/tag_form.asp
+
 form MDN（页面下面有其相关元素参考）:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form
+
 表单属性浅析:http://blog.mingsixue.com/it/HTML-form-attribute.html
 
 
@@ -343,6 +346,7 @@ form MDN（页面下面有其相关元素参考）:https://developer.mozilla.org
 <input type="reset" name="reset">
 ```
 更多 input 请参考：
+
 input W3school:http://www.w3school.com.cn/html/html_form_attributes.asp 
 
 input MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input
@@ -361,6 +365,7 @@ input MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input
 更多 textarea 请参考：
 
 textarea W3school：http://www.w3school.com.cn/tags/tag_textarea.asp
+
 textarea MDN：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea
 
 #### < select >元素
@@ -408,6 +413,7 @@ select MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/select
 
 更多 button 请参考：
 button W3school:http://www.w3school.com.cn/tags/tag_button.asp
+
 button MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button
 
 #### < label >元素
@@ -424,6 +430,7 @@ button MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button
 更多 label 请参考：
 
 label W3school:http://www.w3school.com.cn/tags/tag_label.asp
+
 label MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label
 更多参考
 更多关于表单元素知识请参考：HTML5中的表单元素；https://www.jianshu.com/p/1be42a9dda69
@@ -434,7 +441,8 @@ label MDN:https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label
 
 ```html
 参考答案
-表单还是比较复杂的，尤其 <input> 元素的各种 type 属性就够好好理理了。这里我们只是简单的实现了一个登录表单，为了让每行有点间隔，我们可以使用 <p> 元素，等以后我们学了 CSS 这些间距什么的就可以交给它了。
+表单还是比较复杂的，尤其 <input> 元素的各种 type 属性就够好好理理了。这里我们只是简单的实现了一个登录表单，
+为了让每行有点间隔，我们可以使用 <p> 元素，等以后我们学了 CSS 这些间距什么的就可以交给它了。
 
 <form action="#">
     <p><input type="text" name="username" placeholder="用户名"></p>
