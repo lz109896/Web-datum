@@ -1,4 +1,15 @@
-#### 第四节：嵌套及 HTML树
+#### 1.：HTML嵌套
 
-![HTML树.](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/117a9b9043102c307bbdfba4400fb5f084ea5a93/HTML%20%E6%A0%91.png)
-![html嵌套](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/bc23a6d058ef52d0386cc4f9713dd998ee3d62cc/html%20%E5%B5%8C%E5%A5%97.png)
+![HTML嵌套]()
+元素的嵌套除了单标签元素，其他都要闭合。
+同等级元素不能相互嵌套
+
+#### 2.HTML树（比如：树的结构特点）
+
+![html]()
+
+title 元素的直接父元素为 head 元素，而 h1 元素的直接父元素为 body 元素，他们的直接父元素不同，所以不是兄弟元素。
+
+
+
+
