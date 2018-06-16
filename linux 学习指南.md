@@ -180,4 +180,3 @@ c:压缩（compress）
 查看文件：cat file
 查看文件类型：file a.txt
 ###### 
-
