@@ -1,8 +1,15 @@
+## 盒模型
+```CSS
+盒模型（box model）
 
-#### 第一节：盒模型相关属性详解
-margin  （与padding属性原理一样）
-
+每个元素都被描绘成矩形盒子，这些矩形盒子通过一个模型来描述其占用空间
 ```
+![]()
+
+## 1：盒模型相关属性详解
+#### margin  （与padding属性原理一样）
+![]()
+```CSS
 .box-1 {
     margin-top: 10px;
     margin-righe: 20px;
@@ -10,21 +17,21 @@ margin  （与padding属性原理一样）
     margin-left: 30px;
 }
 ```
-太麻烦了，以下是简写：
-```
+#### 太麻烦了，以下是简写：
+```CSS
 .box-1 {
     margin: 10px 20px 10px 30px;
 }
 
-顺时针，上(top)右(right)下()bottom左(left)。
+顺时针，上(top)右(right)下(bottom)左(left)。
 
 如果值全部是 10px：
 .box-1 {
     margin: 10px;
 }
 ```
-border
-```
+#### border
+```CSS
 border-width
 border-style
 border-color
@@ -42,17 +49,17 @@ border-color
 
 
     border-top ----------> 包括：border-top-width 、 border-top-style 、  border-top-color
-    border-righe
+    border-right
     border-bottom
     border-left
 ```
 
-#### 第二节：元素的显示隐藏
-```
+## 2：元素的显示隐藏
+```CSS
 display
 1.所有的后代元素都隐藏
 2.好像这个元素不存在
-（点击后，下面的内容顶上去了，自己原有的内容都消失了）
+（点击勾选 display 后，下面的内容顶上去了，自己原有的内容都消失了）
 
 visibility
 1.元素的大小不变，可理解为透明（点击后，自己原有的内容都消失了，但是下面的内容没有顶上去了）
@@ -64,8 +71,8 @@ overflow
 2.设置hidden，裁剪内容，使用滚动条来显示或直接显示超出部分
 3.设置overflow auto，出现滚动条
 ```
-#### 第三节：背景
-```
+## 3：背景
+```CSS
 background-image: 背景图片
 background-color:背景颜色
 background-repeat: 背景图片平铺方式
@@ -76,7 +83,7 @@ background: 背景简写
 .box {
     height: 400px;
     background-image: ulr('bg.jpg');
-    background-color:#e8e8e8e8;
+    background-color: #e8e8e8e8;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100px 100px;
@@ -124,32 +131,27 @@ WebP相对于PNG、JPG有什么优势？
 如此多的图片，当然占用了很多流量及时间，所以从性能优化的角度看，图片绝对是优化的热点和重点之一。
 由于图片优化篇幅太长，这里就不再展开介绍了，下面推荐一些图片优化的极佳资料以供参考：
 
-Web性能优化：图片优化
-前端图片优化机制
-图片优化
+Web性能优化：图片优化：http://web.jobbole.com/81766/
+前端图片优化机制：http://imweb.io/topic/568b20194c44bcc56092e415
+图片优化：https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization?hl=zh-cn
 ```
-#### 第四节：雪碧图（CSS Sprite ）
-```
+## 4：雪碧图（CSS Sprite ）
+```CSS
+雪碧图：通常情况下，我们网站会有很多小的图标，这些图标都有，他们自己 background-image 来 控制，而为了这些图标更好看，
+我们通常会用一些背景图片来让这个图标显示不同的内容，但随着网站越来越庞大，这些图标会越来越多，也就是说需要的背景图片会
+越来越多，当用户打开这个页面的时候，就要加载很多的图片，这样影响网站的性能，通常做法是，我们会把这些小的背景图片合并成
+一张大的背景图片，然后去控制，显示不同的内容就可以了，这就是雪碧图，为什么叫雪碧图呢？因为她的英文名叫（CSS Sprite ）
+，英译过来就是雪碧图，Sprite 也有精灵的意思，所以也叫CSS 精灵。
+
 background-position
-例如：background-position: -60px 0;
+例如：background-position: -480px -96px;（表示往左移动-480px，网上移动-96px）
 ```
-#### 第五节：渐变背景——————线性
+## 5：渐变背景——————线性
 
-![1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98.png)
-![2](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%981.png)
-![3](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%982.png)
-![4](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%983.png)
-![5](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%984.png)
-![6](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/6920e7271c5c3b65ae51fecc147a835c585d2fa4/%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%984.png)
+[渐变背景](http://coding.imweb.io/demo/p2/gradient-linear.html)
 
-#### 第五节：渐变背景——————径向
-![1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/0101f55a7d47e8a396c367dff29af713742ab603/%E5%BE%84%E5%90%911.png)
-![2](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/0101f55a7d47e8a396c367dff29af713742ab603/%E5%BE%84%E5%90%912.png)
-![3](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/0101f55a7d47e8a396c367dff29af713742ab603/%E5%BE%84%E5%90%913.png)
-![4](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/0101f55a7d47e8a396c367dff29af713742ab603/%E5%BE%84%E5%90%914.png)
-![5](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/773c0fbbc41db27931bac0df487c3751ddaf4156/%E5%BE%84%E5%90%915.png)
-![]()
-![]()
+## 6：渐变背景——————径向
+[渐变背景](http://coding.imweb.io/demo/p2/gradient-radial.html)
 
 
 
