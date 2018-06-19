@@ -1,10 +1,18 @@
-#### 第一节：CSS 布局简介
+## 1：CSS 布局简介
+```
+1.由于加载很慢，需要整个tab 加载好了才显示出来，
+2.tab 是属于表格， 语义化得原因，所以废除了
 tab 布局过时了
 
-#### 第二节：HTML 布局义化
+现在主流的是 div + css
+可以制作出各种风格的 HTML 结构
+```
+## 2：HTML 布局义化
+一个页面有头部（header）、中间部分(container)、底部（footer）
+
 ```
 1.方便团队开发与维护
-2.有利于SEO(搜索引擎)
+2.有利于SEO(搜索引擎来爬页面能爬的更好)
 3.屏幕阅读软件（盲人）会根据结构来读页面
 
 例如下面的语句：
@@ -17,25 +25,26 @@ tab 布局过时了
 
 <div class="footer"></div>
 
-义化后的语句：
+语义化后的语句：
 <header class="header"></header>
 
 <div class="container">
-    <daside class="aside"></div>
+    <aside class="aside"></div>
     <main class="main"></main>
 </div>
 
 <foote class="footer"></foote>
 
-更加简介明了，头部尾部一目了然
+更加简洁明了，头部尾部一目了然
 ```
 
-##### 深入理解 HTML 语义
-```
+## 3.深入理解 HTML 语义
+
 
 HTML 语义当然不仅仅只是几个 HTML 语义标签。
 
-从“文档”说起
+#### 从“文档”说起
+```
 很多时候我会把“页面”和“文档”这两个词混着用，比如将 HTML 页面说成“HTML 文档”。
 
 HTML 就是文档，最开始的《Web 简史》中我们有提到过，万维网的雏形是一个文档共享系统，
@@ -44,18 +53,19 @@ HTML 就是文档，最开始的《Web 简史》中我们有提到过，万维�
 
 现实生活中，说到文档，我们的第一反应就是 Microsoft Word ，
 其实 Word 当年也有可能成为 Web 标准，当然这是另外一个故事。
-
-文档大纲
+```
+#### 文档大纲
+```
 所以我们从 Word 说开去，希望你 Word 用的很顺溜哦。
 
 Word 中的标题有一级标题、二级标题……的说法，所有的标题就构建出了这个 Word 文档的大纲。
 
 在 HTML 文档中呢，H1 ~ H6 就是一级到六级标题，它们构成了 HTML 文档的大纲。
 腾讯网首页的文档大纲。一个好的页面，必定先是一个好文档，好文档必然有着严谨的文档大纲。
+```
 
-这个是谷歌浏览器查看页面文档大纲的插件，html5-outliner 。
-
-再来看“万维网”
+#### 再来看“万维网”
+```
 最初的万维网是一个文档共享的网络，现在的万维网则是一个资源共享的网络，包括图片、多媒体等等。
 
 HTML 则是万维网的粘合剂，也是万维网的载体，但是现在 HTML 给我们的感觉啊，就是给人看的，
@@ -75,13 +85,15 @@ https://segmentfault.com/a/1190000002695791    (很齐全)
 HTML 语义
 http://justineo.github.io/slideshows/semantic-html/#/2
 ```
-##### 让IE8 支持 HTML5 语义化标签
-```
+##  4.让IE8 支持 HTML5 语义化标签
+
+```html
 HTML5是 HTML 最新的修订版本，于2014年10月由万维网联盟（W3C）完成标准制定。而 IE8 面世时间为2009年3月19日，
 时间相差如此之大，所以 IE8 作为比较古老的浏览器，不支持 HTML 5 引入的语义化标签
 （如 header、nav、menu、section、article 等）也是很正常的。
-
-默认情况下 IE8 对 HTML5 标签的处理
+```
+#### 默认情况下 IE8 对 HTML5 标签的处理
+```html
 在 IE8 里面，未定义的标签——IE8 不认识所有新引入的 HTML5 标签，所以定义样式是不会生效。
 比如下面这段代码（抽取主要代码）：
 
@@ -92,15 +104,9 @@ HTML5是 HTML 最新的修订版本，于2014年10月由万维网联盟（W3C）
 <section>
   hello world
 </section>
-期待展示的效果如下：
-
-chrome
-
-但在 IE8 中实际展示效果如下：
-
-IE8
-
-如何让 IE8 支持 HTML5 标签
+```
+#### 如何让 IE8 支持 HTML5 标签
+```html
 虽然默认不支持，但是我们可以通过 JS 使用 document.createElement 来“欺骗” IE 的 CSS 引擎，
 让它知道某个标签的存在，具体做法如下：
 
@@ -126,29 +132,30 @@ IE8
 
   </body>
 </html>
-显示效果如下：
 
-IE_HTML5
 
 既然元素默认都不支持，就更没有相关默认的样式了，所以我们还要加上一些重置样式如下：
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
-借助 html5shiv.js 让 IE8 支持更多的 HTML5 特性
+
+```
+#### 借助 html5shiv.js 让 IE8 支持更多的 HTML5 特性
+```html
 其实不只是 IE8 ， IE6-9、 Safari 4.x (以及 iPhone 3.x)、还有Firefox 3.x 等等，对 HTML5 的支持都不完善。
 所以有了一个库 html5shiv.js 来做统一处理，shiv 意为用作武器的小刀（实际上是一个拼写错误，应该为 shim），
 在机械工程中的专业释义为垫片，比喻给那些老旧的浏览器加个垫片，让它们基本能用。
 
 更多阅读
-IE8 HTML5 surport
+IE8 HTML5 surport:https://johnresig.com/blog/html5-shiv/
 HTML5 shiv
-html5shiv.js
-github上html5shiv项目readme.md部分的翻译
-HTML5 Shiv 的一些趣事 ，英文原文见 The Story of the HTML5 Shiv。
-
+html5shiv.js:https://github.com/aFarkas/html5shiv/
+github上html5shiv项目readme.md部分的翻译:https://www.zhangxinxu.com/wordpress/2013/02/github-html5shiv-readme-translate/
+HTML5 Shiv 的一些趣事 ，英文原文见 The Story of the HTML5 Shiv。:http://note.rpsh.net/posts/2011/05/25/story-of-html5-shiv/
+https://www.paulirish.com/2011/the-history-of-the-html5-shiv/
 ```
-#### 第三节：显示类型：display
+## 5：显示类型：display
 ```
 块级元素
 p , div , hn ,ul/ol ,li......
@@ -156,9 +163,7 @@ display:block/table/list-item......由display:block来定义这些块级元素�
 
 行内元素
 a,span ,img,em......
-display:inline/inline-block
-
-有 display 来决定块级元素和行内元素是可以转换的
+display:inline/inline-block--------由 display 来决定块级元素和行内元素是可以转换的
 
 block
 1.每一个都另起一行
@@ -168,24 +173,24 @@ inline
 1.和其他行内元素同一行
 2.不可设置宽高，行高，上下边距
 
-inline-block
+inline-block：既有block的特征也有inline的特征
+```
+#### 基本值: none,inline,block,inline-block
 
-基本值: none,inline,block,inline-block
+#### flexbox: flex,inline-flex
 
-flexbox: flex,inline-flex
+#### grid: grid,inline-grid
 
-grid: grid,inline-grid
-
-table: table,table-row,table-cell
+#### table: table,table-row,table-cell
 
 
 border: 1px solid； (去掉 1px solid 表格边框)
 
 vertical-align: middle;（勾选后默认居中）
 
-```
 
-#### 第五节：视觉格式化模型（visual formatting model）
+
+## 4：视觉格式化模型（visual formatting model）
 ```
 前面我们已经学习了盒模型（box model），知道了元素会被渲染成一个个盒子。那么这些盒子在屏幕上
 的位置又是怎么放置的呢？这就是我们现在要学习的——CSS 视觉格式化模型(visual formatting model)。
@@ -341,7 +346,7 @@ Layout mode | MDN
 
 ```
 
-#### 第六节：深入了解 inline-block
+## 5：深入了解 inline-block
 ```
 在之前的课程中，我们学习到了 inline-block 的基础知识，接下来我将介绍一些使用 inline-block 
 产生的问题和解决方法以及其常见的应用场景，来进一步加深了大家对 inline-block 的理解。
@@ -440,14 +445,14 @@ bottom	将元素的底部和其后代与整行的底部对齐。
 <percentage>	像<长度>值，百分比是line-height属性的百分比。
 具体 demo 可参考：行内级元素垂直对齐方式
 ```
-#### 第七节：元素浮动———— float
+## 6：元素浮动———— float
 ```
 设置元素的浮动———— float
 不浮动———— none 
 左浮动———— left
 右浮动———— right
 ```
-#### 第八节：清除浮动详解
+## 7：清除浮动详解
 ```
 清除浮动主要是为了解决由于浮动元素脱离文流导致的元素重叠或者父元素高度坍塌的问题，而这两个问题
 分别对应了需要清除浮动的两种种情况：清除前面兄弟元素浮动和闭合子元素浮动（解决父元素高度坍塌）。
@@ -550,7 +555,7 @@ clear:both
 大家在实际操作的时候可以针对不同的情况参考上面的方法。
 
 ```
-#### 第九节：float 布局
+## 8：float 布局
 ```
 左中右三栏布局
 
@@ -583,7 +588,7 @@ width: 1200px;现在比较主流的宽度，适合PC
 当都勾选时，都被拽回去对应左边栏和右边栏
 
 ```
-#### 第十节：网格布局系统
+## 9：网格布局系统
 ```
 视频中涉及到的网址如下：
 
@@ -596,7 +601,7 @@ width: 1200px;现在比较主流的宽度，适合PC
 注：以前设置浮动的时候，一般还需要设置display: inline来兼容 IE6、7，以避免出现双倍 margin 的间距。
 
 ```
-#### 第十一节：元素位置
+## 10：元素位置
 ```
 注：position 还有一个 sticky 取值，不过兼容有点问题，具体可参考：sticky（具体使用可参考下面的 Resources 部分链接）
 
@@ -617,14 +622,14 @@ absolute :相对于非 static 最近的父级元素（relative ，absolute，fix
 fixed ：一般来说相对于视窗（相对于浏览器的整个界面）
 
 ```
-#### 第十二节：元素层级——z-index
+## 11：元素层级——z-index
 ```
 1.默认HTML结构顺序，谁最后出现谁最高级
 2.position(非static值)元素高于其他元素
 3.position(非static值)元素之间先通过z-index 值判断
 4.如果z-index 相同则按照HTML结构顺序
 ```
-#### 第十三节：深入了解 z-index
+## 12：深入了解 z-index
 ```
 网页正常文档流排版可以理解为在一个平面立面里面，元素占据空间，依次排列，互不覆盖。但是当页面中元素设置了定位属性的时候，
 难免会出现元素之间相互重叠的情况，比如下图小猫和小狗的图片都设置了绝对定位，2张图片的位置重叠了，小猫图显示在小狗图上面。
@@ -757,7 +762,7 @@ z-index 一般比较规则是值大在上，值相同则排后面的在上。
 理解CSS的 z-index属性
 层叠上下文-MDN
 ```
-#### 第十四节：flexbox 基本概念
+## 13：flexbox 基本概念
 ```
 .box {
     display: fiex
@@ -857,7 +862,7 @@ baseline
 
 
 
-#### 第十五节：flexbox 剩余空间分配规则
+## 14：flexbox 剩余空间分配规则
 ```
 前面我们学习到了 flexbox 布局。通过使用 flexbox 布局，我们可以更轻松实现以往很难实现的页面布局。
 本文主要讲解 flexbox 布局是如何去分配和计算布局剩余空间的。（本文阅读前要求你对 flexbox 已经有了初步的认知，
@@ -1015,7 +1020,7 @@ flex-shrink 用来指定父容器空间不够时子元素的缩小比例，默�
   flex-shrink: 0;
 }
 ```
-#### 第十六节：grids 布局系统
+## 15：grids 布局系统
 ```
 我们之前有提到过网格系统，比如960s，bootstrap 的网格系统，但是这些网格系统都是模拟出来的（使用 float 或 flexbox），
 而并非天生的，虽然可以解决一些常见布局问题，但面临 Win10 UI 还是有点力所不及.
@@ -1200,7 +1205,7 @@ firefox在地址栏输入"about:config"，找到"layout.css.grid.enabled"开启
 A Complete Guide to Grid:   https://css-tricks.com/snippets/css/complete-guide-grid/#prop-align-items
 CSS Grid Layout:    https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout
 ```
-#### 第十七节：浏览器如何渲染 HTML & CSS
+## 16：浏览器如何渲染 HTML & CSS
 ```
 我们现在已经知道，使用 HTML & CSS 可以搭建出一个漂亮的 Web 页面。
 
@@ -1313,7 +1318,7 @@ CSSOM 为何具有树结构？这是因为浏览器为页面上的任何对象�
 
 ```
 
-#### 第十八节：重排与重绘
+## 17：重排与重绘
 ```
 一个页面渲染完毕后，随着用户的操作，或者数据变化，网页还会进行重新渲染。
 根据不同的触发条件，重新渲染分为两种情况：重排（reflow）和重绘（repaint）。
