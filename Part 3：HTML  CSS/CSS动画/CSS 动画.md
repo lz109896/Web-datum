@@ -1,12 +1,12 @@
 
-#### 第一节：CSS 动画简介
+## 1：CSS 动画简介
 ```
 分为两种补间动画（transition 动画）和帧动画（ animation 动画）
 
 transition 动画：只需要定义开始和结束状态，补齐中间，浏览器会自动补齐中间的状态：称为：补间动画
 animation 动画：可以利用关键帧做出复杂的帧动画
 ```
-#### 第二节：transition 动画
+## 2：transition 动画
 ```
 背景，位置
 
@@ -25,7 +25,7 @@ visibility:(hidden ->visible)     没有动画
 position:(staticn ->absolute)     没有动画
 ```
 
-#### 第三节[资料] 动画必备属性 transform
+## 3.[资料] 动画必备属性 transform
 
 ##### 概述
 ```
@@ -221,7 +221,7 @@ transformmatrix
 css3-matrix-transform-for-the-mathematically-challenged
 
 ```
-#### 第四节：缓动函数
+## 4：缓动函数
 
 ![缓动函数](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB2.png)
 ![缓动函数](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB3.png)
@@ -235,7 +235,7 @@ https://easings.net/zh-cn
 ```
 
 
-#### 第五节：animation 动画, 是可控制的
+## 5：animation 动画, 是可控制的
 
 ![animation 动画](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB4.png)
 ```
@@ -258,7 +258,7 @@ animation: circleRun 2s ease infinite;
 
 ```
 
-#### 第六节：animation-fill-mode 解析
+## 6：animation-fill-mode 解析
 ```
 animation-fill-mode 保持最后一帧的状态
 
@@ -271,7 +271,7 @@ animation-fill-mode 保持最后一帧的状态
 
 
 ```
-#### 第七节：关键帧语法解析
+## 7：关键帧语法解析
 ```
 @keyframes定义的 circleRun
 表示动画执行到33% 时的状态位置在哪里
@@ -284,13 +284,13 @@ to: 表示100%
 ```
 ![关键帧语法](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB5.png)
 ![关键帧语法](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB6.png)
-#### 第八节：transiton 动画和 animation 动画的异同
+## 8：transiton 动画和 animation 动画的异同
 
 ![画的异同](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/047726115d5d13adc62c83cc6705bcfc487d84a7/%E5%8A%A8%E7%94%BB7.png)
 
 
 
-#### 第九节：常见 CSS 动画库
+## 9：常见 CSS 动画库
 
 ##### 常见 CSS 动画库
 ```
@@ -366,7 +366,7 @@ GitHub：https://github.com/lukehaas/css-loaders
 注：一般不建议全部拿来使用，而是使用哪个动画效果就拷贝对应的样式。
 
 ```
-#### 第十节：[资料] 动画性能优化
+## 10：[资料] 动画性能优化
 
 ##### 动画性能优化
 
