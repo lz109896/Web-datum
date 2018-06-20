@@ -196,11 +196,10 @@ vertical-align: middle;（勾选后默认居中）
 的位置又是怎么放置的呢？这就是我们现在要学习的——CSS 视觉格式化模型(visual formatting model)。
 视觉格式化模型是 CSS 布局的一个基础理论体系，需要你有一定的 CSS 功底，所以一时半会是很难掌握的，
 但是只要你一掌握，对于 CSS 布局就会豁然开朗。（建议整个 CSS 布局学完后再重新细读深入下。）
-
-盒子的位置摆放
-默认情况下，盒子按照元素在 HTML 中的先后位置从左至右自上而下一个接着一个排列摆放。如下图：
-
-
+```
+##### 盒子的位置摆放
+```
+默认情况下，盒子按照元素在 HTML 中的先后位置从左至右自上而下一个接着一个排列摆放。
 
 在图中我们可以看到，有些元素的盒子被渲染为完整的一行，如h1、p、div；而有些元素的盒子则被渲染为水平排列，
 直到该行被占满然后换行，如span、a、strong。
@@ -208,12 +207,14 @@ vertical-align: middle;（勾选后默认居中）
 这是因为不同的盒子使用的是不同的格式化上下文（formatting context）来布局，每个格式化上下文都拥有一套
 不同的渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。（就如我们参加结婚喜宴一样，
 有父母长辈席，好友席，同事席，甚至前男/女朋友席等，不同的身份坐到对应位置即可。）
+```
+#### 格式化上下文（formatting context）
 
-格式化上下文（formatting context）
 我们常见的两个格式化上下文分别为：块格式化上下文（block formatting context 简称 BFC）
 和行内格式化上下文（inline formatting context 简称 IFC）
 
-BFC
+###### BFC
+```
 块级盒（block-level boxes）
 当元素的 CSS 属性 display 的计算值为 block，list-item，table，flex 或 grid 时，它是块级元素。
 视觉上呈现为块，竖直排列。典型的如 <div> 元素，<p> 元素等都是块级元素。
@@ -222,8 +223,9 @@ BFC
 生成额外的盒来放置项目符号，不过多数元素只生成一个主要块级盒。
 
 块级盒参与 BFC，被渲染为完整的一个新行。
-
-渲染规则
+```
+###### 渲染规则
+```
 默认根元素（html 元素）会创建一个 BFC，其块级盒子元素将会按照如下规则进行渲染：
 
 块级盒会在垂直方向，一个接一个地放置，每个盒子水平占满整个容器空间
@@ -233,13 +235,15 @@ BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不�
 除此之外，还有其他方法可以创建一个新的 BFC，具体可参看：块格式化上下文。除此之外，flexbox 布局和 
 grids 布局中的 item 都会创建一个新的 BFC。
 
-具体渲染规则及效果可参看：块格式化上下文
+具体渲染规则及效果可参看：块格式化上下文：http://coding.imweb.io/demo/p3/vfm/bfc.html
 
 更多关于 BFC 相关内容可参看：
 
-Block formatting contexts
-CSS 之 BFC 详解
-IFC
+Block formatting contexts：https://www.w3.org/TR/CSS22/visuren.html#block-formatting
+CSS 之 BFC 详解：http://www.html-js.com/article/1866
+```
+###### IFC
+```
 行内级盒（inline-level boxes）
 当元素的 CSS 属性 display 的计算值为 inline，inline-block，inline-table，inline-flex 
 或 inline-grid 时，它是行内级元素。视觉上它将内容与其它行内级元素排列为一行，直到该行被占满然后换行。
@@ -257,9 +261,11 @@ inline-table, inline-flex, inline-grid 的元素生成。
 
 每一行排列的行内级盒都可以看做由一个匿名的行盒包裹，如下图（使用了两种灰色背景色来模拟）：
 
+```
 
+##### 渲染规则
 
-渲染规则
+```
 当块容器盒（block container box）不包括任何块级盒（block-level boxes）时，就会创建一个行内格式化上下文（IFC）。
 （一般来说一个块级盒也是一个块容器盒，具体可参看： Block-level elements and block boxes）
 
@@ -307,13 +313,17 @@ flex formatting context（flexbox 布局）、grid formatting context（grid 布
 
 盒子的生成)
 视觉格式化模型中的各种框
-定位方案
+```
+###### 定位方案
+```
 上面我们所讨论的其实都是常规流（normal flow）中盒子的摆放。但实际上我们有三种定位方案，分别为：
 
 常规流（normal flow）：盒一个接一个排列，不同的盒子采用不同的格式化上下文渲染。
 浮动（float）：盒将从常规流里提出来，放在当前盒的旁边。
 绝对定位(absolute positioning)：盒将脱离常规流，其坐标是绝对的（通过 top / bottom / left / right 来设置）。
-常规流（normal flow）
+```
+###### 常规流（normal flow）
+```
 默认盒的定位方案就是常规流，但是如果触发了以下任何一个条件，将不会使用常规流：
 
 position 的值非 static 或 relative
@@ -445,7 +455,7 @@ bottom	将元素的底部和其后代与整行的底部对齐。
 <percentage>	像<长度>值，百分比是line-height属性的百分比。
 具体 demo 可参考：行内级元素垂直对齐方式
 ```
-## 6：元素浮动———— float
+## 6：元素浮动———— float(文字环绕的效果)
 ```
 设置元素的浮动———— float
 不浮动———— none 
@@ -453,7 +463,7 @@ bottom	将元素的底部和其后代与整行的底部对齐。
 右浮动———— right
 ```
 ## 7：清除浮动详解
-```
+```html
 清除浮动主要是为了解决由于浮动元素脱离文流导致的元素重叠或者父元素高度坍塌的问题，而这两个问题
 分别对应了需要清除浮动的两种种情况：清除前面兄弟元素浮动和闭合子元素浮动（解决父元素高度坍塌）。
 
@@ -601,7 +611,7 @@ width: 1200px;现在比较主流的宽度，适合PC
 注：以前设置浮动的时候，一般还需要设置display: inline来兼容 IE6、7，以避免出现双倍 margin 的间距。
 
 ```
-## 10：元素位置
+## 10：元素位置——position
 ```
 注：position 还有一个 sticky 取值，不过兼容有点问题，具体可参考：sticky（具体使用可参考下面的 Resources 部分链接）
 
@@ -793,10 +803,11 @@ flex-direction: row-reverse;         三页界面3.2.1一行向右对齐
 flex-direction: column;              三页界面从上到下1.2.3变一竖
 flex-direction: column-reverse;      三页界面从上到下3.2.1变一竖
 
-lex-wrap: 换行
+flex-wrap: 换行
 *flex-wrap: nowrap         显示一行，不换行（禁止文字换行）
 flex-wrap: wrap            三页界面当宽度达到换行条件时，变成两行（第一行第1.2页面，第二行第3页面），变成两条轴线
 flex-wrap: wrap-reverse    三页界面当宽度达到换行条件时，变成两行（第一行第3页面，第二行第1.2页面），变成两条轴线
+flex-flow： flex-direaction 和 flex-wrap的简写
 
 justify-content： item 在主轴（main axis）上的对齐方式。主轴是可以设置的
 *justify-content: flex-start        三页界面1.2.3一行向左对齐
@@ -806,8 +817,8 @@ justify-content: space-between      三页界面1.2.3一行分部对齐，每�
 justify-content: space-around       三页界面1.2.3一行分部对齐，
                                     每个页面 item 左右两边都有相等的距离=两个页面左右之间 item 的距离
 
-align-item：item 在 cross轴上的对齐方式
-*align-item: stretch            
+align-items：item 在 cross轴上的对齐方式（交叉轴的对其方式）
+*align-item: stretch            
 align-item: flex-start     三页界面向左边一行，拉伸展开全部的界面
 align-item: flex-end       三页界面在左边一行，收起界面末尾向下对齐
 align-item: center         三页界面在左边一行，收起界面末尾中间对齐
@@ -855,10 +866,6 @@ baseline
 
 
 ```
-![flexbox](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox.png)
-![flexbox1](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox1.png)
-![flexbox2](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/350594f034616e7818b4c27f4a5a7340e4c4e978/flexbox2.png)
-![flexbox3](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/f60032fac90de6d83da41db3e63ed0c2b3aa36ae/flexbox3.png)
 
 
 
