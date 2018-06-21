@@ -1,9 +1,10 @@
-#### 第一节：JavaScript 引言
+## 1：JavaScript 引言
 HTML 和 CCS 都是简单的，JavaScript 才是重点
 
-#### 第二节：认识 JavaScript
-```
-JavaScript :目前主流浏览器上唯一支持的脚本语言，简写JS；JS ：可以用来修改页面样式和内容、制作工具、游戏、其他
+## 2：认识 JavaScript
+```CSS
+JavaScript :目前主流浏览器上唯一支持的脚本语言，简写JS；
+JS ：可以用来修改页面样式和内容、制作工具、游戏、其他
 可以运行在服务器端，还能嵌入式
 
 ECMAScript 语言基础：包括变量，循环，条件
@@ -12,8 +13,8 @@ BOM ：浏览器对象模型，可以获取浏览器的信息，改变浏览器�
 
 
 ```
-#### 第三节：JavaScript 引入
-```
+## 3：JavaScript 引入
+```CSS
 <!DOCTYPE html>
 <html Lang="en">
 <head>
@@ -34,8 +35,8 @@ BOM ：浏览器对象模型，可以获取浏览器的信息，改变浏览器�
 ```
 script ：的属性有src、alert
 
-#### 第四节：注释
-```
+## 4：注释
+```CSS
 // 这是单行注释
 
 /*
@@ -51,16 +52,16 @@ script ：的属性有src、alert
 */
 
 ```
-#### 第五节：[资料] JSDoc 注释规范
+## 5：[资料] JSDoc 注释规范
 
 ##### 什么是 JSDoc
-```
+```CSS
 JSDoc 是一个根据 JavaScript 文件中注释信息，生成 JavaScript 应用程序或模块的API文档的工具。
 你可以使用 JSDoc 标记如：命名空间，类，方法，方法参数等。从而使开发者能够轻易地阅读代码，
 掌握代码定义的类和其属性和方法，从而降低维护成本，和提高开发效率。
 ```
 ##### JSDoc 注释规则
-```
+```CSS
 JSDoc注释一般应该放置在方法或函数声明之前，它必须以/ **开始，以便由JSDoc解析器识别。
 其他任何以/*，/***或者超过3个星号的注释，都将被JSDoc解析器忽略。如下所示：
 
@@ -69,7 +70,7 @@ JSDoc注释一般应该放置在方法或函数声明之前，它必须以/ **�
 */
 ```
 ##### JSDoc 的注释效果
-```
+```CSS
 假如我们有一段这样的代码，没有任何注释，看起来是不是有一定的成本。
 
 function Book(title, author) {
@@ -117,7 +118,7 @@ Book.prototype={
 @constructor 明确一个函数是某个类的构造函数。
 
 ##### @param 参数注释
-```
+```CSS
 我们通常会使用 @param 来表示函数、类的方法的参数，@param 是JSDoc中最常用的注释标签。
 参数标签可表示一个参数的参数名、参数类型和参数描述的注释。如下所示：
 
@@ -129,7 +130,7 @@ function say(wording) {
 }
 ```
 ##### @return 返回值注释
-```
+```CSS
 @return 表示一个函数的返回值，如果函数没有显示指定返回值可不写。如下所示：
 
 /*
@@ -137,7 +138,7 @@ function say(wording) {
  */
  ```
 ##### @example 示例注释
-```
+```CSS
 @example 通常用于表示示例代码,通常示例的代码会另起一行编写，如下所示：
 
 /*
@@ -146,7 +147,7 @@ function say(wording) {
  */
  ```
 ##### 其他常用注释
-```
+```CSS
 @overview 对当前代码文件的描述。
 @copyright 代码的版权信息。
 @author <name> [<emailAddress>] 代码的作者信息。
@@ -158,20 +159,20 @@ function say(wording) {
 JSDoc 文档  :http://usejsdoc.org/index.html
 
 
-#### 第六节：变量
+## 6：变量
 
 
 ![](https://github.com/oqq5518/Liao-Zhou/blob/dde205c13f243e0f3903efc3a440045c223d30b3/var%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/dde205c13f243e0f3903efc3a440045c223d30b3/var%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/dde205c13f243e0f3903efc3a440045c223d30b3/var%203.png)
 
-#### 第七节：[资料] 关键字和保留字
+## 7：[资料] 关键字和保留字
 ##### 关键字和保留字
 
 在 javaScript 中，保留字和关键字不能够用作标识符，也就是不能用作变量或者函数的名称。
 
 ##### 关键字
-```
+```CSS
 ECMA-262 描述了一组具有特定用途的关键字,这些关键字可用于表示控制语句的开始或结束，或者用于执行特定操作等。
 根据规定，关键字是语言保留的，不能用作标识符即用作变量名或函数名。
 ```
@@ -248,8 +249,8 @@ ECMA-262 还描述了另外一组保留字,有些保留字可能还没有任何�
 关键字和保留字-w3School  ：http://www.w3school.com.cn/js/pro_js_keywords.asp
 
 
-#### 第八节：数据类型引言
-```
+## 8：数据类型引言
+```CSS
 编程不是为了编程而编程，是为了解决现实生活中的问题
 
 以下属于数据类型,用JS来描述以下
@@ -266,10 +267,8 @@ ECMA-262 还描述了另外一组保留字,有些保留字可能还没有任何�
 ```
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%201.png)
-#### 第九节：数据类型简介
-
-
-```
+## 9：数据类型简介
+```CSS
 Number、String:属于基本数据类型
 Null、Undefined :为空的意思
 BOoolean :布尔类型（是或否的意思）
@@ -281,11 +280,11 @@ typeof !1, !是反义操作符， !1的结果是 false，为布尔类型， 因�
 变量定义 var a; 相当于 var a = undefined;, 结果是 undefined
 
 ```
-#### 第十节：Number 数字类型
+## 10：Number 数字类型
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/number%203.png)
-#### 第十一节：String 类型(字符串)
+## 11：String 类型(字符串)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%203.png)
@@ -293,19 +292,19 @@ typeof !1, !是反义操作符， !1的结果是 false，为布尔类型， 因�
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/String%205.png)
 
 
-```
+```CSS
 String ： 可以拼接
 空格、点号、只要出现的引号里面的都是长度
 ```
-#### 第十二节：[资料] Number 类型与 String 类型之间的转换
+## 12：[资料] Number 类型与 String 类型之间的转换
 
 深入了解 Number 类型
-```
+```CSS
 Number 类型作为 JS 的基本数据类型之一，被应用在程序中的各种场景，其重要性就如数字对于我们日常生活。
 下面就让我们来一起深入了解下，为以后的“策马奔腾”做好铺垫。
 ```
 定义方式
-```
+```CSS
 一般来说我们可以直接使用数值字面量格式来定义一个数字，如下：
 
 var num1 = 15;
@@ -319,7 +318,7 @@ console.log(typeof num2); // number
 定义的数值可分为两种类型，分别为整数和浮点数。
 ```
 整数
-```
+```CSS
 整数，可以通过十进制，八进制，十六进制的字面值来表示。（默认为十进值）
 
 // 十进制
@@ -344,7 +343,7 @@ var hexNum2 = 0x1f; // 十六进制的31（1*16 + 15）
 console.log(octalNum1 + hexNum1); // 66
 ```
 浮点数
-```
+```CSS
 浮点数其实就是我们通常所说的小数，所以一定有个小数点。简单示例如下：
 
 var floatNum1 = 5.2;
@@ -366,7 +365,7 @@ console.log(floatNum4 + floatNum5); // 0.30000000000000004
  var floatNum7 = 3.2e-7；// 3.2×10（-7次幂）
  ```
 NaN
-```
+```CSS
 NaN 是 not a number 的简写，即非数字。它是一个特殊的值，这个数值用于表示一个本来要返回数值的操作数，
 结果未返回数值的情况。
 
@@ -389,7 +388,7 @@ console.log(isNaN("blue")); // true
 console.log(isNaN(true)); // false，可以被转成数值 1
 ```
 数值转换
-```
+```CSS
 有三个函数可以把非数值转换为数值：Number()，parseInt()，parseFloat()。第一个可以用于任何数据类型，
 后两个则专门用于把字符串转化为数值。
 
@@ -428,7 +427,7 @@ parseInt
 parseFloat
 ```
 数值范围
-```
+```CSS
 由于内存的限制，JS 并不能保存所有的数值。那么其能表示的最大最小值到底是多少呢？我们可以使用 Number 
 对象的 MIN_VALUE 和 MAX_VALUE 属性表示（很少很少用到，大概知道就可以，真要用的时候可以再查阅）：
 
@@ -442,7 +441,7 @@ console.log(Number.isFinite(Number.MAX_VALUE + Number.MAX_VALUE)); // false
 更多 Number 对象的属性和方法可参考：Number 对象 | MDN
 ```
 数学函数
-```
+```CSS
 回忆想想，我们上学的时候是不是学过很多处理数字的数学公式啊，那在 JS 中该怎么办？
 
 不用慌，JS 中内置了一个 Math 对象，它具有数学常数和函数的属性和方法。
@@ -468,7 +467,7 @@ Math.sin(Math.PI / 2); // 1
 
 
 ```
-#### 第十三节：Boolean 类型
+## 13：Boolean 类型
 true
 
 false
@@ -479,18 +478,18 @@ false
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/Boolean%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/e7a3d5f76e3872c4ea29a01c40c177f3176a33e3/Boolean%203.png)
 
-```
+```CSS
 3 > 4: 是比较运算，结果是 Boolean 类型。
 8 - 8: 运算结果是0，是 Number 类型。
 'true': 用引号括起来的是字符串类型。
 9 !== 9: 是否等于这些也是比较运算，结果是 Boolean 类型。
-!'str': ! 是取反操作符, 会将后面的 'str' 字符串转成 Boolean 类型。
-!8 - 1: ! 运算符比 - 运算符优先级高，所以上面算式等价于 (!8) - 1, 运算一步之后等价于 false - 1, 
-false 在计算中等于0, 所以计算结果是 -1，类型是 Number。
-这里涉及到运算符的优先级，虽然还没介绍，但不妨碍我们做题，是吧？活用调试工具。
+!'str': ! 是取反操作符, 会将后面的 'str' 字符串转成 Boolean 类型。
+!8 - 1: ! 运算符比 - 运算符优先级高，所以上面算式等价于 (!8) - 1, 运算一步之后等价于 false - 1, 
+false 在计算中等于0, 所以计算结果是 -1，类型是 Number。
+这里涉及到运算符的优先级，虽然还没介绍，但不妨碍我们做题，是吧？活用调试工具。
 
 ```
-#### 第十四节：Null 和 Undefined 类型
+## 14：Null 和 Undefined 类型
 ```
 初始化变量是如果不赋值，变量的值是 undefined, 不是 null。
 typeof null 的值是 object。
@@ -500,7 +499,7 @@ Null 类型只有一个值 null, Undefined 也只有一个值 undefined。
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/Null%20%E5%92%8C%20Undefined%20%E7%B1%BB%E5%9E%8B%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/Null%20%E5%92%8C%20Undefined%20%E7%B1%BB%E5%9E%8B%202.png)
 
-#### 第十五节：Object 类型
+## 15：Object 类型
 ```
 有{}的就是定义一个对象
 
@@ -510,14 +509,14 @@ Null 类型只有一个值 null, Undefined 也只有一个值 undefined。
 
 
 
-#### 第十六节：数组简介
-```
+## 16：数组简介
+```CSS
 数组字面量描述方式例如：var bottles = ['绿','蓝','紫','红']   **推荐这种
 或者Array 构造函数：var bottles = name Array ['绿','蓝','紫','红']
 ```
 
 ##### 数组的读：
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫','红'] 
 数组索引：                    0    1    2    3
 console.log（bottles[0]）//'绿'
@@ -525,14 +524,14 @@ console.log（bottles[3]）//'红'
 console.log（bottles[4]）//'undefined'    ** 当长度没有那么多，读取不到时，返回值是'undefined'
 ```
 ##### 数组的写：
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫','红']
 bottles[1] = '黄'
 console.log（bottles）; //['绿','黄','紫','红']
 长度为1的数据变成了'黄'
 ```
 ##### 数组的长度：
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫','红']
 console.log（bottles.length）; //4
 
@@ -541,24 +540,24 @@ bottles.length = 5
 console.log（bottles）; //['绿','黄','紫','红'undefined]
 
 ```
-#### 第十七节：数组的简单方法
+## 17：数组的简单方法
 
 ##### push 方法，在数组末尾增加数据
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫']
 bottles.push('红');
 console.log（bottles）; //['绿','蓝','紫','红']
 console.log（bottles.length）; //4
 ```
 ##### pop 方法，在数组末尾去掉数据
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫','红']
 bottles.push();
 console.log（bottles）; //['绿','蓝','紫']
 console.log（bottles.length）; //3
 ```
 ##### shift 方法，在数组中，去掉前面的数据
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫','红']
 bottles.shift();
 console.log（bottles）; //['蓝','紫','红']
@@ -566,7 +565,7 @@ console.log（bottles.length）; //3
 数组序号改变，索引也会改变
 ```
 ##### unshift 方法，在数组中，在前面增加数据
-```
+```CSS
 数组字面量 ： var bottles = ['绿','蓝','紫',]
 bottles.unshift('红');
 console.log（bottles）; //['红','蓝','紫','红']
@@ -575,8 +574,8 @@ console.log（bottles.length）; //4
 ```
 
 
-#### 第十八节：[资料] 数组的常用方法
-```
+## 18：[资料] 数组的常用方法
+```CSS
 数组作为一种重要的数据类型，除了我们前面已经说到的 pop、push、shift、unshift 几个方法外，还有很多实用的方法也是我们的必备技能。
 
 假设我们有一队人，我们要对其进行一些排序或筛选的操作（比喻按高矮排序，筛选女性等），我们都可以通过数组来进行操作。
@@ -588,7 +587,7 @@ console.log（bottles.length）; //4
 var aPerson = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
 ```
 ##### slice
-```
+```CSS
 现在假设我们要抽取三个人，我们可以使用slice()方法来选取三个人，如下：
 
 var aP3 = aPerson.slice(1, 4);
@@ -599,7 +598,7 @@ console.log(aP3); // ["person2", "person3", "person4"]
 详细语法请参考：slice :https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
 ```
 ##### splice
-```
+```CSS
 同样我们还可以使用splice()方法来选取，如下：
 
 var aPerson = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
@@ -616,7 +615,7 @@ splice 还能用于增加元素，slice 则不可以
 详细语法请参考：splice:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 ```
 ##### concat
-```
+```CSS
 除了从队伍里抽出一些人出来，我们还可以把另外一个队伍和这个队伍合并成一个新队伍，如下：
 
 var aPerson1 = ['person1', 'person2', 'person3', 'person4', 'person5', 'person6']
@@ -629,19 +628,19 @@ concat() 方法用于合并两个或多个数组。此方法不会更改现有�
 详细语法请参考：concat
 ```
 ##### 高矮排序
-```
+```CSS
 现在我们以高矮的形式定义一组数据，如下：
 var aHeight = ['170', '165', '178', '183', '168', '175', '173'];
 ```
 ##### reverse
-```
+```CSS
 我们可以直接使用reverse()方法来实现倒序，如下：
 aHeight.reverse();
 console.log(aHeight); // ["173", "175", "168", "183", "178", "165", "170"]
 该方法非常简单，没有任何参数，就是把数组的出现顺序调换下，第一个元素会成为最后一个，最后一个会成为第一个。一般也很少用到。
 ```
 ##### sort
-```
+```CSS
 比起 reverse() 来说，sort() 方法使用的地方就多了。我们先来个从矮到高的排序，如下：
 
 aHeight.sort();
@@ -655,7 +654,7 @@ console.log(aHeight); // ["183", "178", "175", "173", "170", "168", "165"]
 详细语法请参考：sort :https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 ```
 ##### 随机排序
-```
+```CSS
 除了正常的升序降序之外，其实我们还经常使用到随机排序，如我们的抢红包，棋牌游戏中的洗牌都是随机排序的应用。
 
 在使用随机排序的时候，我们得使用到一个随机函数 Math.random()。
@@ -678,14 +677,14 @@ console.log(aHeight); // ["170", "183", "175", "168", "173", "165", "178"]
 因为是随机的，所以每次运行都会不一样，我们可以多运行几次试试。
 ```
 ##### 条件筛选测试
-```
+```CSS
 现在我们以肤色和年龄的的形式定义两组数据，如下（yellow 表示黄种人，white 表示白人，black 表示黑人）：
 
 var aColor = ['yellow', 'black', 'white', 'white', 'yellow', 'yellow'];
 var aAge = [19, 30, 25, 37, 18, 35];
 ```
 ##### 测试是否符合条件
-```
+```CSS
 every
 every() 方法用于测试数组的所有数据是否都通过了指定函数的测试，如果通过返回 true，否则 false。
 
@@ -702,7 +701,7 @@ every 需要数组中的每个数据都满足该条件则返回 true，否则就
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 ```
 some
-```
+```CSS
 对应 every() 方法，还有一个 some() 方法，表示数组中只要有任何一个数据满足条件则返回 ture，如果一个数据都不满足则返回 false。
 
 比喻判断是否有人的年龄都大于32岁，如下：
@@ -727,7 +726,7 @@ console.log(ageTest3); // true
 console.log(ageTest4); // false
 ```
 ##### 条件筛选
-```
+```CSS
 filter
 比喻我要选取所有黄皮肤的人，如下：
 
@@ -755,7 +754,7 @@ aPerson.forEach(function(item, index) {
 详细语法请参考：forEach
 ```
 #####  map
-```
+```CSS
 map() 方法创建一个新数组，其结果是该数组中的每个元素调用一个提供的函数。
 
 比喻每个人的工资都增加 5000元，如下：
@@ -779,15 +778,15 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects
 
 
 ```
-#### 第十九节：函数
+## 19：函数
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%203.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%204.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E5%87%BD%E6%95%B0%205.png)
 
-#### 第二十节：[资料] 函数表达式和函数声明的区别
-```
+## 20：[资料] 函数表达式和函数声明的区别
+```CSS
 函数声明与函数表达式的区别
 前面我们已经说了两种定义函数的方式：函数声明与函数表达式。那么这两种方式有区别吗，还是一样的呢？下面我们来进一步探讨探讨。
 
@@ -850,8 +849,8 @@ hi = function () {
 这样是不是一下就恍然大悟了。所以在实际开发的时候，一定要注意变量（函数）的声明会被提升到当前作用域的最前面
 
 ```
-#### 第二一节：作用域
-```
+## 21：作用域
+```CSS
 1.在函数内声明，前面有关键字 var， 都属于函数作用域下的
 2.在函数外声明，属于全局作用域
 3.在函数内声明，但是前面没有 var 关键字，也属于全局作用域
@@ -861,8 +860,8 @@ hi = function () {
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E4%BD%9C%E7%94%A8%E5%9F%9F%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E4%BD%9C%E7%94%A8%E5%9F%9F%203.png)
 
-#### 第二二节：算术运算符
-```
+## 22：算术运算符
+```CSS
 1.使用了赋值运算符=
 2.使用的为比较运算符==，并不是赋值运算符
 3.使用了复合赋值运算符+=，这里result += 6; 相等于 result = result + 6;
@@ -873,16 +872,16 @@ hi = function () {
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%204.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%205.png)
 
-#### 第二三节：赋值运算符
+## 23：赋值运算符
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
 
 
-#### 第二四节：比较运算符
+## 24：比较运算符
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%203.png)
-#### 第二五节：逻辑运算符
+## 25：逻辑运算符
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/4a3a11f770d84b3ccb4d88abe294a9b64fc7a1a8/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%203.png)
