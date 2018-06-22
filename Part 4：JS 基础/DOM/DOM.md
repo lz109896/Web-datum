@@ -192,31 +192,47 @@ DocumentFragment:不在 DOM 树之内，看不到的，它是游离在 DOM 树�
 ```
 
 ## 10.	新增 DOM 示例
-var h2 = document.createELement( 'h2');
-var h2Text = document. createTextNode( 'OS列表:;
+```js
+var h2 = document.createELement('h2');
+var h2Text = document.createTextNode('OS列表');
 
-n2. appendChild(h2Text) 
-document. body-appendChild(h2): 
+h2.appendChild(h2Text);
+document.body-appendChild(h2);
 
-var ul = document. createElement('ul'): 
-ocument. body.appendChild(ul):
+var ul = document.createElement('ul');
+dcument.body.appendChild(ul);
 
-var osList = I'mac','win'.Linux'1;
-for (var i= 0, len = osList. length; i< len; i++){ 
-var 1: var liText = s document. createElement 1i): 
-document.createTextNode(osListlil): 
-li.appendChild(LiText);
-ul.appendChild(ti);
+var osList = ['mac','win','Linux'];
+for (var i= 0, len = osList.length; i < len;i++) {
+      var li = document.createElement('1i');
+      var liText = document.createTextNode(osList[i]);
+      li.appendChild(LiText);
+      ul.appendChild(ti);
+}
+```
 
-
-
-## 11.	使用 fragment 新增 DOM
-
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/fragment%20%E6%96%B0%E5%A2%9EDOM.png)
-
+## 11. 使用 fragment 新增 DOM
+```js
+var osList = ['mac'.'win','Linux']; 
+var frag = document.createDocumentFragment();
+for (var i = 0, Len = osList.Length; i < len; i++) { 
+      var li = document.createELement('li');
+      var liText = document.createTextNode(osList[i]);
+      li.appendChild(LiText);
+      frag.appendChild(1i);
+} 
+ul.appendChild(frag);
+```
 ## 12.	删除 DOM 示例
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E5%92%8C%E5%A4%9A%E4%B8%AADOM%20%E7%A4%BA%E4%BE%8B.png)
+```js
+var h2 = document.querySelector('h2');
+document.body.removeChild (h2); -----删除单个
 
+var 1i = document.querySelectorAll('li");
+for (var i = 0, len = li.lenath;i < len; i++）{
+      li[i].parentNode.removeChild(li[i]);
+}                          ---------删除多个
+```
 ## 13.	property 和 attribute
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%202.png)
