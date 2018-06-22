@@ -126,8 +126,28 @@ var textNode = document.createTextNode('你的第一个文本节点！');
 document.getElementByID（）
 [document | Element].getElementsByClassName()  不兼容老版浏览器，兼容i8以上
 [document | Element].getElementsByTagName()
-[document | Element].querySelector()
-[document | Element].querySelectorAll()  比较通用，强大
+[document | Element].querySelector()                        是CSS选择器
+[document | Element].querySelectorAll()  比较通用，强大      是CSS选择器
+
+
+var id = document.getELementById('id'); //一个元素 
+console.log(id);
+
+var cls = document.getElementsByClassName('class');
+console.log('class',cls); // HTML Collection多个元素 
+
+var tag document.getElementsByTagName('Li');
+console.log('tag', tag);
+
+var qId = document.querySelector('#id');
+console, log('qId', qId);
+
+var qAllLi = document.querySelectorAll('Li');
+console.log('qAllLi',qALLLi);
+
+var qLi = document.querySelector('Li');
+console.log('qLi',qLi);
+
 ```
 ```JS
 getElementById(ID) 根据 id 属性的值来获取元素，获取一个元素
@@ -135,8 +155,6 @@ getElementsByClassName(CLASS) 获取所有 class 属性的值为 CLASS 的元素
 getElementsByTagName 根据标签名来获取元素，会选中多个元素
 querySelector 和 querySelectorAll ，根据指定 CSS 选择器来获取元素，第一个获取一个，第二获取多个元素
 ```
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%9F%A5%E6%89%BE.png)
-
 
 ## 9.	DOM 新增和删除
 ```JS
@@ -144,13 +162,54 @@ createElement(tag) 创建元素
 createTextNode(content) 创建文本节点
 appendChild(element) 新增节点到父元素的末尾
 insertBefore(element, target) 新增节点到 target 元素的前面
+```JS
+<!DOCTYPE html>
+<html lang="zh-CN"> 
+<head> 
+      <meta charset="UTF-8"> 
+      <title>DOM 的新增和删除</title> 
+</head>
+<body> 
+      <h1>DOM 的新增和删除示例</h1> 
+      <ul> 
+            <li>新增一个元素</Li> ----在这行<li>之前插入元素insertBefore()
+            <li>新增多个元素</li> 
+            <li>删除一个元素</li> ----- removeChild()
+            <li>删除多个元素</li> ----在这行</li>之后插入追加
+      </ul>               |
+</body>                 在最后面 追加  append Child()
+</html>
+
+直接操作 DOM 回导致浏览器反复渲染  
+
+DocumentFragment:不在 DOM 树之内，看不到的，它是游离在 DOM 树之外，需要新增多个节点的时候，可以临时的存放到仓库中
+
+1、文档片段,"轻量级"的节点 
+2、nodeType = 11
+3、nodeName = #document-fragment
+4、作为仓库来使用
+
 ```
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4%202.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4.png)
 
 ## 10.	新增 DOM 示例
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E6%96%B0%E5%A2%9EDOM%20%E7%A4%BA%E4%BE%8B.png)
+var h2 = document.createELement( 'h2');
+var h2Text = document. createTextNode( 'OS列表:;
+
+n2. appendChild(h2Text) 
+document. body-appendChild(h2): 
+
+var ul = document. createElement('ul'): 
+ocument. body.appendChild(ul):
+
+var osList = I'mac','win'.Linux'1;
+for (var i= 0, len = osList. length; i< len; i++){ 
+var 1: var liText = s document. createElement 1i): 
+document.createTextNode(osListlil): 
+li.appendChild(LiText);
+ul.appendChild(ti);
+
+
+
 ## 11.	使用 fragment 新增 DOM
 
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/fragment%20%E6%96%B0%E5%A2%9EDOM.png)
