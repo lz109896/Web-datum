@@ -1,18 +1,19 @@
-#### 1.	DOM 简介
-```
-Document Object Model
+## 1.	DOM 简介
+```JS
+Document Object Model ：文档对象模型
 
-JS通过 DOM 修改样式，新增删除元素-->渲染成界面
 htnl 树-->DOM 树-->渲染成界面
+Javascript 通过 DOM 修改样式，新增删除元素-->渲染成界面
 
 DOM 是针对HTML 文档的一个API应用程序编程接口
 
 ```
-#### 2.	DOM 节点
-```
+## 2.	DOM 节点
+```JS
 node  是一个对象：（nadeName,nodeType,parenNode,childNodes...）
       方法：appendChild(),inserBefore()...
-十二种类型;DOCUMENT_NODE,  ELEMENT_NODE,  TEXT_NODE,  DOCUMECT_FRAGMENT_NODE.....
+      
+      有十二种类型;DOCUMENT_NODE,  ELEMENT_NODE,  TEXT_NODE,  DOCUMECT_FRAGMENT_NODE.....
 
 小技巧：直接打印对象的属性：例如：console.dir(document)
 元素节点：document.body
@@ -22,28 +23,76 @@ node （节点）是一个对象，可以通过它的属性 parentNode 访问它
 html 树会被浏览器构建成 DOM 树，DOM 树就是一个一个的节点构成，这些节点都是对象，有访问父、子的属性，当然还有其他大量的属性。
 
 ```
-#### 3.	常用节点类型
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9.png)
+## 3.	常用节点类型
 
-#### 4.	常用节点类型之 Node 接口
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Node.png)
+类型 | 常量 | nodeType | nodeName
+---- | ----- | ------- | ------
+Element类型 | ELEMENT_NODE | 1 | 元素的标签名
+Text类型 | TEXT_NODE | 3 | #text
+Document类型 | DOCUMENT_NODE | 9 | #document
+DocumentFragment类型 | DOCUMENT_FRAGMENT_NODE | 11 | #document fragment
 
-#### 5.	常用节点类型之 Document
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Document%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Document%202.png)
+## 4.	常用节点类型之 Node 接口
+http://coding.imweb.io/demo/p4/dom-node-type.html
+```JS
+常用节点类型实例
 
-#### 6.	常用节点类型之 Element
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20Element%201.png)
-#### 7.	常用节点类型 之 Text
+Node接口介绍
+console.dir(Node) ：查看 function Node、 有定义的常量等等....
+
 ```
- Text 类型用调试工具其实很难选到的，只能选一个节点
+## 5.	常用节点类型之 Document
+```JS
+Document类型
+
+console.dir(Documente) 
+.Document 是抽象的文档
+·不是 html 元素，可以访问到 html 
+·挂靠各种常用的api
+
+document.documentELement   =====这个是HTML元素
+document.getELementsByTaaName ('ul') ====常用的API
+document. createELement () ====常用的API
+```
+## 6.	常用节点类型之 Element
+```JS
+
+Element类型
+.HTML元素
+·属性
+·创建/删除元素
+
+选中元素后，在console 里面 使用 $0  ：快捷引用
+
+创建元素 'class'
+var div = document.createELement('div');
+div.id = 'id';
+div.className = 'class';
+console.dir(div);
+
+删除元素
+操作步骤：选中一个要删除的元素
+在控制台 Console 中打开
+$0.parentNode. removeChild($0);
+```
+## 7.	常用节点类型 之 Text
+```JS
+Text 类型用调试工具其实很难选到的，只能选一个节点
+console.dir($0) 
+子元素就是文本节点
 
 
+Text 是文本类型
+.data和nodeValue
+·创建文本节点
+
+创建文本节点 : 2342
+var.ext = document.createTextNode('2342');
+text.data = 'change'; 
+console.dir(text):
 ```
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20text%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%B8%B8%E7%94%A8%E8%8A%82%E7%82%B9%20text%202.png)
-![]()
-```
+
+```JS
 /**
  * 创建一个 p 元素，要求如下：
  *
@@ -56,14 +105,23 @@ var myFirstElement = document.createElement('p');
 
 myFirstElement.id = 'first-element';
 myFirstElement.title = '我的第一个元素';
-```
-#### 8.	DOM 查找
 
+创建元素的方法只有 createElement(tagName) 一个，只此一家，别无分店。
+
+既然元素也是节点的一种，所以它也是对象，给对象新增一个属性，用 . 操作符即可。
+
+捎带提下，还有创建文本节点的方法 createTextNode(string) ，例：
+
+var textNode = document.createTextNode('你的第一个文本节点！');
+当然，这些方法还只是理论，后面我们会实践，将这些创建的节点塞到我们的文档中！
 ```
+## 8.	DOM 查找
+
+```JS
 查找所有的 div 元素 ：document.getElementsByTagName('div')
 查找更具体的元素，比如腾讯课堂的logo 标签:document.querySelector('.header-index-logo')
 ```
-```
+```JS
 常用的查找 API：
 document.getElementByID（）
 [document | Element].getElementsByClassName()  不兼容老版浏览器，兼容i8以上
@@ -71,7 +129,7 @@ document.getElementByID（）
 [document | Element].querySelector()
 [document | Element].querySelectorAll()  比较通用，强大
 ```
-```
+```JS
 getElementById(ID) 根据 id 属性的值来获取元素，获取一个元素
 getElementsByClassName(CLASS) 获取所有 class 属性的值为 CLASS 的元素
 getElementsByTagName 根据标签名来获取元素，会选中多个元素
@@ -80,8 +138,8 @@ querySelector 和 querySelectorAll ，根据指定 CSS 选择器来获取元素�
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%9F%A5%E6%89%BE.png)
 
 
-#### 9.	DOM 新增和删除
-```
+## 9.	DOM 新增和删除
+```JS
 createElement(tag) 创建元素
 createTextNode(content) 创建文本节点
 appendChild(element) 新增节点到父元素的末尾
@@ -91,26 +149,26 @@ insertBefore(element, target) 新增节点到 target 元素的前面
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E6%96%B0%E5%A2%9E%E5%92%8C%E5%88%A0%E9%99%A4.png)
 
-#### 10.	新增 DOM 示例
+## 10.	新增 DOM 示例
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E6%96%B0%E5%A2%9EDOM%20%E7%A4%BA%E4%BE%8B.png)
-#### 11.	使用 fragment 新增 DOM
+## 11.	使用 fragment 新增 DOM
 
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/fragment%20%E6%96%B0%E5%A2%9EDOM.png)
 
-#### 12.	删除 DOM 示例
+## 12.	删除 DOM 示例
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E5%92%8C%E5%A4%9A%E4%B8%AADOM%20%E7%A4%BA%E4%BE%8B.png)
 
-#### 13.	property 和 attribute
+## 13.	property 和 attribute
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%202.png)
 
-#### 14.	DOM 修改样式
+## 14.	DOM 修改样式
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%203.png)
 
-#### 15.	DOM 修改内容
-```
+## 15.	DOM 修改内容
+```JS
 /**
  * 将其 id 属性更新为 update
  * 新增一个类名 new
@@ -128,10 +186,10 @@ dom.innerHTML = '我第一次修改元素的内容';
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%202.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%203.png)
 
-#### 16.	DOM 遍历
+## 16.	DOM 遍历
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%202.png)
 
 
-#### 17.	DOM 遍历示例
+## 17.	DOM 遍历示例
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%E7%A4%BA%E4%BE%8B%201.png)
