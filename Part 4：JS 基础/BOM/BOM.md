@@ -1,11 +1,11 @@
 #### 1.	BOM 和 DOM
-```
+```JS
 BOM :浏览器对象模型，JS通过BOM 访问浏览器相关的信息，对浏览器进行交互，获取宽高，改变当前窗口的地址
 
 DOM ：文档对象模型，JS通过DOM 改变HTML的树结构，HTML树的节点进行增删改查
 ```
 #### 2.	BOM 简介
-```
+```JS
 Browser Object Model :浏览器对象模型
 
 location: 链接相关，地址栏相关
@@ -16,7 +16,7 @@ window（视窗，窗口的意思） 包括了上面的三个属性
 
 ```
 #### 3.	window 对象
-```
+```JS
 window <---global<---ECMAscript
 
 global  全局作用域
@@ -41,9 +41,10 @@ var result =window.prompt('hello?')
 console.log(result);
 ```
 #### 4.	location 对象
-```
+```JS
 1.最有用的对象之一
 2.提供了文档相关的信息
+3.可以用来导航
 
 location 可以直接访问
 
@@ -76,18 +77,21 @@ protocol    	"http:"	             返回页面使用的协议。通常是http:�
 search	      "?mt=1001&st=2004"	 返回URL的查询字符串。这个字符串以问号开头
 ```
 #### 5.	navigator 对象
-```
+```JS
+navigator ：客户端的相关信息
 userAgent  ：浏览器的用户代理字符串
 
 platform  : 浏览器所在系统平台
 
+window.navigator  : 查看 navigator 里面的属性信息
 navigator.userAgent   **必须记住，最常用
-navigator.platform    
+navigator.platform    识别用户通过什么系统查看信息的
 
 
 ```
 #### 6.	history 对象
-```
+```JS
+history：历史记录
 浏览器的后退按钮和前进按钮
 
 从窗口被打开的那一刻算起，保存着用户上网的记录。
@@ -101,6 +105,7 @@ window.history 对象在编写时可不使用 window 这个前缀。
 为了保护用户隐私，对 JavaScript 访问该对象的方法做出了限制。
 一些方法：
 
+history.length    - 长度
 history.go(index)  - 接受一个整数作为参数，移动到该整数指定的页面，比如go(1)相当于forward()，go(-1)相当于back()
 history.back()     - 移动到上一个访问页面，等同于浏览器的后退键
 history.forward()  - 移动到下一个访问页面，等同于浏览器的前进键
