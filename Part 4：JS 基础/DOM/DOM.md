@@ -234,8 +234,40 @@ for (var i = 0, len = li.lenath;i < len; i++）{
 }                          ---------删除多个
 ```
 ## 13.	property 和 attribute
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/property%20%E5%92%8C%20attribute%202.png)
+```js
+<div class="content" style="color: red;"> 
+      <a href="https://ke.qq.com/">腾讯课堂</a> 
+</div>
+class、style、href属于html 属性
+
+```
+```js
+    { 
+      nodeName
+      .....
+      className 
+      style 
+      childNodes: [
+       {
+        nodeName 
+        href
+      }
+    ]
+}
+
+属性：property 
+className、style 、href 属于特性：attribute
+
+node.div
+    |转换
+    |——> node.a
+```
+```js
+property 和 attribute 的区别
+1.公认的attribute会映射到Property
+2.读写方式
+3.特别的值,如class, style等
+```
 
 ## 14.	DOM 修改样式
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%201.png)
