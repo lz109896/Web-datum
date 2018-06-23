@@ -276,6 +276,27 @@ property 和 attribute 的区别
 
 ## 15.	DOM 修改内容
 ```JS
+通过 文本节点 修改内容
+
+$0
+<a href="http://ke.qq.com/">腾讯课堂</a> 
+$0.childNodes
+[text]
+$0.childNodes[0l 
+"腾讯课堂" 
+$0.childNodes[0].data = '腾讯课堂就是好!';
+"腾讯t就是好!;
+```
+```JS
+通过 innerHTML 和 outerHTML 修改内容
+
+$0
+<li>innerHTML和outerHTML</Li>
+$0.innerHTML = <ul><li>innerHTM</li><li>outerHTML</li></ul>';
+<ul><li>innerHTML</li><li>outerHTML</li></ul>"
+
+
+```JS
 /**
  * 将其 id 属性更新为 update
  * 新增一个类名 new
@@ -289,14 +310,74 @@ dom.className = className + ' new'; // 兼容所有浏览器，注意 'new' 前�
 dom.innerHTML = '我第一次修改元素的内容';
 
 ```
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%202.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%203.png)
 
 ## 16.	DOM 遍历
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%201.png)
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%202.png)
+```JS
+var domLi = document.getElementsByTagName('li');
+for (var i = 0, len = domLi.length; i < len; i++) { 
+      console.log (domLi [i]);
+}
 
+
+HTMLCollection : domLi  
+
+length  : 动态集合
+```
+```JS
+遍历动态集合，的时候 length 保存在局部变量里面
+
+children
+
+var domUl = document.getElementsByTagName ('ul') [0];
+var domLi = domUl.children;
+var newLi = null; 
+
+for (var i = 0; i < domLi.length; i++) {
+      newLi = document.createElement('li');
+      domUl.appendChild(newLi);
+console.log(i);
+}
+```
+![]()
 
 ## 17.	DOM 遍历示例
-![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/1bd58238864f3ab662dc129ac51dc82c436d3292/DOM%20%E9%81%8D%E5%8E%86%E7%A4%BA%E4%BE%8B%201.png)
+```JS
+遍历所有的li,所有的子元素都能访问到
+
+function traversal(dom) { 
+      var len = dom.length;
+      var i= 0;
+      var d= null:
+      
+      for (; i< len; i++) { 
+            d= dom[i];
+            console.log(d);
+            if (d.children) {
+            traversal(d.children); 
+            }
+      }
+}        
+
+traversal(document. querySelector('ul').children);
+```
+```JS
+所有的文本节点都能打印出来
+有换行符就会有文本节点，文本节点会自动拼接
+
+function traversal(dom) { 
+      var len = dom.length;
+      var i= 0;
+      var d= null:
+      
+      for (; i< len; i++) { 
+            d= dom[i];
+            console.log(d);
+            if (d.children) {
+            traversal(d.childNodes); 
+            }
+      }
+}        
+
+traversal(document. querySelector('ul').childiNodes);
+```
+![]()
