@@ -71,8 +71,89 @@ https://www.npmjs.com/package/uglify-js
 
 
 ## 5.	运行 Node.js 代码
+
+读文件
+```JS
+var fs = require('fs');
+fs.readFile('./index.js', 'utf-8', function(err, data) 
+  console.log(data);
+});
+  
+```
 ```JS
 
+/*辗转相除法求最大公约数: 
+*/
+function gcd(numberl, number2) { 
+  var remainder 0;
+  do {
+    remainder  number1% number2;
+    number1 = number2;
+    number2 = remainder;
+  )while(remainder !== 0);
+  return numberi;
+}
 
+KEVINKUANG-MB0: run_nodejs kevinkuangs clear
 
+输入：node app.js 就回车可以自动运行文件了
 ```
+写文件
+
+```JS
+var fs = require('fs');
+fs.readFile('./index.js', 'utf-8', function(err, data) 
+  fs.writeFile('./index.copy.js', data)data); function(err) { 
+  if (!err) 
+      console.log( 'Write file succcess');
+      }
+    });
+});
+  
+```
+```JS
+
+/*辗转相除法求最大公约数: 
+*/
+function gcd(numberl, number2) { 
+  var remainder 0;
+  do {
+    remainder  number1% number2;
+    number1 = number2;
+    number2 = remainder;
+  )while(remainder !== 0);
+  return numberi;
+}
+
+KEVINKUANG-MB0: run_nodejs kevinkuangs clear
+
+输入：node app.js 就回车可以自动运行文件了
+
+````
+删除注释
+
+```JS
+var fs = require('fs');
+fs.readFile('./index.js', 'utf-8', function(err, data) 
+  var newData = data.replace(/\/\*[s\S]*\*\//. '');
+  fs.writeFile('./index.copy.js', data)data); function(err) { 
+  if (!err) 
+      console.log( 'Write file succcess');
+      }
+    });
+});
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
