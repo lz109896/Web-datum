@@ -1,31 +1,33 @@
-#### 1.	终于到了 Ajax
+## 1.	终于到了 Ajax
 Asynchronous Javascript +XML JSON
-```
+```JS
 Ajax 现在接口已很成熟，规范。 改变了前端开发的历史，他的出现 WEB 应用才更庞大和复杂，
 因而促进前端开发岗位的形成；Ajax 涉及HTTP 
 
 ```
-#### 2.	Ajax 的威力
-```
+## 2.	Ajax 的威力
+```JS
+刷新页面中一小部分时可以使用什么方法实现不用整个页面都刷新呢？
 iframe（框架，内嵌框架） :由于安全问题，性能问题已不再流行
 Ajax：现在页面使用 Ajax 已经是的标配了，不需要全部刷新，暗中观察，暗中请求数据，更新页面，局部刷新。
 
 ```
-#### 3.	需要一个本地服务器
-```
+## 3.	需要一个本地服务器
+```JS
 服务器：PC 的主机类似、PC 也可以做服务器
 提供HTTP 的服务器主要有：Nginx（搭配php、java常用）,Apache（搭配php搭档出现）,Tomcat（搭配java 搭档出现）
 Nodejs ：也可以作为服务器，做本地的服务器常用,静态服务器
 安装命令：npm install http-server -g
+使用帮助命令：http-server -h
 ```
-#### 4.	XHR
+## 4.	XHR
 view-source:http://coding.imweb.io/demo/p7/ajax-xhr.html
-```
+```JS
 Asynchronous Javascript +XML JSON
 异步 :不等了，需要监听 readyState 这个属性
 ```
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/XHR%201.png)
-```
+```JS
 function getData(callback) {
             var xhr = new XMLHttpRequest();
 
@@ -46,10 +48,10 @@ function getData(callback) {
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/XHR%202.png)
 
 
-#### 5.	[资料] JSON
+## 5.	[资料] JSON
 
-##### JSON
-```
+### JSON
+```JS
 前端新手对 JSON 的理解都是错误的。 — 让人头疼的小江
 
 官网的第一句话：
@@ -75,10 +77,10 @@ var c = '{"hello":"JSON"}'; // 这是一个字符串变量，和 JSON 有一点�
 当然，它是有格式的文本，至于什么格式，看官网 http://json.org/ 就好了。
 
 ```
-#### 6.	[资料] jqXHR
+## 6.	[资料] jqXHR
 
-##### jqXHR
-```
+### jqXHR
+```JS
 jqXHR 是一个对象，是 jQuery 中的 XHR 的对象，影响了一代人。
 
 你辛辛苦苦的写了下面这个代码：
@@ -140,17 +142,17 @@ $.getJSON()
 
 向 jQuery 致敬。
 ```
-##### 参考
+### 参考
 JavaScript Promise迷你书（中文版）：https://www.gitbook.com/book/wohugb/promise/details
 http://api.jquery.com/jQuery.ajax/#jqXHR
 
-#### 7.	参数传递
+## 7.	参数传递
 
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%201.png)
 
 
 http://git.imweb.io/imweb-teacher/p7-ajax
-```
+```JS
 1.git clone 这个项目到你本地
 2.打开命令行切换到项目目录
 3.执行npm i，会把所有依赖的包都下载下来
@@ -176,13 +178,13 @@ D. GET 参数只能加在 URL 的末尾，POST 编码只要和服务器约定好
 https://imququ.com/post/four-ways-to-post-data-in-http.html
 ```
 
-#### 8.	同源策略
+## 8.	同源策略
 同源策略：same-origin policy
 不同域的客户端脚本在没有明确授权的情况下，不能读写对方的资源
 
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%201.png)
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%202.png)
-```
+```JS
 A 同源策略的初衷就是安全，但是同源限制也意味着不能共享，这是有悖于互联网的初衷的，所以折中了一下，
   script image style等等资源都是可以跨域共享的。
 B 如果二级域名相同，可以通过 JS 来提升域名。
@@ -192,36 +194,36 @@ C cookie 自然不能跨域读取。比如登录态的识别就是依靠 cookie 
   cookie 可以看这篇文章了解下 :http://bubkoo.com/2014/04/21/http-cookies-explained/
 
 ```
-#### 9.	CORS
-```
+## 9.	CORS
+```JSJS
 同源策略：same-origin policy
 不同域的客户端脚本在没有明确授权的情况下，不能读写对方的资源
 授权==》Cross-Origin Resource Sharing :跨域资源共享：基于 HTTP 协议实现的
 ```
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/5a8572e99684954ed62e388418941cf71e244bf1/CORS%201.png)
-```
+```JS
 响应头没有 'Access-Control-Allow-Origin'  就不能跨域
 
 origin 是每个页面的标配字段，发送数据到服务器
 
 ```
-#### 10.	JSONP
-```
+## 10.	JSONP
+```JS
 JSONP: 是一种格式
 JSONP with Padding 
 <boby>
      
 
 ```
-#### 11.	iframe 和 window.name
-```
+## 11.	iframe 和 window.name
+```JS
 iframe：可以把另外的一个页面迁到我的页面中
 window.name ：保留当前的值
 
 
 ```
-#### 12.	借助 iframe 跨域
-```
+## 12.	借助 iframe 跨域
+```JS
 127.0.0.1:3001/a.html  获取数据             
 127.0.0.1:3002/b.html  生产数据
 127.0.0.1:3001/c.html  赋值给window.name
@@ -229,8 +231,8 @@ window.name ：保留当前的值
 b.html 嵌入到 a.html ，a.html 借助 iframe 跨域，c.html的 window.name赋值给b.html，
 b.html 生产完数据后，跳转c.html，最后跨域成功
 
-#### 13.	借助 iframe 跨域实战
-```
+## 13.	借助 iframe 跨域实战
+```JS
 安装 http-server npm i http-server -g ，已安装的跳过
 命令行中执行  http-server -p 3001
 命令行中执行  http-server -p 3002
