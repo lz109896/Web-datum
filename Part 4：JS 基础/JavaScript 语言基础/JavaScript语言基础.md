@@ -161,12 +161,11 @@ JSDoc 文档  :http://usejsdoc.org/index.html
 
 ## 6：变量
 
-是全局变量还是局部变量，取决于是否在 function 里面
-function 里面使用 var 定义一个变量再给它赋值就是：局部变量；function 外面是访问不到的。
-全局变量不使用 var 是可以全部访问到的。
+>是全局变量还是局部变量，取决于是否在 function 里面。
 
+>function 里面使用 var 定义一个变量再给它赋值就是：局部变量；function 外面是访问不到的。
 
-
+>全局变量不使用 var 是可以全部访问到的。
 
 ![](https://github.com/oqq5518/Liao-Zhou/blob/dde205c13f243e0f3903efc3a440045c223d30b3/var%201.png)
 ![](https://raw.githubusercontent.com/oqq5518/Liao-Zhou/dde205c13f243e0f3903efc3a440045c223d30b3/var%202.png)
