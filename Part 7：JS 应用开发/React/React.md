@@ -50,6 +50,9 @@ module: {
 ```
 JSX 语法就跟HTML语法一样，class 被className 替代
 JSX 文件都有 render ，是入口函数。，按照它的逻辑，可以看完这个代码
+
+注意：jsx 文件retder函数里面，必须外面 包一个div ,包一个容器，最外围的容器是唯一的，在现有的版本之下15.x的版本以下；
+retder函数里面只存在一个div，其他的所有结构都要放到这个div 里面
 ```
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/JSX%20%E5%87%BD%E6%95%B0%E4%B8%8E%20render%20%E5%87%BD%E6%95%B0%201.png)
 ![](https://raw.githubusercontent.com/lz109896/Web-datum/462720a5fd8bdf835191f9426801252a28508725/JSX%20%E5%87%BD%E6%95%B0%E4%B8%8E%20render%20%E5%87%BD%E6%95%B0%202.png)
